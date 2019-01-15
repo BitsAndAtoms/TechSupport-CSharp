@@ -35,10 +35,13 @@
             // loginUsername
             // 
             this.loginUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginUsername.Location = new System.Drawing.Point(302, 8);
+            this.loginUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.loginUsername.Location = new System.Drawing.Point(154, 9);
             this.loginUsername.Name = "loginUsername";
-            this.loginUsername.Size = new System.Drawing.Size(100, 23);
+            this.loginUsername.Size = new System.Drawing.Size(248, 23);
             this.loginUsername.TabIndex = 0;
+            this.loginUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.loginUsername.Click += new System.EventHandler(this.loginUsername_Click);
             // 
             // linkLabelLogout
             // 

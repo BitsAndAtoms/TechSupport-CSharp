@@ -19,7 +19,7 @@ namespace TechSupport.View
 
         private void password_TextChanged(object sender, EventArgs e)
         {
-
+            messageLabel.Text = "";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -39,11 +39,12 @@ namespace TechSupport.View
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            if (userName.Text == "Jane")
+            if (userName.Text == "Jane" && password.Text =="test1234")
             {
                 this.Hide();
-                MainForm newMainForm = new MainForm();
+                MainForm newMainForm = new MainForm("Welcome " + userName.Text);
                 newMainForm.Show();
+                
             }
             else
             {
@@ -54,7 +55,7 @@ namespace TechSupport.View
 
         private void userName_TextChanged(object sender, EventArgs e)
         {
-
+            messageLabel.Text = "";
         }
 
         private void exitForm(object sender, FormClosingEventArgs e)

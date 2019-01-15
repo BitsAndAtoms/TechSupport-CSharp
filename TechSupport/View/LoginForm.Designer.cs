@@ -85,7 +85,7 @@
             // messageLabel
             // 
             this.messageLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messageLabel.ForeColor = System.Drawing.Color.Red;
             this.messageLabel.Location = new System.Drawing.Point(3, 96);
             this.messageLabel.Name = "messageLabel";

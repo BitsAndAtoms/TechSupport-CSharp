@@ -12,9 +12,10 @@ namespace TechSupport.View
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        public MainForm(String userName)
         {
             InitializeComponent();
+            loginUsername.Text = userName;
         }
 
         private void linkLabelLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -27,6 +28,11 @@ namespace TechSupport.View
         private void exitForm(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void loginUsername_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
