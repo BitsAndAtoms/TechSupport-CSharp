@@ -12,12 +12,14 @@ namespace TechSupport.View
 {
     public partial class MainForm : Form
     {
+        // intializes the main form with the username value
         public MainForm(String userName)
         {
             InitializeComponent();
             loginUsername.Text = userName;
         }
 
+        // logout page redirects user to main
         private void linkLabelLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
@@ -25,12 +27,18 @@ namespace TechSupport.View
             newLoginForm.Show();
         }
 
+        // gracefully exits the application in case of cancel from top of GUI
         private void exitForm(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
         private void loginUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
         {
 
         }

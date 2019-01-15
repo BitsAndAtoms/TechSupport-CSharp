@@ -17,6 +17,7 @@ namespace TechSupport.View
             InitializeComponent();
         }
 
+        // error message is removed if user edits the password field
         private void password_TextChanged(object sender, EventArgs e)
         {
             messageLabel.Text = "";
@@ -37,6 +38,9 @@ namespace TechSupport.View
 
         }
 
+        // checks the user name password combination
+        // routes to main form if correct
+        //otherwise displays error message
         private void loginButton_Click(object sender, EventArgs e)
         {
             if (userName.Text == "Jane" && password.Text =="test1234")
@@ -53,14 +57,21 @@ namespace TechSupport.View
            
         }
 
+        // resets error message if user changes input field
         private void userName_TextChanged(object sender, EventArgs e)
         {
             messageLabel.Text = "";
         }
 
+        // gracefully exits the application on clicking cancel button at top
         private void exitForm(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void submitPassword(object sender, EventArgs e)
+        {
+            
         }
     }
 }
