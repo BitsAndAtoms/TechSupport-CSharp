@@ -23,5 +23,10 @@ namespace TechSupport.View
             LoginForm newLoginForm = new LoginForm();
             newLoginForm.Show();
         }
+
+        private void exitForm(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

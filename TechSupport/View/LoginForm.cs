@@ -39,14 +39,27 @@ namespace TechSupport.View
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainForm newMainForm = new MainForm();
-            newMainForm.Show();
+            if (userName.Text == "Jane")
+            {
+                this.Hide();
+                MainForm newMainForm = new MainForm();
+                newMainForm.Show();
+            }
+            else
+            {
+                messageLabel.Text = "invalid username/password";
+            }
+           
         }
 
         private void userName_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void exitForm(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
