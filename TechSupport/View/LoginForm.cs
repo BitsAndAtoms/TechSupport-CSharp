@@ -26,5 +26,22 @@ namespace TechSupport.View
         {
 
         }
+
+        private void labelUsername_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void loginButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm newMainForm = new MainForm();
+            newMainForm.Show();
+        }
     }
 }
