@@ -43,5 +43,10 @@ namespace TechSupport.View
             MainForm newMainForm = new MainForm();
             newMainForm.Show();
         }
+
+        private void userName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

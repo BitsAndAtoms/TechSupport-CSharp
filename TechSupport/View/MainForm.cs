@@ -16,5 +16,12 @@ namespace TechSupport.View
         {
             InitializeComponent();
         }
+
+        private void linkLabelLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            LoginForm newLoginForm = new LoginForm();
+            newLoginForm.Show();
+        }
     }
 }

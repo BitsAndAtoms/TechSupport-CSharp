@@ -46,6 +46,7 @@
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(130, 29);
             this.userName.TabIndex = 2;
+            this.userName.TextChanged += new System.EventHandler(this.userName_TextChanged);
             // 
             // password
             // 
