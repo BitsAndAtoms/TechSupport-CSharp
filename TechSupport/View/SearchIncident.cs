@@ -16,5 +16,20 @@ namespace TechSupport.View
         {
             InitializeComponent();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancleSearchButton_click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchButton_click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

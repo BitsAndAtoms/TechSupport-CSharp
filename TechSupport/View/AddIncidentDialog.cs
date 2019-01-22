@@ -21,5 +21,20 @@ namespace TechSupport.View
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addIncidentButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cancelIncidentAddButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
