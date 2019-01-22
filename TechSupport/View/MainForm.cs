@@ -7,16 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TechSupport.Controller;
 
 namespace TechSupport.View
 {
     public partial class MainForm : Form
     {
+        private readonly IncidentController incidentController;
         // intializes the main form with the username value
         public MainForm(String userName)
         {
-            InitializeComponent();
-            loginUsername.Text = userName;
+            this.InitializeComponent();
+            this.loginUsername.Text = userName;
+            this.incidentController = new IncidentController();
         }
 
         // logout page redirects user to main
@@ -40,7 +43,13 @@ namespace TechSupport.View
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            this.RefreshDataGrid();
+        }
 
+        private void RefreshDataGrid()
+        {
+            this.incidentDataGridView.DataSource = null;
+            this.incidentDataGridView.DataSource = this.incidentController.GetCustomerIncidents();
         }
 
         private void button1_Click(object sender, EventArgs e)
