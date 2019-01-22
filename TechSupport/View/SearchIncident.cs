@@ -11,33 +11,43 @@ using TechSupport.Controller;
 
 namespace TechSupport.View
 {
+    /// <summary>
+    /// searchIncidentDialog class makes a dialog to search incidents based on customer ID
+    /// </summary>
     public partial class SearchIncidentDialog : Form
     {
         private readonly IncidentController incidentController;
+
+        /// <summary>
+        /// constructor for searchIncidentDialog class
+        /// </summary>
         public SearchIncidentDialog()
         {
             InitializeComponent();
             this.incidentController = new IncidentController();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// cancel the search and return to main form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cancleSearchButton_click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
 
+        /// <summary>
+        /// search button to acquire incident record based on customer ID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void searchButton_click(object sender, EventArgs e)
         {
             try
             {
                 var customerID = Convert.ToInt32(this.searchCustomerIDField.Value);
                 this.RefreshDataGrid(customerID);
-                
-                //DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -46,7 +56,10 @@ namespace TechSupport.View
             }
         }
 
-
+        /// <summary>
+        /// populate dataGrid table for search dialog based on customerID
+        /// </summary>
+        /// <param name="customerID"></param>
         private void RefreshDataGrid(int customerID)
         {
             this.searchDataGridView.DataSource = null;

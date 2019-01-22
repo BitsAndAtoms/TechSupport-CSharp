@@ -33,6 +33,7 @@
             this.addIncidentButton = new System.Windows.Forms.Button();
             this.incidentDataGridView = new System.Windows.Forms.DataGridView();
             this.searchIncidentButton = new System.Windows.Forms.Button();
+            this.resultTableLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.incidentDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +46,6 @@
             this.loginUsername.Size = new System.Drawing.Size(248, 23);
             this.loginUsername.TabIndex = 0;
             this.loginUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.loginUsername.Click += new System.EventHandler(this.loginUsername_Click);
             // 
             // linkLabelLogout
             // 
@@ -61,9 +61,10 @@
             // 
             // addIncidentButton
             // 
-            this.addIncidentButton.Location = new System.Drawing.Point(39, 48);
+            this.addIncidentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addIncidentButton.Location = new System.Drawing.Point(39, 78);
             this.addIncidentButton.Name = "addIncidentButton";
-            this.addIncidentButton.Size = new System.Drawing.Size(139, 77);
+            this.addIncidentButton.Size = new System.Drawing.Size(182, 47);
             this.addIncidentButton.TabIndex = 2;
             this.addIncidentButton.Text = "Add Incident";
             this.addIncidentButton.UseVisualStyleBackColor = true;
@@ -82,13 +83,24 @@
             // 
             // searchIncidentButton
             // 
-            this.searchIncidentButton.Location = new System.Drawing.Point(261, 48);
+            this.searchIncidentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchIncidentButton.Location = new System.Drawing.Point(279, 78);
             this.searchIncidentButton.Name = "searchIncidentButton";
-            this.searchIncidentButton.Size = new System.Drawing.Size(155, 77);
+            this.searchIncidentButton.Size = new System.Drawing.Size(169, 47);
             this.searchIncidentButton.TabIndex = 4;
-            this.searchIncidentButton.Text = "Search Button";
+            this.searchIncidentButton.Text = "Search Incident";
             this.searchIncidentButton.UseVisualStyleBackColor = true;
             this.searchIncidentButton.Click += new System.EventHandler(this.searchIncidentButton_click);
+            // 
+            // resultTableLabel
+            // 
+            this.resultTableLabel.AutoSize = true;
+            this.resultTableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultTableLabel.Location = new System.Drawing.Point(45, 153);
+            this.resultTableLabel.Name = "resultTableLabel";
+            this.resultTableLabel.Size = new System.Drawing.Size(97, 20);
+            this.resultTableLabel.TabIndex = 5;
+            this.resultTableLabel.Text = "Incidents :";
             // 
             // MainForm
             // 
@@ -97,6 +109,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(488, 365);
+            this.Controls.Add(this.resultTableLabel);
             this.Controls.Add(this.searchIncidentButton);
             this.Controls.Add(this.incidentDataGridView);
             this.Controls.Add(this.addIncidentButton);
@@ -123,5 +136,6 @@
         private System.Windows.Forms.Button addIncidentButton;
         private System.Windows.Forms.DataGridView incidentDataGridView;
         private System.Windows.Forms.Button searchIncidentButton;
+        private System.Windows.Forms.Label resultTableLabel;
     }
 }

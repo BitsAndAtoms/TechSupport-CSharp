@@ -14,22 +14,21 @@ namespace TechSupport.View
     public partial class AddIncidentDialog : Form
     {
         private readonly IncidentController incidentController;
+
+        /// <summary>
+        /// constructor for addIncidentDialog
+        /// </summary>
         public AddIncidentDialog()
         {
             InitializeComponent();
             this.incidentController = new IncidentController();
         }
 
-        private void AddIncidentDialog_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// add Incident button adds an incident to the incidents list in main form
+        /// </summary>
+        /// <param name="sender">sender is the event object</param>
+        /// <param name="e"> e is the even arg</param>
         private void addIncidentButton_Click(object sender, EventArgs e)
         {
             try
@@ -47,19 +46,16 @@ namespace TechSupport.View
             }
         }
 
+        /// <summary>
+        /// Cancel the indcident add dialog
+        /// </summary>
+        /// <param name="sender">sender is the event object</param>
+        /// <param name="e"> e is the even arg</param>
         private void cancelIncidentAddButton_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void addIncidentTable_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+      
     }
 }

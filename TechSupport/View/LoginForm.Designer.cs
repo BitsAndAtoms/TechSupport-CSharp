@@ -47,7 +47,6 @@
             this.userName.Size = new System.Drawing.Size(130, 29);
             this.userName.TabIndex = 2;
             this.userName.TextChanged += new System.EventHandler(this.userName_TextChanged);
-            this.userName.Enter += new System.EventHandler(this.submitPassword);
             // 
             // password
             // 
@@ -70,7 +69,6 @@
             this.labelUsername.Size = new System.Drawing.Size(107, 24);
             this.labelUsername.TabIndex = 2;
             this.labelUsername.Text = "Username :";
-            this.labelUsername.Click += new System.EventHandler(this.labelUsername_Click);
             // 
             // labelPassword
             // 
@@ -93,7 +91,7 @@
             this.messageLabel.Size = new System.Drawing.Size(188, 57);
             this.messageLabel.TabIndex = 1;
             this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.messageLabel.Click += new System.EventHandler(this.label1_Click);
+           
             // 
             // tableLayoutPanel2
             // 
@@ -145,7 +143,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.exitForm);
-            this.Load += new System.EventHandler(this.LoginForm_Load);
+           // this.Load += new System.EventHandler(this.LoginForm_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);

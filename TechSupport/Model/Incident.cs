@@ -7,16 +7,23 @@ using System.Threading.Tasks;
 namespace TechSupport.Model
 {
     /// <summary>
-    /// 
+    /// This class creates an incident object with
+    /// title, description and customerID as properties
     /// </summary>
     public class Incident
     {
+
         public string Title { get; }
         public string Description { get; }
         public int CustomerID { get; }
 
 
-
+        /// <summary>
+        /// This method creates an incident 
+        /// </summary>
+        /// <param name="title">Title of the incident is non-empty string</param>
+        /// <param name="description">Description of the incident is non-empty string</param>
+        /// <param name="customerID">customerID is integer > 0</param>
         public Incident(string title, string description, int customerID)
         {
             if (string.IsNullOrEmpty(title))
@@ -29,18 +36,16 @@ namespace TechSupport.Model
                 throw new ArgumentException("Incident description can not be null or empty", "description");
             }
 
-            if (customerID < 1 )
+            if (customerID < 1)
             {
-                throw new ArgumentException("CustomerID needs to be greater than 0", "customerID");
+                throw new ArgumentException("CustomerID needs to be an integer greater than 0", "customerID");
             }
 
             this.CustomerID = customerID;
             this.Description = description;
             this.Title = title;
         }
-
         
-
 
     }
 }

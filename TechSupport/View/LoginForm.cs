@@ -1,82 +1,73 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TechSupport.View
 {
+    /// <summary>
+    /// This class creates the loginForm and allows the user to login
+    /// to the main form with valid user name and password after checking
+    /// </summary>
     public partial class LoginForm : Form
     {
+        private MainForm newMainForm;
+        /// <summary>
+        /// constructor of loginForm
+        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
+            this.newMainForm = new MainForm();
         }
 
-        // error message is removed if user edits the password field
+        /// <summary>
+        /// error message is removed if user edits the password field
+        /// </summary>
+        /// <param name="sender"> is the event handler object</param>
+        /// <param name="e">e is the event arg</param>
         private void password_TextChanged(object sender, EventArgs e)
         {
-            messageLabel.Text = "";
+            this.messageLabel.Text = "";
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-
-        private void labelUsername_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        // checks the user name password combination
-        // routes to main form if correct
-        //otherwise displays error message
+        /// <summary>
+        ///checks the user name password combination
+        ///routes to main form if correct
+        ///otherwise displays error message
+        /// </summary>
+        /// <param name="sender">is the event handler object</param>
+        /// <param name="e">is the event arg</param>
         private void loginButton_Click(object sender, EventArgs e)
         {
-            //
-            if (userName.Text == "Jane" && password.Text =="test1234")
+
+            if (this.userName.Text == "Jane" && this.password.Text == "test1234")
             {
                 this.Hide();
-                MainForm newMainForm = new MainForm("Welcome " + userName.Text);
-                newMainForm.Show();
-                
+                this.newMainForm.setUserNameDisplay(this.userName.Text);
+                this.newMainForm.ShowDialog();
+                this.Show();
             }
             else
             {
                 messageLabel.Text = "invalid username/password";
             }
-            //detlete later
-            this.Hide();
-            MainForm nMainForm = new MainForm("Welcome " + userName.Text);
-            nMainForm.Show();
-
         }
 
-        // resets error message if user changes input field
+        /// <summary>
+        /// resets error message if user changes input field
+        /// </summary>
         private void userName_TextChanged(object sender, EventArgs e)
         {
             messageLabel.Text = "";
         }
 
-        // gracefully exits the application on clicking cancel button at top
+        /// <summary>
+        /// gracefully exits the application on clicking cancel button at top
+        /// </summary>
         private void exitForm(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }
 
-        private void submitPassword(object sender, EventArgs e)
-        {
-            
-        }
     }
 }
