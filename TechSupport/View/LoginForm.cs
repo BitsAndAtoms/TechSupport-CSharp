@@ -43,6 +43,7 @@ namespace TechSupport.View
         //otherwise displays error message
         private void loginButton_Click(object sender, EventArgs e)
         {
+            //
             if (userName.Text == "Jane" && password.Text =="test1234")
             {
                 this.Hide();
@@ -54,7 +55,11 @@ namespace TechSupport.View
             {
                 messageLabel.Text = "invalid username/password";
             }
-           
+            //detlete later
+            this.Hide();
+            MainForm nMainForm = new MainForm("Welcome " + userName.Text);
+            nMainForm.Show();
+
         }
 
         // resets error message if user changes input field
