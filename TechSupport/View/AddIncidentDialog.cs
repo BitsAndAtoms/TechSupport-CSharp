@@ -39,6 +39,7 @@ namespace TechSupport.View
                 var customerID = Convert.ToInt32(this.customerIDField.Value);
 
                 this.incidentController.Add(new Model.Incident(title, description, customerID));
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex) {
                 MessageBox.Show("Something is wrong with the input!!!\n" + ex.Message,
@@ -48,7 +49,7 @@ namespace TechSupport.View
 
         private void cancelIncidentAddButton_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)

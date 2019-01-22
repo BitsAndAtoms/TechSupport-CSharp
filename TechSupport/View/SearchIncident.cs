@@ -27,16 +27,17 @@ namespace TechSupport.View
 
         private void cancleSearchButton_click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void searchButton_click(object sender, EventArgs e)
         {
             try
             {
-                var customerID = Convert.ToInt32(this.searchCustomerIDField);
-
-               // this.incidentController.Search(customerID);
+                var customerID = Convert.ToInt32(this.searchCustomerIDField.Value);
+                this.RefreshDataGrid(customerID);
+                
+                //DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -44,5 +45,14 @@ namespace TechSupport.View
                     "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+        private void RefreshDataGrid(int customerID)
+        {
+            this.searchDataGridView.DataSource = null;
+            this.searchDataGridView.DataSource =  this.incidentController.Search(customerID);;
+        }
+
+
     }
 }

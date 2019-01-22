@@ -31,5 +31,15 @@ namespace TechSupport.Controller
             this.incidentSource.Add(incident);
         }
 
+        public List<Incident> Search(int customerID)
+        {
+            if (customerID < 1)
+            {
+                throw new ArgumentException("customerID needs to be greater than 0");
+            }
+
+            return this.incidentSource.Search(customerID);
+        }
+
     }
 }

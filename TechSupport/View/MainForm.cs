@@ -56,12 +56,19 @@ namespace TechSupport.View
         {
             Form AddIncidentDialog = new AddIncidentDialog();
             DialogResult result = AddIncidentDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                this.RefreshDataGrid();
+            }
+            
         }
 
         private void searchIncidentButton_click(object sender, EventArgs e)
         {
             Form SearchIncidentDialog = new SearchIncidentDialog();
             DialogResult result = SearchIncidentDialog.ShowDialog();
+           
+            
         }
     }
 }

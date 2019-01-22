@@ -30,5 +30,10 @@ namespace TechSupport.DAL
             _customerIncidents.Add(incident);
         }
 
+        public List<Incident> Search(int customerID)
+        {
+           
+            return _customerIncidents.Where(incident => incident.CustomerID == customerID).ToList();
+        }
     }
 }
