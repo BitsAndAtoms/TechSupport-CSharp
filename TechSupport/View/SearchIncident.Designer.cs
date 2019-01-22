@@ -30,12 +30,13 @@
         {
             this.searchIncidentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.customerIDTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
             this.searchDataGridView = new System.Windows.Forms.DataGridView();
+            this.searchCustomerIDField = new System.Windows.Forms.NumericUpDown();
             this.searchIncidentTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchCustomerIDField)).BeginInit();
             this.SuspendLayout();
             // 
             // searchIncidentTableLayoutPanel
@@ -44,9 +45,9 @@
             this.searchIncidentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.searchIncidentTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.searchIncidentTableLayoutPanel.Controls.Add(this.label1, 0, 0);
-            this.searchIncidentTableLayoutPanel.Controls.Add(this.customerIDTextBox, 1, 0);
             this.searchIncidentTableLayoutPanel.Controls.Add(this.searchButton, 0, 1);
             this.searchIncidentTableLayoutPanel.Controls.Add(this.Cancel, 1, 1);
+            this.searchIncidentTableLayoutPanel.Controls.Add(this.searchCustomerIDField, 1, 0);
             this.searchIncidentTableLayoutPanel.Location = new System.Drawing.Point(59, 44);
             this.searchIncidentTableLayoutPanel.Name = "searchIncidentTableLayoutPanel";
             this.searchIncidentTableLayoutPanel.RowCount = 2;
@@ -65,14 +66,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Customer ID";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // customerIDTextBox
-            // 
-            this.customerIDTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customerIDTextBox.Location = new System.Drawing.Point(260, 23);
-            this.customerIDTextBox.Name = "customerIDTextBox";
-            this.customerIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.customerIDTextBox.TabIndex = 1;
             // 
             // searchButton
             // 
@@ -104,6 +97,15 @@
             this.searchDataGridView.Size = new System.Drawing.Size(414, 205);
             this.searchDataGridView.TabIndex = 1;
             // 
+            // searchCustomerIDField
+            // 
+            this.searchCustomerIDField.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchCustomerIDField.Location = new System.Drawing.Point(250, 23);
+            this.searchCustomerIDField.Name = "searchCustomerIDField";
+            this.searchCustomerIDField.Size = new System.Drawing.Size(120, 20);
+            this.searchCustomerIDField.TabIndex = 4;
+            this.searchCustomerIDField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // SearchIncidentDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -119,6 +121,7 @@
             this.searchIncidentTableLayoutPanel.ResumeLayout(false);
             this.searchIncidentTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchCustomerIDField)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -127,9 +130,9 @@
 
         private System.Windows.Forms.TableLayoutPanel searchIncidentTableLayoutPanel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox customerIDTextBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.DataGridView searchDataGridView;
+        private System.Windows.Forms.NumericUpDown searchCustomerIDField;
     }
 }

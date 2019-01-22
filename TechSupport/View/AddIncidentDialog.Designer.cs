@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.addIncidentTable = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.customerIDTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.addIncidentButton = new System.Windows.Forms.Button();
             this.cancelAddIncident = new System.Windows.Forms.Button();
+            this.customerIDField = new System.Windows.Forms.NumericUpDown();
             this.addIncidentTable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerIDField)).BeginInit();
             this.SuspendLayout();
             // 
             // addIncidentTable
@@ -50,16 +51,38 @@
             this.addIncidentTable.Controls.Add(this.label2, 0, 1);
             this.addIncidentTable.Controls.Add(this.titleTextBox, 1, 0);
             this.addIncidentTable.Controls.Add(this.descriptionTextBox, 1, 1);
-            this.addIncidentTable.Controls.Add(this.customerIDTextBox, 1, 2);
             this.addIncidentTable.Controls.Add(this.label1, 0, 0);
+            this.addIncidentTable.Controls.Add(this.customerIDField, 1, 2);
             this.addIncidentTable.Location = new System.Drawing.Point(12, 12);
             this.addIncidentTable.Name = "addIncidentTable";
             this.addIncidentTable.RowCount = 3;
             this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.addIncidentTable.Size = new System.Drawing.Size(485, 255);
             this.addIncidentTable.TabIndex = 0;
+            this.addIncidentTable.Paint += new System.Windows.Forms.PaintEventHandler(this.addIncidentTable_Paint);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(90, 206);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(62, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "CustomerID";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(71, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(99, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Incident description";
             // 
             // titleTextBox
             // 
@@ -79,15 +102,6 @@
             this.descriptionTextBox.Size = new System.Drawing.Size(191, 53);
             this.descriptionTextBox.TabIndex = 1;
             // 
-            // customerIDTextBox
-            // 
-            this.customerIDTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customerIDTextBox.Location = new System.Drawing.Point(268, 190);
-            this.customerIDTextBox.Multiline = true;
-            this.customerIDTextBox.Name = "customerIDTextBox";
-            this.customerIDTextBox.Size = new System.Drawing.Size(191, 45);
-            this.customerIDTextBox.TabIndex = 2;
-            // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -98,26 +112,6 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Incident title";
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Incident description";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(90, 206);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 13);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "CustomerID";
             // 
             // addIncidentButton
             // 
@@ -139,6 +133,16 @@
             this.cancelAddIncident.UseVisualStyleBackColor = true;
             this.cancelAddIncident.Click += new System.EventHandler(this.cancelIncidentAddButton_Click);
             // 
+            // customerIDField
+            // 
+            this.customerIDField.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customerIDField.Location = new System.Drawing.Point(295, 202);
+            this.customerIDField.Name = "customerIDField";
+            this.customerIDField.Size = new System.Drawing.Size(137, 20);
+            this.customerIDField.TabIndex = 6;
+            this.customerIDField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.customerIDField.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            // 
             // AddIncidentDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,6 +160,7 @@
             this.Load += new System.EventHandler(this.AddIncidentDialog_Load);
             this.addIncidentTable.ResumeLayout(false);
             this.addIncidentTable.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customerIDField)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -165,11 +170,11 @@
         private System.Windows.Forms.TableLayoutPanel addIncidentTable;
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.TextBox descriptionTextBox;
-        private System.Windows.Forms.TextBox customerIDTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addIncidentButton;
         private System.Windows.Forms.Button cancelAddIncident;
+        private System.Windows.Forms.NumericUpDown customerIDField;
     }
 }
