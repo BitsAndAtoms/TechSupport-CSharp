@@ -52,14 +52,16 @@ namespace TechSupport.View
             this.incidentDataGridView.DataSource = this.incidentController.GetCustomerIncidents();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void addIncidentButton_Click(object sender, EventArgs e)
         {
-
+            Form AddIncidentDialog = new AddIncidentDialog();
+            DialogResult result = AddIncidentDialog.ShowDialog();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void searchIncidentButton_click(object sender, EventArgs e)
         {
-
+            Form SearchIncidentDialog = new SearchIncidentDialog();
+            DialogResult result = SearchIncidentDialog.ShowDialog();
         }
     }
 }
