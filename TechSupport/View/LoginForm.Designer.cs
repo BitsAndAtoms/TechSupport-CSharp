@@ -91,7 +91,6 @@
             this.messageLabel.Size = new System.Drawing.Size(188, 57);
             this.messageLabel.TabIndex = 1;
             this.messageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-           
             // 
             // tableLayoutPanel2
             // 
@@ -143,7 +142,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoginForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.exitForm);
-           // this.Load += new System.EventHandler(this.LoginForm_Load);
+            this.Load += new System.EventHandler(this.LoginForm_Load);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
