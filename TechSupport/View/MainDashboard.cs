@@ -134,8 +134,13 @@ namespace TechSupport.View
 
         private void DashboardTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (this.DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["loadIncident"])
+            {
+                this.RefreshDataGrid();
+            }
 
         }
+
 
         private void searchIncidentTableLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -155,6 +160,11 @@ namespace TechSupport.View
         private void resetSearchTabButton_click(object sender, EventArgs e)
         {
             this.searchCustomerIDField.Value = 1;
+        }
+
+        private void resultTableLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

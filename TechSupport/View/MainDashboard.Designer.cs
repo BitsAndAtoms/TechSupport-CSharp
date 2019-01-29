@@ -41,9 +41,7 @@
             this.addIncidentButton = new System.Windows.Forms.Button();
             this.loadIncident = new System.Windows.Forms.TabPage();
             this.resultTableLabel = new System.Windows.Forms.Label();
-            this.searchIncidentButton = new System.Windows.Forms.Button();
             this.incidentDataGridView = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.linkLabelLogout = new System.Windows.Forms.LinkLabel();
             this.loginUsername = new System.Windows.Forms.Label();
             this.searchIncident = new System.Windows.Forms.TabPage();
@@ -219,9 +217,7 @@
             // loadIncident
             // 
             this.loadIncident.Controls.Add(this.resultTableLabel);
-            this.loadIncident.Controls.Add(this.searchIncidentButton);
             this.loadIncident.Controls.Add(this.incidentDataGridView);
-            this.loadIncident.Controls.Add(this.button1);
             this.loadIncident.Controls.Add(this.linkLabelLogout);
             this.loadIncident.Controls.Add(this.loginUsername);
             this.loadIncident.Location = new System.Drawing.Point(4, 34);
@@ -232,47 +228,29 @@
             this.loadIncident.TabIndex = 1;
             this.loadIncident.Text = "Load incident";
             this.loadIncident.UseVisualStyleBackColor = true;
+            this.loadIncident.Click += new System.EventHandler(this.DashboardTabControl_SelectedIndexChanged);
             // 
             // resultTableLabel
             // 
             this.resultTableLabel.AutoSize = true;
             this.resultTableLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultTableLabel.Location = new System.Drawing.Point(55, 189);
+            this.resultTableLabel.Location = new System.Drawing.Point(57, 74);
             this.resultTableLabel.Name = "resultTableLabel";
-            this.resultTableLabel.Size = new System.Drawing.Size(97, 20);
+            this.resultTableLabel.Size = new System.Drawing.Size(183, 20);
             this.resultTableLabel.TabIndex = 11;
-            this.resultTableLabel.Text = "Incidents :";
-            // 
-            // searchIncidentButton
-            // 
-            this.searchIncidentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchIncidentButton.Location = new System.Drawing.Point(289, 114);
-            this.searchIncidentButton.Name = "searchIncidentButton";
-            this.searchIncidentButton.Size = new System.Drawing.Size(169, 47);
-            this.searchIncidentButton.TabIndex = 10;
-            this.searchIncidentButton.Text = "Search Incident";
-            this.searchIncidentButton.UseVisualStyleBackColor = true;
+            this.resultTableLabel.Text = "Incidents recorded  :";
+            this.resultTableLabel.Click += new System.EventHandler(this.resultTableLabel_Click);
             // 
             // incidentDataGridView
             // 
             this.incidentDataGridView.AllowUserToAddRows = false;
             this.incidentDataGridView.AllowUserToDeleteRows = false;
             this.incidentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.incidentDataGridView.Location = new System.Drawing.Point(49, 215);
+            this.incidentDataGridView.Location = new System.Drawing.Point(49, 97);
             this.incidentDataGridView.Name = "incidentDataGridView";
             this.incidentDataGridView.ReadOnly = true;
-            this.incidentDataGridView.Size = new System.Drawing.Size(409, 150);
+            this.incidentDataGridView.Size = new System.Drawing.Size(409, 268);
             this.incidentDataGridView.TabIndex = 9;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(49, 114);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 47);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Add Incident";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // linkLabelLogout
             // 
@@ -405,6 +383,7 @@
             this.Name = "MainDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainDashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.exitForm);
             this.DashboardTabControl.ResumeLayout(false);
             this.addIncident.ResumeLayout(false);
             this.addIncidentTable.ResumeLayout(false);
@@ -446,8 +425,6 @@
         private System.Windows.Forms.LinkLabel linkLabelLogout;
         private System.Windows.Forms.Label loginUsername;
         private System.Windows.Forms.Button cancelAddIncident;
-        private System.Windows.Forms.Button searchIncidentButton;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Cancel;
     }
 }
