@@ -201,8 +201,9 @@
             this.cancelAddIncident.Name = "cancelAddIncident";
             this.cancelAddIncident.Size = new System.Drawing.Size(156, 81);
             this.cancelAddIncident.TabIndex = 5;
-            this.cancelAddIncident.Text = "Cancel";
+            this.cancelAddIncident.Text = "Reset";
             this.cancelAddIncident.UseVisualStyleBackColor = true;
+            this.cancelAddIncident.Click += new System.EventHandler(this.resetIncidentTabButton_Click);
             // 
             // addIncidentButton
             // 
@@ -368,8 +369,9 @@
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(88, 40);
             this.Cancel.TabIndex = 3;
-            this.Cancel.Text = "Cancel";
+            this.Cancel.Text = "Reset";
             this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.resetSearchTabButton_click);
             // 
             // searchButton
             // 
@@ -429,7 +431,6 @@
         private System.Windows.Forms.TableLayoutPanel searchIncidentTableLayoutPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown searchCustomerIDField;
-        private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.DataGridView searchDataGridView;
         private System.Windows.Forms.TableLayoutPanel addIncidentTable;
@@ -439,13 +440,14 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.NumericUpDown customerIDField;
-        private System.Windows.Forms.Button cancelAddIncident;
         private System.Windows.Forms.Button addIncidentButton;
         private System.Windows.Forms.Label resultTableLabel;
-        private System.Windows.Forms.Button searchIncidentButton;
         private System.Windows.Forms.DataGridView incidentDataGridView;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.LinkLabel linkLabelLogout;
         private System.Windows.Forms.Label loginUsername;
+        private System.Windows.Forms.Button cancelAddIncident;
+        private System.Windows.Forms.Button searchIncidentButton;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Cancel;
     }
 }

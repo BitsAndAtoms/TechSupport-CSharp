@@ -25,15 +25,7 @@ namespace TechSupport.View
             this.incidentController = new IncidentController();
         }
 
-        /// <summary>
-        /// cancel the search and return to main form
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void cancleSearchButton_click(object sender, EventArgs e)
-        {
-           // this.DialogResult = DialogResult.Cancel;
-        }
+       
 
         /// <summary>
         /// search button to acquire incident record based on customer ID
@@ -87,9 +79,12 @@ namespace TechSupport.View
         /// </summary>
         /// <param name="sender">sender is the event object</param>
         /// <param name="e"> e is the even arg</param>
-        private void cancelIncidentAddButton_Click(object sender, EventArgs e)
+        private void resetIncidentTabButton_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel;
+            this.titleTextBox.Text="";
+            this.descriptionTextBox.Text="";
+            this.customerIDField.Value=1;
+            
         }
 
         public void setUserNameDisplay(String userName)
@@ -155,6 +150,11 @@ namespace TechSupport.View
         private void addIncident_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void resetSearchTabButton_click(object sender, EventArgs e)
+        {
+            this.searchCustomerIDField.Value = 1;
         }
     }
 }
