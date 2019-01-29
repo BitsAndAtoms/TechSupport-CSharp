@@ -25,7 +25,24 @@ namespace TechSupport.View
             this.incidentController = new IncidentController();
         }
 
-       
+        /// <param name="e"> e is the even arg</param>
+        private void addIncidentButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var title = this.titleTextBox.Text;
+                var description = this.descriptionTextBox.Text;
+                var customerID = Convert.ToInt32(this.customerIDField.Value);
+
+                this.incidentController.Add(new Model.Incident(title, description, customerID));
+                this.loadIncidentUserControl1.RefreshDataGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something is wrong with the input!!!\n" + ex.Message,
+                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         /// <summary>
         /// search button to acquire incident record based on customer ID
@@ -56,24 +73,6 @@ namespace TechSupport.View
             this.searchDataGridView.DataSource = this.incidentController.Search(customerID); ;
         }
 
-        private void addIncidentButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var title = this.titleTextBox.Text;
-                var description = this.descriptionTextBox.Text;
-                var customerID = Convert.ToInt32(this.customerIDField.Value);
-
-                this.incidentController.Add(new Model.Incident(title, description, customerID));
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something is wrong with the input!!!\n" + ex.Message,
-                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         /// <summary>
         /// Cancel the indcident add dialog
         /// </summary>
@@ -87,19 +86,9 @@ namespace TechSupport.View
             
         }
 
-        public void setUserNameDisplay(String userName)
-        {
-            this.loginUsername.Text = userName;
-        }
 
 
-        /// <summary>
-        /// logout page redirects user to main
-        /// </summary>
-        private void linkLabelLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Hide();
-        }
+       
 
         /// <summary>
         /// gracefully exits the application in case of cancel from top of GUI
@@ -113,56 +102,24 @@ namespace TechSupport.View
         }
 
         /// <summary>
-        /// Upon load of the form populate the data table with current incidents list
+        /// reset search tab value to 1
         /// </summary>
-        /// <param name="sender"> sender is the event object</param>
-        /// <param name="e"> e is the even arg</param>
-        // private void MainForm_Load(object sender, EventArgs e)
-        //{
-        //  this.RefreshDataGrid();
-        //}
-
-
-        /// <summary>
-        /// populated the data grid with the list of incidents
-        /// </summary>
-        private void RefreshDataGrid()
-        {
-            this.incidentDataGridView.DataSource = null;
-            this.incidentDataGridView.DataSource = this.incidentController.GetCustomerIncidents();
-        }
-
-        private void DashboardTabControl_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (this.DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["loadIncident"])
-            {
-                this.RefreshDataGrid();
-            }
-
-        }
-
-
-        private void searchIncidentTableLayoutPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void searchDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void addIncident_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void resetSearchTabButton_click(object sender, EventArgs e)
         {
             this.searchCustomerIDField.Value = 1;
         }
 
-        private void resultTableLabel_Click(object sender, EventArgs e)
+        /// <summary>
+        /// set user name display in loadIncident Tab
+        /// </summary>
+        public void setUserNameDisplay(String userName)
+        {
+            this.loadIncidentUserControl1.setUserNameDisplay(userName);
+        }
+
+        private void loadIncidentUserControl1_Load(object sender, EventArgs e)
         {
 
         }
