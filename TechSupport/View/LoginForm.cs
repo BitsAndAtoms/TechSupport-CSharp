@@ -64,7 +64,7 @@ namespace TechSupport.View
         /// <summary>
         /// gracefully exits the application on clicking cancel button at top
         /// </summary>
-        private void exitForm(object sender, FormClosingEventArgs e)
+        private void ExitForm(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
         }

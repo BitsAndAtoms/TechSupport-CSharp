@@ -213,6 +213,7 @@
             this.addIncidentButton.TabIndex = 4;
             this.addIncidentButton.Text = "Add";
             this.addIncidentButton.UseVisualStyleBackColor = true;
+            this.addIncidentButton.Click += new System.EventHandler(this.addIncidentButton_Click);
             // 
             // loadIncident
             // 
@@ -380,6 +381,7 @@
             this.searchButton.TabIndex = 2;
             this.searchButton.Text = "Search Button";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_click);
             // 
             // searchDataGridView
             // 

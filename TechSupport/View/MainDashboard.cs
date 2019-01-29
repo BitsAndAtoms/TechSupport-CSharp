@@ -73,7 +73,7 @@ namespace TechSupport.View
                 var customerID = Convert.ToInt32(this.customerIDField.Value);
 
                 this.incidentController.Add(new Model.Incident(title, description, customerID));
-                this.DialogResult = DialogResult.OK;
+                
             }
             catch (Exception ex)
             {
