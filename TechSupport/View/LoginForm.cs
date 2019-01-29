@@ -9,14 +9,14 @@ namespace TechSupport.View
     /// </summary>
     public partial class LoginForm : Form
     {
-        private MainForm newMainForm;
+        private MainDashboard newMainDashboard;
         /// <summary>
         /// constructor of loginForm
         /// </summary>
         public LoginForm()
         {
             InitializeComponent();
-            this.newMainForm = new MainForm();
+            this.newMainDashboard = new MainDashboard();
         }
 
         /// <summary>
@@ -43,8 +43,8 @@ namespace TechSupport.View
             if (this.userName.Text == "Jane" && this.password.Text == "test1234")
             {
                 this.Hide();
-                this.newMainForm.setUserNameDisplay(this.userName.Text);
-                this.newMainForm.ShowDialog();
+                this.newMainDashboard.setUserNameDisplay(this.userName.Text);
+                this.newMainDashboard.ShowDialog();
                 this.Show();
             }
             else
