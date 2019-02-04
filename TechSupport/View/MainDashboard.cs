@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupport.Controller;
+using TechSupport.Model;
 
 namespace TechSupport.View
 {
@@ -127,14 +128,44 @@ namespace TechSupport.View
         {
             if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["displayOpenIncidents"])
             {
-                if (label5.Text != "loaded")
+              
+                List<Incident> incidentList = null;
+                openIncidents.Items.Clear();
+                try
                 {
-                    label5.Text = "loaded";
+                    //instead of using the following line of code, which couples the 
+                    //DAL with the view, we ask the controller to get the data for us 
+                    //so that the view does not have to know where the data comes from
+                    //(the line after the commented line)
+
+                    //incidentList = incidentDB.GetincidentsDue();
+                    incidentList = this.incidentController.GetCustomerDBIncidents();
+
+                    if (incidentList.Count > 0)
+                    {
+                        Incident incident;
+                        
+                        for (int i = 0; i < incidentList.Count; i++)
+                        {
+                            incident = incidentList[i];
+                            openIncidents.Items.Add(incident.CustomerID.ToString());
+                            openIncidents.Items[i].SubItems.Add(incident.Description);
+                            openIncidents.Items[i].SubItems.Add(incident.technicianName);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("All incidents are paid in full.",
+                            "No Balance Due");
+                        this.Close();
+                    }
                 }
-                else {
-                    label5.Text = "unloaded";
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    this.Close();
                 }
-               
+
             }
         }
     }

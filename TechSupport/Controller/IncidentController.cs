@@ -15,7 +15,7 @@ namespace TechSupport.Controller
     public class IncidentController
     {
         private IncidentDAL incidentSource;
-
+        private IncidentDBDAL incidentDBSource;
         /// <summary>
         /// constructor for incident controller 
         /// instantiates a incident DAL object
@@ -23,6 +23,7 @@ namespace TechSupport.Controller
         public IncidentController()
         {
             this.incidentSource = new IncidentDAL();
+            this.incidentDBSource = new IncidentDBDAL();
         }
 
         /// <summary>
@@ -33,6 +34,16 @@ namespace TechSupport.Controller
         public List<Incident> GetCustomerIncidents()
         {
             return this.incidentSource.GETCustomerIncidents();
+        }
+
+        /// <summary>
+        /// method to access the list of customer incidents
+        /// maintained by the DAL
+        /// </summary>
+        /// <returns>Current list of incidents </returns>
+        public List<Incident> GetCustomerDBIncidents()
+        {
+            return this.incidentDBSource.GETCustomerDBIncidents();
         }
 
         /// <summary>

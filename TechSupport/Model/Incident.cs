@@ -13,10 +13,10 @@ namespace TechSupport.Model
     public class Incident
     {
 
-        public string Title { get; }
-        public string Description { get; }
-        public int CustomerID { get; }
-
+        public string Title { get; set;}
+        public string Description { get; set; }
+        public int CustomerID { get; set; }
+        public string technicianName { get; set; }
 
         /// <summary>
         /// This method creates an incident 
@@ -45,7 +45,8 @@ namespace TechSupport.Model
             this.Description = description;
             this.Title = title;
         }
-        
+
+        public Incident() { }
 
     }
 }

@@ -47,9 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\IncidentController.cs" />
+    <Compile Include="Controller\Driver.cs" />
     <Compile Include="DAL\IncidentDAL.cs" />
+    <Compile Include="DAL\IncidentDBConnection.cs" />
+    <Compile Include="DAL\IncidentDBDAL.cs" />
     <Compile Include="Model\Incident.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\LoadIncidentUserControl.cs">
       <SubType>UserControl</SubType>

@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using TechSupport.View;
 
-namespace TechSupport
+namespace TechSupport.Controller
 {
-    static class Program
+    class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -16,7 +14,7 @@ namespace TechSupport
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new View.LoginForm());
+            Application.Run(new LoginForm());
         }
     }
 }
