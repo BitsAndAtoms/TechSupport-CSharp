@@ -40,7 +40,6 @@
             this.customerIDField = new System.Windows.Forms.NumericUpDown();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.loadIncident = new System.Windows.Forms.TabPage();
-            this.loadIncidentUserControl1 = new TechSupport.UserControls.LoadIncidentUserControl();
             this.searchIncident = new System.Windows.Forms.TabPage();
             this.searchIncidentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,6 +47,10 @@
             this.Cancel = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchDataGridView = new System.Windows.Forms.DataGridView();
+            this.displayOpenIncidents = new System.Windows.Forms.TabPage();
+            this.openIncidents = new System.Windows.Forms.ListView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.loadIncidentUserControl1 = new TechSupport.UserControls.LoadIncidentUserControl();
             this.DashboardTabControl.SuspendLayout();
             this.addIncident.SuspendLayout();
             this.addIncidentTable.SuspendLayout();
@@ -57,6 +60,7 @@
             this.searchIncidentTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchCustomerIDField)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).BeginInit();
+            this.displayOpenIncidents.SuspendLayout();
             this.SuspendLayout();
             // 
             // DashboardTabControl
@@ -65,6 +69,7 @@
             this.DashboardTabControl.Controls.Add(this.addIncident);
             this.DashboardTabControl.Controls.Add(this.loadIncident);
             this.DashboardTabControl.Controls.Add(this.searchIncident);
+            this.DashboardTabControl.Controls.Add(this.displayOpenIncidents);
             this.DashboardTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DashboardTabControl.Location = new System.Drawing.Point(0, 0);
             this.DashboardTabControl.Margin = new System.Windows.Forms.Padding(6);
@@ -72,6 +77,8 @@
             this.DashboardTabControl.SelectedIndex = 0;
             this.DashboardTabControl.Size = new System.Drawing.Size(622, 467);
             this.DashboardTabControl.TabIndex = 0;
+            this.DashboardTabControl.TabStop = false;
+            this.DashboardTabControl.SelectedIndexChanged += new System.EventHandler(this.DashboardTabControl_SelectedIndexChanged);
             // 
             // addIncident
             // 
@@ -119,7 +126,7 @@
             this.addIncidentTable.Controls.Add(this.titleTextBox, 1, 0);
             this.addIncidentTable.Controls.Add(this.customerIDField, 1, 2);
             this.addIncidentTable.Controls.Add(this.descriptionTextBox, 1, 1);
-            this.addIncidentTable.Location = new System.Drawing.Point(8, 33);
+            this.addIncidentTable.Location = new System.Drawing.Point(8, 27);
             this.addIncidentTable.Name = "addIncidentTable";
             this.addIncidentTable.RowCount = 3;
             this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -216,16 +223,6 @@
             this.loadIncident.TabIndex = 3;
             this.loadIncident.Text = "Load Incident";
             this.loadIncident.UseVisualStyleBackColor = true;
-            // 
-            // loadIncidentUserControl1
-            // 
-            this.loadIncidentUserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.loadIncidentUserControl1.Location = new System.Drawing.Point(36, 6);
-            this.loadIncidentUserControl1.Margin = new System.Windows.Forms.Padding(6);
-            this.loadIncidentUserControl1.Name = "loadIncidentUserControl1";
-            this.loadIncidentUserControl1.Size = new System.Drawing.Size(483, 417);
-            this.loadIncidentUserControl1.TabIndex = 0;
-            this.loadIncidentUserControl1.Load += new System.EventHandler(this.loadIncidentUserControl1_Load);
             // 
             // searchIncident
             // 
@@ -324,6 +321,44 @@
             this.searchDataGridView.Size = new System.Drawing.Size(414, 205);
             this.searchDataGridView.TabIndex = 3;
             // 
+            // displayOpenIncidents
+            // 
+            this.displayOpenIncidents.Controls.Add(this.label5);
+            this.displayOpenIncidents.Controls.Add(this.openIncidents);
+            this.displayOpenIncidents.Location = new System.Drawing.Point(4, 34);
+            this.displayOpenIncidents.Name = "displayOpenIncidents";
+            this.displayOpenIncidents.Size = new System.Drawing.Size(614, 429);
+            this.displayOpenIncidents.TabIndex = 5;
+            this.displayOpenIncidents.Text = "Display Open Incidents";
+            this.displayOpenIncidents.UseVisualStyleBackColor = true;
+            // 
+            // openIncidents
+            // 
+            this.openIncidents.Location = new System.Drawing.Point(8, 3);
+            this.openIncidents.Name = "openIncidents";
+            this.openIncidents.Size = new System.Drawing.Size(598, 423);
+            this.openIncidents.TabIndex = 0;
+            this.openIncidents.UseCompatibleStateImageBehavior = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(390, 97);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 25);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "label5";
+            // 
+            // loadIncidentUserControl1
+            // 
+            this.loadIncidentUserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.loadIncidentUserControl1.Location = new System.Drawing.Point(36, 6);
+            this.loadIncidentUserControl1.Margin = new System.Windows.Forms.Padding(6);
+            this.loadIncidentUserControl1.Name = "loadIncidentUserControl1";
+            this.loadIncidentUserControl1.Size = new System.Drawing.Size(483, 417);
+            this.loadIncidentUserControl1.TabIndex = 0;
+            this.loadIncidentUserControl1.Load += new System.EventHandler(this.loadIncidentUserControl1_Load);
+            // 
             // MainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -348,6 +383,8 @@
             this.searchIncidentTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchCustomerIDField)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).EndInit();
+            this.displayOpenIncidents.ResumeLayout(false);
+            this.displayOpenIncidents.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -374,5 +411,8 @@
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.DataGridView searchDataGridView;
+        private System.Windows.Forms.TabPage displayOpenIncidents;
+        private System.Windows.Forms.ListView openIncidents;
+        private System.Windows.Forms.Label label5;
     }
 }

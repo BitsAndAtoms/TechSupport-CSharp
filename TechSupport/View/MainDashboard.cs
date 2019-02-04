@@ -118,10 +118,24 @@ namespace TechSupport.View
         {
             this.loadIncidentUserControl1.setUserNameDisplay(userName);
         }
-
         private void loadIncidentUserControl1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void DashboardTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["displayOpenIncidents"])
+            {
+                if (label5.Text != "loaded")
+                {
+                    label5.Text = "loaded";
+                }
+                else {
+                    label5.Text = "unloaded";
+                }
+               
+            }
         }
     }
 }
