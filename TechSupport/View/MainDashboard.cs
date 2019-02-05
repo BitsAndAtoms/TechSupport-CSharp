@@ -26,24 +26,7 @@ namespace TechSupport.View
             this.incidentController = new IncidentController();
         }
 
-        /// <param name="e"> e is the even arg</param>
-        private void addIncidentButton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var title = this.titleTextBox.Text;
-                var description = this.descriptionTextBox.Text;
-                var customerID = Convert.ToInt32(this.customerIDField.Value);
-
-                this.incidentController.Add(new Model.Incident(title, description, customerID));
-                this.loadIncidentUserControl1.RefreshDataGrid();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something is wrong with the input!!!\n" + ex.Message,
-                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        
 
         /// <summary>
         /// search button to acquire incident record based on customer ID
@@ -74,23 +57,7 @@ namespace TechSupport.View
             this.searchDataGridView.DataSource = this.incidentController.Search(customerID); ;
         }
 
-        /// <summary>
-        /// Cancel the indcident add dialog
-        /// </summary>
-        /// <param name="sender">sender is the event object</param>
-        /// <param name="e"> e is the even arg</param>
-        private void resetIncidentTabButton_Click(object sender, EventArgs e)
-        {
-            this.titleTextBox.Text="";
-            this.descriptionTextBox.Text="";
-            this.customerIDField.Value=1;
-            
-        }
-
-
-
        
-
         /// <summary>
         /// gracefully exits the application in case of cancel from top of GUI
         /// </summary>
@@ -175,6 +142,11 @@ namespace TechSupport.View
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanelIncident_Paint(object sender, PaintEventArgs e)
         {
 
         }
