@@ -83,8 +83,7 @@
             this.loadIncidentUserControl1.Name = "loadIncidentUserControl1";
             this.loadIncidentUserControl1.Size = new System.Drawing.Size(614, 429);
             this.loadIncidentUserControl1.TabIndex = 0;
-            this.loadIncidentUserControl1.Load += new System.EventHandler(this.loadIncidentUserControl1_Load);
-            // 
+             // 
             // addIncident
             // 
             this.addIncident.Controls.Add(this.addIncidentUserControl1);
@@ -139,8 +138,7 @@
             this.displayOpenIncidentsUserControl1.Name = "displayOpenIncidentsUserControl1";
             this.displayOpenIncidentsUserControl1.Size = new System.Drawing.Size(614, 429);
             this.displayOpenIncidentsUserControl1.TabIndex = 0;
-            this.displayOpenIncidentsUserControl1.Load += new System.EventHandler(this.displayOpenIncidentsUserControl1_Load);
-            // 
+                // 
             // MainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -154,7 +152,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainDashboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.exitForm);
-            this.Load += new System.EventHandler(this.MainDashboard_Load);
             this.searchIncident.ResumeLayout(false);
             this.loadIncident.ResumeLayout(false);
             this.addIncident.ResumeLayout(false);
