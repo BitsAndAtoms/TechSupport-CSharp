@@ -22,7 +22,16 @@ namespace TechSupport.DAL
             List<Incident> IncidentList = new List<Incident>();
             SqlConnection connection = IncidentDBConnection.GetConnection();
             string selectStatement =
-                "SELECT CustomerID, Title, techID FROM Incidents ";
+                "SELECT [ProductCode]" +
+                ", FORMAT([DateOpened],'MM/dd/yyyy') as 'DateOpened'" +
+                ",t2.Name AS Customer" +
+                ",t3.Name AS Technician" +
+                ",[Title] FROM[TechSupport].[dbo].[Incidents] " +
+                "t1 LEFT JOIN[TechSupport].[dbo].[Customers]" +
+                " t2 ON t1.CustomerID = t2.CustomerID" +
+                " LEFT JOIN[TechSupport].[dbo].[Technicians]" +
+                " t3 ON t1.TechID = t3.TechID " +
+                "WHERE [DateClosed] IS NUll";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
             SqlDataReader reader = null;
 
@@ -34,10 +43,11 @@ namespace TechSupport.DAL
                 while (reader.Read())
                 {
                     Incident Incident = new Incident();
-                    Incident.CustomerID = (int)reader["CustomerID"];
+                    Incident.CustomerID = 1;
                     Incident.Description = reader["Title"].ToString();
-                    Incident.technicianName = reader["techID"].ToString();
+                    Incident.technicianName = reader["Technician"].ToString();
                     IncidentList.Add(Incident);
+                    ///(int)reader["ProductCode"]
                 }
 
             }
