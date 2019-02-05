@@ -1,6 +1,6 @@
 ﻿namespace TechSupport.UserControls
 {
-    partial class searchIncidentUserControl1
+    partial class searchIncidentUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.searchCustomerIDField = new System.Windows.Forms.NumericUpDown();
-            this.Cancel = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
+            this.Cancel = new System.Windows.Forms.Button();
+            this.searchCustomerIDField = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.searchDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchCustomerIDField)).BeginInit();
@@ -57,16 +57,29 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(390, 100);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // label1
+            // searchButton
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Customer ID";
+            this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(240, 55);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(104, 40);
+            this.searchButton.TabIndex = 6;
+            this.searchButton.Text = "Search Button";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_click);
+            // 
+            // Cancel
+            // 
+            this.Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancel.Location = new System.Drawing.Point(53, 55);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(88, 40);
+            this.Cancel.TabIndex = 4;
+            this.Cancel.Text = "Reset";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.resetSearchTabButton_click);
             // 
             // searchCustomerIDField
             // 
@@ -93,27 +106,16 @@
             0,
             0});
             // 
-            // Cancel
+            // label1
             // 
-            this.Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancel.Location = new System.Drawing.Point(53, 55);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(88, 40);
-            this.Cancel.TabIndex = 4;
-            this.Cancel.Text = "Reset";
-            this.Cancel.UseVisualStyleBackColor = true;
-            // 
-            // searchButton
-            // 
-            this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(240, 55);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(104, 40);
-            this.searchButton.TabIndex = 6;
-            this.searchButton.Text = "Search Button";
-            this.searchButton.UseVisualStyleBackColor = true;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(41, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Customer ID";
             // 
             // searchDataGridView
             // 
@@ -124,13 +126,13 @@
             this.searchDataGridView.Size = new System.Drawing.Size(390, 221);
             this.searchDataGridView.TabIndex = 4;
             // 
-            // searchIncidentUserControl1
+            // searchIncidentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.searchDataGridView);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "searchIncidentUserControl1";
+            this.Name = "searchIncidentUserControl";
             this.Size = new System.Drawing.Size(390, 321);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

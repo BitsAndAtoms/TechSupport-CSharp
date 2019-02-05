@@ -28,34 +28,8 @@ namespace TechSupport.View
 
         
 
-        /// <summary>
-        /// search button to acquire incident record based on customer ID
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void searchButton_click(object sender, EventArgs e)
-        {
-            try
-            {
-                var customerID = Convert.ToInt32(this.searchCustomerIDField.Value);
-                this.RefreshDataGrid(customerID);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Something is wrong with the input!!!\n" + ex.Message,
-                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        /// <summary>
-        /// populate dataGrid table for search dialog based on customerID
-        /// </summary>
-        /// <param name="customerID"></param>
-        private void RefreshDataGrid(int customerID)
-        {
-            this.searchDataGridView.DataSource = null;
-            this.searchDataGridView.DataSource = this.incidentController.Search(customerID); ;
-        }
+       
+      
 
        
         /// <summary>
@@ -69,15 +43,7 @@ namespace TechSupport.View
             }
         }
 
-        /// <summary>
-        /// reset search tab value to 1
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void resetSearchTabButton_click(object sender, EventArgs e)
-        {
-            this.searchCustomerIDField.Value = 1;
-        }
+       
 
         /// <summary>
         /// set user name display in loadIncident Tab
@@ -95,7 +61,7 @@ namespace TechSupport.View
         {
             if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["displayOpenIncidents"])
             {
-              
+
                 List<Incident> incidentList = null;
                 openIncidents.Items.Clear();
                 try
@@ -111,7 +77,7 @@ namespace TechSupport.View
                     if (incidentList.Count > 0)
                     {
                         Incident incident;
-                        
+
                         for (int i = 0; i < incidentList.Count; i++)
                         {
                             incident = incidentList[i];
@@ -134,6 +100,11 @@ namespace TechSupport.View
                 }
 
             }
+            else if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["loadIncident"])
+            {
+                this.loadIncidentUserControl1.RefreshDataGrid();
+            }
+          
         }
 
         private void label2_Click(object sender, EventArgs e)
