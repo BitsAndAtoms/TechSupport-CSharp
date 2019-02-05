@@ -62,42 +62,7 @@ namespace TechSupport.View
             if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["displayOpenIncidents"])
             {
 
-                List<Incident> incidentList = null;
-                openIncidents.Items.Clear();
-                try
-                {
-                    //instead of using the following line of code, which couples the 
-                    //DAL with the view, we ask the controller to get the data for us 
-                    //so that the view does not have to know where the data comes from
-                    //(the line after the commented line)
-
-                    //incidentList = incidentDB.GetincidentsDue();
-                    incidentList = this.incidentController.GetCustomerDBIncidents();
-
-                    if (incidentList.Count > 0)
-                    {
-                        Incident incident;
-
-                        for (int i = 0; i < incidentList.Count; i++)
-                        {
-                            incident = incidentList[i];
-                            openIncidents.Items.Add(incident.CustomerID.ToString());
-                            openIncidents.Items[i].SubItems.Add(incident.Description);
-                            openIncidents.Items[i].SubItems.Add(incident.technicianName);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("All incidents are paid in full.",
-                            "No Balance Due");
-                        this.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, ex.GetType().ToString());
-                    this.Close();
-                }
+                this.displayOpenIncidentsUserControl1.updateListOfIncidents();
 
             }
             else if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["loadIncident"])
@@ -118,6 +83,16 @@ namespace TechSupport.View
         }
 
         private void tableLayoutPanelIncident_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MainDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void displayOpenIncidentsUserControl1_Load(object sender, EventArgs e)
         {
 
         }
