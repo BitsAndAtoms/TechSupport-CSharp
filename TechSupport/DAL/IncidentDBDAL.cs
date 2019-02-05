@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechSupport.Model;
 
 namespace TechSupport.DAL
 {
     class IncidentDBDAL
     {
-
-        /// <summary>
-        /// This method uses try/catch/finally and placed closing of the resources (connection, reader) in the 
-        /// finally block.
-        /// 
+         /// <summary>
+        /// This method fethces the incident data
         /// </summary>
         /// <returns>a list of Incidents</returns>
         public List<Incident> GETCustomerDBIncidents()
@@ -23,7 +17,7 @@ namespace TechSupport.DAL
             SqlConnection connection = IncidentDBConnection.GetConnection();
             string selectStatement =
                 "SELECT [ProductCode]" +
-                ", t1.CustomerID" +
+                ", t1.CustomerID, t1.Description" +
                 ", FORMAT([DateOpened],'MM/dd/yyyy') as 'DateOpened'" +
                 ",t2.Name AS Customer" +
                 ",t3.Name AS Technician" +
@@ -45,8 +39,12 @@ namespace TechSupport.DAL
                 {
                     Incident Incident = new Incident();
                     Incident.CustomerID = (int)reader["CustomerID"];
-                    Incident.Description = reader["Title"].ToString();
+                    Incident.Title = reader["Title"].ToString();
+                    Incident.Description = reader["Description"].ToString();
                     Incident.technicianName = reader["Technician"].ToString();
+                    Incident.customerName = reader["Customer"].ToString();
+                    Incident.dateOpened = (DateTime)reader["DateOpened"];
+                    Incident.productCode = reader["ProductCode"].ToString();
                     IncidentList.Add(Incident);
                 }
 

@@ -12,6 +12,9 @@ namespace TechSupport.Model
     /// </summary>
     public class Incident
     {
+        internal string customerName;
+        internal DateTime dateOpened;
+        internal string productCode;
 
         public string Title { get; set;}
         public string Description { get; set; }
