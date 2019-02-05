@@ -29,34 +29,34 @@
         private void InitializeComponent()
         {
             this.searchIncident = new System.Windows.Forms.TabPage();
-            this.searchDataGridView = new System.Windows.Forms.DataGridView();
             this.searchIncidentTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.Cancel = new System.Windows.Forms.Button();
-            this.searchCustomerIDField = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.searchCustomerIDField = new System.Windows.Forms.NumericUpDown();
+            this.Cancel = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchDataGridView = new System.Windows.Forms.DataGridView();
             this.loadIncident = new System.Windows.Forms.TabPage();
-            this.loadIncidentUserControl1 = new TechSupport.UserControls.LoadIncidentUserControl();
             this.addIncident = new System.Windows.Forms.TabPage();
-            this.addIncidentTable = new System.Windows.Forms.TableLayoutPanel();
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.customerIDField = new System.Windows.Forms.NumericUpDown();
-            this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.addIncidentButton = new System.Windows.Forms.Button();
             this.cancelAddIncident = new System.Windows.Forms.Button();
+            this.addIncidentButton = new System.Windows.Forms.Button();
+            this.addIncidentTable = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.customerIDField = new System.Windows.Forms.NumericUpDown();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.DashboardTabControl = new System.Windows.Forms.TabControl();
             this.displayOpenIncidents = new System.Windows.Forms.TabPage();
             this.openIncidents = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.loadIncidentUserControl1 = new TechSupport.UserControls.LoadIncidentUserControl();
             this.searchIncident.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).BeginInit();
             this.searchIncidentTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchCustomerIDField)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).BeginInit();
             this.loadIncident.SuspendLayout();
             this.addIncident.SuspendLayout();
             this.addIncidentTable.SuspendLayout();
@@ -77,14 +77,6 @@
             this.searchIncident.Text = "Search incident";
             this.searchIncident.UseVisualStyleBackColor = true;
             // 
-            // searchDataGridView
-            // 
-            this.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.searchDataGridView.Location = new System.Drawing.Point(56, 181);
-            this.searchDataGridView.Name = "searchDataGridView";
-            this.searchDataGridView.Size = new System.Drawing.Size(414, 205);
-            this.searchDataGridView.TabIndex = 3;
-            // 
             // searchIncidentTableLayoutPanel
             // 
             this.searchIncidentTableLayoutPanel.ColumnCount = 2;
@@ -102,29 +94,16 @@
             this.searchIncidentTableLayoutPanel.Size = new System.Drawing.Size(414, 132);
             this.searchIncidentTableLayoutPanel.TabIndex = 2;
             // 
-            // searchButton
+            // label1
             // 
-            this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(258, 79);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(104, 40);
-            this.searchButton.TabIndex = 2;
-            this.searchButton.Text = "Search Button";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_click);
-            // 
-            // Cancel
-            // 
-            this.Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancel.Location = new System.Drawing.Point(59, 79);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(88, 40);
-            this.Cancel.TabIndex = 3;
-            this.Cancel.Text = "Reset";
-            this.Cancel.UseVisualStyleBackColor = true;
-            this.Cancel.Click += new System.EventHandler(this.resetSearchTabButton_click);
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(47, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Customer ID";
             // 
             // searchCustomerIDField
             // 
@@ -151,16 +130,37 @@
             0,
             0});
             // 
-            // label1
+            // Cancel
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(47, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Customer ID";
+            this.Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancel.Location = new System.Drawing.Point(59, 79);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(88, 40);
+            this.Cancel.TabIndex = 3;
+            this.Cancel.Text = "Reset";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Click += new System.EventHandler(this.resetSearchTabButton_click);
+            // 
+            // searchButton
+            // 
+            this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(258, 79);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(104, 40);
+            this.searchButton.TabIndex = 2;
+            this.searchButton.Text = "Search Button";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_click);
+            // 
+            // searchDataGridView
+            // 
+            this.searchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.searchDataGridView.Location = new System.Drawing.Point(56, 181);
+            this.searchDataGridView.Name = "searchDataGridView";
+            this.searchDataGridView.Size = new System.Drawing.Size(414, 205);
+            this.searchDataGridView.TabIndex = 3;
             // 
             // loadIncident
             // 
@@ -171,16 +171,6 @@
             this.loadIncident.TabIndex = 3;
             this.loadIncident.Text = "Load Incident";
             this.loadIncident.UseVisualStyleBackColor = true;
-            // 
-            // loadIncidentUserControl1
-            // 
-            this.loadIncidentUserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.loadIncidentUserControl1.Location = new System.Drawing.Point(36, 6);
-            this.loadIncidentUserControl1.Margin = new System.Windows.Forms.Padding(6);
-            this.loadIncidentUserControl1.Name = "loadIncidentUserControl1";
-            this.loadIncidentUserControl1.Size = new System.Drawing.Size(483, 417);
-            this.loadIncidentUserControl1.TabIndex = 0;
-            this.loadIncidentUserControl1.Load += new System.EventHandler(this.loadIncidentUserControl1_Load);
             // 
             // addIncident
             // 
@@ -194,105 +184,16 @@
             this.addIncident.Text = "Add Incident";
             this.addIncident.UseVisualStyleBackColor = true;
             // 
-            // addIncidentTable
+            // cancelAddIncident
             // 
-            this.addIncidentTable.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addIncidentTable.ColumnCount = 2;
-            this.addIncidentTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.addIncidentTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.addIncidentTable.Controls.Add(this.label3, 0, 2);
-            this.addIncidentTable.Controls.Add(this.label2, 0, 1);
-            this.addIncidentTable.Controls.Add(this.label4, 0, 0);
-            this.addIncidentTable.Controls.Add(this.titleTextBox, 1, 0);
-            this.addIncidentTable.Controls.Add(this.customerIDField, 1, 2);
-            this.addIncidentTable.Controls.Add(this.descriptionTextBox, 1, 1);
-            this.addIncidentTable.Location = new System.Drawing.Point(8, 15);
-            this.addIncidentTable.Name = "addIncidentTable";
-            this.addIncidentTable.RowCount = 3;
-            this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
-            this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.addIncidentTable.Size = new System.Drawing.Size(485, 255);
-            this.addIncidentTable.TabIndex = 3;
-            // 
-            // descriptionTextBox
-            // 
-            this.descriptionTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(255, 88);
-            this.descriptionTextBox.Multiline = true;
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.descriptionTextBox.Size = new System.Drawing.Size(217, 79);
-            this.descriptionTextBox.TabIndex = 1;
-            // 
-            // customerIDField
-            // 
-            this.customerIDField.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customerIDField.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerIDField.Location = new System.Drawing.Point(295, 198);
-            this.customerIDField.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.customerIDField.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.customerIDField.Name = "customerIDField";
-            this.customerIDField.Size = new System.Drawing.Size(137, 29);
-            this.customerIDField.TabIndex = 6;
-            this.customerIDField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.customerIDField.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // titleTextBox
-            // 
-            this.titleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(268, 28);
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(191, 29);
-            this.titleTextBox.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(67, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 24);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Incident title";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(34, 115);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 24);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Incident description";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(67, 200);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 24);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "CustomerID";
+            this.cancelAddIncident.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelAddIncident.Location = new System.Drawing.Point(300, 310);
+            this.cancelAddIncident.Name = "cancelAddIncident";
+            this.cancelAddIncident.Size = new System.Drawing.Size(156, 81);
+            this.cancelAddIncident.TabIndex = 5;
+            this.cancelAddIncident.Text = "Reset";
+            this.cancelAddIncident.UseVisualStyleBackColor = true;
+            this.cancelAddIncident.Click += new System.EventHandler(this.resetIncidentTabButton_Click);
             // 
             // addIncidentButton
             // 
@@ -305,16 +206,107 @@
             this.addIncidentButton.UseVisualStyleBackColor = true;
             this.addIncidentButton.Click += new System.EventHandler(this.addIncidentButton_Click);
             // 
-            // cancelAddIncident
+            // addIncidentTable
             // 
-            this.cancelAddIncident.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelAddIncident.Location = new System.Drawing.Point(300, 310);
-            this.cancelAddIncident.Name = "cancelAddIncident";
-            this.cancelAddIncident.Size = new System.Drawing.Size(156, 81);
-            this.cancelAddIncident.TabIndex = 5;
-            this.cancelAddIncident.Text = "Reset";
-            this.cancelAddIncident.UseVisualStyleBackColor = true;
-            this.cancelAddIncident.Click += new System.EventHandler(this.resetIncidentTabButton_Click);
+            this.addIncidentTable.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addIncidentTable.ColumnCount = 2;
+            this.addIncidentTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.addIncidentTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.addIncidentTable.Controls.Add(this.label3, 0, 2);
+            this.addIncidentTable.Controls.Add(this.label2, 0, 1);
+            this.addIncidentTable.Controls.Add(this.label4, 0, 0);
+            this.addIncidentTable.Controls.Add(this.titleTextBox, 1, 0);
+            this.addIncidentTable.Controls.Add(this.customerIDField, 1, 2);
+            this.addIncidentTable.Controls.Add(this.descriptionTextBox, 1, 1);
+            this.addIncidentTable.Location = new System.Drawing.Point(19, 12);
+            this.addIncidentTable.Name = "addIncidentTable";
+            this.addIncidentTable.RowCount = 3;
+            this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.addIncidentTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.addIncidentTable.Size = new System.Drawing.Size(485, 255);
+            this.addIncidentTable.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(67, 200);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(108, 24);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "CustomerID";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(66, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(173, 85);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Incident description";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(131, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 85);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "Incident title";
+            // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleTextBox.Location = new System.Drawing.Point(245, 3);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(237, 29);
+            this.titleTextBox.TabIndex = 0;
+            // 
+            // customerIDField
+            // 
+            this.customerIDField.Dock = System.Windows.Forms.DockStyle.Top;
+            this.customerIDField.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerIDField.Location = new System.Drawing.Point(245, 173);
+            this.customerIDField.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.customerIDField.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.customerIDField.Name = "customerIDField";
+            this.customerIDField.Size = new System.Drawing.Size(237, 29);
+            this.customerIDField.TabIndex = 6;
+            this.customerIDField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.customerIDField.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionTextBox.Location = new System.Drawing.Point(245, 88);
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.descriptionTextBox.Size = new System.Drawing.Size(237, 79);
+            this.descriptionTextBox.TabIndex = 1;
             // 
             // DashboardTabControl
             // 
@@ -352,7 +344,7 @@
             this.openIncidents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.openIncidents.Location = new System.Drawing.Point(0, 0);
             this.openIncidents.Name = "openIncidents";
-            this.openIncidents.Size = new System.Drawing.Size(614, 429);
+            this.openIncidents.Size = new System.Drawing.Size(614, 441);
             this.openIncidents.TabIndex = 1;
             this.openIncidents.UseCompatibleStateImageBehavior = false;
             this.openIncidents.View = System.Windows.Forms.View.Details;
@@ -373,6 +365,16 @@
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.columnHeader3.Width = 90;
             // 
+            // loadIncidentUserControl1
+            // 
+            this.loadIncidentUserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.loadIncidentUserControl1.Location = new System.Drawing.Point(36, 6);
+            this.loadIncidentUserControl1.Margin = new System.Windows.Forms.Padding(6);
+            this.loadIncidentUserControl1.Name = "loadIncidentUserControl1";
+            this.loadIncidentUserControl1.Size = new System.Drawing.Size(483, 417);
+            this.loadIncidentUserControl1.TabIndex = 0;
+            this.loadIncidentUserControl1.Load += new System.EventHandler(this.loadIncidentUserControl1_Load);
+            // 
             // MainDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -387,10 +389,10 @@
             this.Text = "MainDashboard";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.exitForm);
             this.searchIncident.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).EndInit();
             this.searchIncidentTableLayoutPanel.ResumeLayout(false);
             this.searchIncidentTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.searchCustomerIDField)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchDataGridView)).EndInit();
             this.loadIncident.ResumeLayout(false);
             this.addIncident.ResumeLayout(false);
             this.addIncidentTable.ResumeLayout(false);
