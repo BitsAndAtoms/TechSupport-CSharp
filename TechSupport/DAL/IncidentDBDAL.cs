@@ -23,6 +23,7 @@ namespace TechSupport.DAL
             SqlConnection connection = IncidentDBConnection.GetConnection();
             string selectStatement =
                 "SELECT [ProductCode]" +
+                ", t1.CustomerID" +
                 ", FORMAT([DateOpened],'MM/dd/yyyy') as 'DateOpened'" +
                 ",t2.Name AS Customer" +
                 ",t3.Name AS Technician" +
@@ -43,11 +44,10 @@ namespace TechSupport.DAL
                 while (reader.Read())
                 {
                     Incident Incident = new Incident();
-                    Incident.CustomerID = 1;
+                    Incident.CustomerID = (int)reader["CustomerID"];
                     Incident.Description = reader["Title"].ToString();
                     Incident.technicianName = reader["Technician"].ToString();
                     IncidentList.Add(Incident);
-                    ///(int)reader["ProductCode"]
                 }
 
             }

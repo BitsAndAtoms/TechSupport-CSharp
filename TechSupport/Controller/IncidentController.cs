@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechSupport.DAL;
 using TechSupport.Model;
 
@@ -27,8 +24,8 @@ namespace TechSupport.Controller
         }
 
         /// <summary>
-        /// method to access the list of customer incidents
-        /// maintained by the DAL
+        /// method to access the list of customer incidents in test data
+        /// maintained by the incidentDAL
         /// </summary>
         /// <returns>Current list of incidents </returns>
         public List<Incident> GetCustomerIncidents()
@@ -37,8 +34,8 @@ namespace TechSupport.Controller
         }
 
         /// <summary>
-        /// method to access the list of customer incidents
-        /// maintained by the DAL
+        /// method to access the list of customer incidents in database
+        /// maintained by the incidentDBDAL
         /// </summary>
         /// <returns>Current list of incidents </returns>
         public List<Incident> GetCustomerDBIncidents()
