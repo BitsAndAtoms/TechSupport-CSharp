@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupport.Controller;
 using TechSupport.Model;
@@ -15,24 +9,24 @@ namespace TechSupport.UserControls
     public partial class displayOpenIncidentsUserControl : UserControl
     {
         private readonly IncidentController incidentController;
+        /// <summary>
+        /// constructor for display openIncidents user control form
+        /// </summary>
         public displayOpenIncidentsUserControl()
         {
             InitializeComponent();
             this.incidentController = new IncidentController();
         }
 
-
+        /// <summary>
+        /// readies list of incidents to display
+        /// </summary>
         public void updateListOfIncidents() {
             List<Incident> incidentList = null;
             openIncidents.Items.Clear();
             try
             {
-                //instead of using the following line of code, which couples the 
-                //DAL with the view, we ask the controller to get the data for us 
-                //so that the view does not have to know where the data comes from
-                //(the line after the commented line)
-
-                //incidentList = incidentDB.GetincidentsDue();
+                
                 incidentList = this.incidentController.GetCustomerDBIncidents();
 
                 if (incidentList.Count > 0)
@@ -42,15 +36,16 @@ namespace TechSupport.UserControls
                     for (int i = 0; i < incidentList.Count; i++)
                     {
                         incident = incidentList[i];
-                        openIncidents.Items.Add(incident.CustomerID.ToString());
-                        openIncidents.Items[i].SubItems.Add(incident.Description);
+                        openIncidents.Items.Add(incident.productCode);
+                        openIncidents.Items[i].SubItems.Add(incident.dateOpened);
+                        openIncidents.Items[i].SubItems.Add(incident.customerName);
                         openIncidents.Items[i].SubItems.Add(incident.technicianName);
+                        openIncidents.Items[i].SubItems.Add(incident.Title);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("All incidents are paid in full.",
-                        "No Balance Due");
+                    MessageBox.Show("All incidents are resolved");
                     
                 }
             }
@@ -63,9 +58,5 @@ namespace TechSupport.UserControls
 
 
 
-        private void openIncidents_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

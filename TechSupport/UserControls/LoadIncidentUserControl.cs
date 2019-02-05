@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using TechSupport.Controller;
 
@@ -29,17 +30,14 @@ namespace TechSupport.UserControls
         public void RefreshDataGrid()
         {
             this.incidentDataGridView.DataSource = null;
-            this.incidentDataGridView.DataSource = this.incidentController.GetCustomerIncidents();
+            this.incidentDataGridView.DataSource = this.incidentController.GetCustomerIncidents().Select(o => new {
+                    customerID = o.CustomerID,
+                    incidentTitle = o.Title,
+                    IncidentDescription = o.Description
+                })
+               .ToList();
         }
-
-        /// <summary>
-        /// populated the data grid with the list of incidents
-        /// </summary>
-        private void LoadIncidentUserControl_Load(object sender, EventArgs e)
-        {
-            this.RefreshDataGrid();
-        }
-
+        
         /// <summary>
         /// logout page redirects user to main
         /// </summary>
@@ -47,5 +45,6 @@ namespace TechSupport.UserControls
         {
             ((Form)this.TopLevelControl).Hide();
         }
+
     }
 }

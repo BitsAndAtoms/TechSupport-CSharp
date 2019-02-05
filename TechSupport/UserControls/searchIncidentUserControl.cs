@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupport.Controller;
 
@@ -14,6 +8,10 @@ namespace TechSupport.UserControls
     public partial class searchIncidentUserControl : UserControl
     {
         private readonly IncidentController incidentController;
+
+        /// <summary>
+        /// constructor for the searchIncidentUserControl form
+        /// </summary>
         public searchIncidentUserControl()
         {
             InitializeComponent();
@@ -22,12 +20,16 @@ namespace TechSupport.UserControls
 
         /// <summary>
         /// populate dataGrid table for search dialog based on customerID
+        /// Search here calls up on the three method chained to incidinetDAL
         /// </summary>
         /// <param name="customerID"></param>
         private void RefreshDataGrid(int customerID)
         {
             this.searchDataGridView.DataSource = null;
-            this.searchDataGridView.DataSource = this.incidentController.Search(customerID); ;
+            this.searchDataGridView.DataSource = this.incidentController.Search(customerID)
+                .Select(o=> new {customerID = o.CustomerID,
+               incidentTitle = o.Title, IncidentDescription = o.Description})
+               .ToList();
         }
 
         /// <summary>
@@ -59,5 +61,6 @@ namespace TechSupport.UserControls
         {
             this.searchCustomerIDField.Value = 1;
         }
+
     }
 }

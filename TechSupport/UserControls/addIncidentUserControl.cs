@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TechSupport.Controller;
 
@@ -14,14 +7,20 @@ namespace TechSupport.UserControls
     public partial class addIncidentUserControl : UserControl
     {
         private readonly IncidentController incidentController;
+        /// <summary>
+        /// constructor for add incident user control form
+        /// </summary>
         public addIncidentUserControl()
         {
             InitializeComponent();
             this.incidentController = new IncidentController();
         }
 
-
-        /// <param name="e"> e is the even arg</param>
+        /// <summary>
+        /// Add incident button adds the incident to the test data list or 
+        /// throws the necessary exception
+        /// </summary>
+        ///param name="e"> e is the even arg</param>
         private void addIncidentButton_Click(object sender, EventArgs e)
         {
             try
@@ -29,9 +28,7 @@ namespace TechSupport.UserControls
                 var title = this.titleTextBox.Text;
                 var description = this.descriptionTextBox.Text;
                 var customerID = Convert.ToInt32(this.customerIDField.Value);
-
                 this.incidentController.Add(new Model.Incident(title, description, customerID));
-                ///((Form)this.TopLevelControl).loadIncidentUserControl1;
             }
             catch (Exception ex)
             {
@@ -50,18 +47,8 @@ namespace TechSupport.UserControls
             this.titleTextBox.Text = "";
             this.descriptionTextBox.Text = "";
             this.customerIDField.Value = 1;
-
         }
 
 
-        private void tableLayoutPanelIncident_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

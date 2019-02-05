@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanelIncident = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.titleTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.cancelAddIncident = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.customerIDField = new System.Windows.Forms.NumericUpDown();
             this.addIncidentButton = new System.Windows.Forms.Button();
-            this.cancelAddIncident = new System.Windows.Forms.Button();
             this.tableLayoutPanelIncident.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerIDField)).BeginInit();
             this.SuspendLayout();
@@ -60,43 +60,23 @@
             this.tableLayoutPanelIncident.RowCount = 4;
             this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 72F));
-            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
+            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanelIncident.Size = new System.Drawing.Size(507, 408);
             this.tableLayoutPanelIncident.TabIndex = 0;
-            this.tableLayoutPanelIncident.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelIncident_Paint);
             // 
-            // label4
+            // cancelAddIncident
             // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(142, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 141);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Incident title";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
-            // 
-            // titleTextBox
-            // 
-            this.titleTextBox.Dock = System.Windows.Forms.DockStyle.Top;
-            this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(256, 3);
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(248, 29);
-            this.titleTextBox.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(77, 141);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 141);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Incident description";
+            this.cancelAddIncident.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cancelAddIncident.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelAddIncident.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.cancelAddIncident.Location = new System.Drawing.Point(334, 376);
+            this.cancelAddIncident.Name = "cancelAddIncident";
+            this.cancelAddIncident.Size = new System.Drawing.Size(92, 29);
+            this.cancelAddIncident.TabIndex = 11;
+            this.cancelAddIncident.Text = "Reset";
+            this.cancelAddIncident.UseVisualStyleBackColor = true;
+            this.cancelAddIncident.Click += new System.EventHandler(this.resetIncidentTabButton_Click);
             // 
             // descriptionTextBox
             // 
@@ -109,22 +89,53 @@
             this.descriptionTextBox.Size = new System.Drawing.Size(248, 79);
             this.descriptionTextBox.TabIndex = 7;
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(40, 199);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(173, 24);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Incident description";
+            // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleTextBox.Location = new System.Drawing.Point(256, 56);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(248, 29);
+            this.titleTextBox.TabIndex = 5;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(72, 58);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(108, 24);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Incident title";
+            // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Right;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(142, 282);
+            this.label3.Location = new System.Drawing.Point(72, 315);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 72);
+            this.label3.Size = new System.Drawing.Size(108, 24);
             this.label3.TabIndex = 8;
             this.label3.Text = "CustomerID";
             // 
             // customerIDField
             // 
-            this.customerIDField.Dock = System.Windows.Forms.DockStyle.Top;
+            this.customerIDField.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.customerIDField.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerIDField.Location = new System.Drawing.Point(256, 285);
+            this.customerIDField.Location = new System.Drawing.Point(256, 313);
             this.customerIDField.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -147,28 +158,15 @@
             // 
             // addIncidentButton
             // 
-            this.addIncidentButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.addIncidentButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addIncidentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addIncidentButton.Location = new System.Drawing.Point(94, 357);
+            this.addIncidentButton.Location = new System.Drawing.Point(80, 376);
             this.addIncidentButton.Name = "addIncidentButton";
-            this.addIncidentButton.Size = new System.Drawing.Size(156, 48);
+            this.addIncidentButton.Size = new System.Drawing.Size(92, 29);
             this.addIncidentButton.TabIndex = 10;
             this.addIncidentButton.Text = "Add";
             this.addIncidentButton.UseVisualStyleBackColor = true;
             this.addIncidentButton.Click += new System.EventHandler(this.addIncidentButton_Click);
-            // 
-            // cancelAddIncident
-            // 
-            this.cancelAddIncident.Dock = System.Windows.Forms.DockStyle.Right;
-            this.cancelAddIncident.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelAddIncident.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.cancelAddIncident.Location = new System.Drawing.Point(386, 357);
-            this.cancelAddIncident.Name = "cancelAddIncident";
-            this.cancelAddIncident.Size = new System.Drawing.Size(118, 48);
-            this.cancelAddIncident.TabIndex = 11;
-            this.cancelAddIncident.Text = "Reset";
-            this.cancelAddIncident.UseVisualStyleBackColor = true;
-            this.cancelAddIncident.Click += new System.EventHandler(this.resetIncidentTabButton_Click);
             // 
             // addIncidentUserControl
             // 

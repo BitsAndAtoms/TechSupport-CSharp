@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.searchIncident = new System.Windows.Forms.TabPage();
+            this.searchIncidentUserControl1 = new TechSupport.UserControls.searchIncidentUserControl();
             this.loadIncident = new System.Windows.Forms.TabPage();
+            this.loadIncidentUserControl1 = new TechSupport.UserControls.LoadIncidentUserControl();
             this.addIncident = new System.Windows.Forms.TabPage();
+            this.addIncidentUserControl1 = new TechSupport.UserControls.addIncidentUserControl();
             this.DashboardTabControl = new System.Windows.Forms.TabControl();
             this.displayOpenIncidents = new System.Windows.Forms.TabPage();
-            this.addIncidentUserControl1 = new TechSupport.UserControls.addIncidentUserControl();
-            this.loadIncidentUserControl1 = new TechSupport.UserControls.LoadIncidentUserControl();
-            this.searchIncidentUserControl1 = new TechSupport.UserControls.searchIncidentUserControl();
             this.displayOpenIncidentsUserControl1 = new TechSupport.UserControls.displayOpenIncidentsUserControl();
             this.searchIncident.SuspendLayout();
             this.loadIncident.SuspendLayout();
@@ -55,6 +55,15 @@
             this.searchIncident.Text = "Search incident";
             this.searchIncident.UseVisualStyleBackColor = true;
             // 
+            // searchIncidentUserControl1
+            // 
+            this.searchIncidentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.searchIncidentUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.searchIncidentUserControl1.Margin = new System.Windows.Forms.Padding(6);
+            this.searchIncidentUserControl1.Name = "searchIncidentUserControl1";
+            this.searchIncidentUserControl1.Size = new System.Drawing.Size(614, 429);
+            this.searchIncidentUserControl1.TabIndex = 0;
+            // 
             // loadIncident
             // 
             this.loadIncident.Controls.Add(this.loadIncidentUserControl1);
@@ -65,6 +74,17 @@
             this.loadIncident.Text = "Load Incident";
             this.loadIncident.UseVisualStyleBackColor = true;
             // 
+            // loadIncidentUserControl1
+            // 
+            this.loadIncidentUserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.loadIncidentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.loadIncidentUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.loadIncidentUserControl1.Margin = new System.Windows.Forms.Padding(6);
+            this.loadIncidentUserControl1.Name = "loadIncidentUserControl1";
+            this.loadIncidentUserControl1.Size = new System.Drawing.Size(614, 429);
+            this.loadIncidentUserControl1.TabIndex = 0;
+            this.loadIncidentUserControl1.Load += new System.EventHandler(this.loadIncidentUserControl1_Load);
+            // 
             // addIncident
             // 
             this.addIncident.Controls.Add(this.addIncidentUserControl1);
@@ -74,6 +94,15 @@
             this.addIncident.TabIndex = 4;
             this.addIncident.Text = "Add Incident";
             this.addIncident.UseVisualStyleBackColor = true;
+            // 
+            // addIncidentUserControl1
+            // 
+            this.addIncidentUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.addIncidentUserControl1.Location = new System.Drawing.Point(0, 0);
+            this.addIncidentUserControl1.Margin = new System.Windows.Forms.Padding(6);
+            this.addIncidentUserControl1.Name = "addIncidentUserControl1";
+            this.addIncidentUserControl1.Size = new System.Drawing.Size(614, 429);
+            this.addIncidentUserControl1.TabIndex = 0;
             // 
             // DashboardTabControl
             // 
@@ -102,38 +131,13 @@
             this.displayOpenIncidents.Text = "Display Open Incidents";
             this.displayOpenIncidents.UseVisualStyleBackColor = true;
             // 
-            // addIncidentUserControl1
-            // 
-            this.addIncidentUserControl1.Location = new System.Drawing.Point(29, 6);
-            this.addIncidentUserControl1.Margin = new System.Windows.Forms.Padding(6);
-            this.addIncidentUserControl1.Name = "addIncidentUserControl1";
-            this.addIncidentUserControl1.Size = new System.Drawing.Size(507, 408);
-            this.addIncidentUserControl1.TabIndex = 0;
-            // 
-            // loadIncidentUserControl1
-            // 
-            this.loadIncidentUserControl1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.loadIncidentUserControl1.Location = new System.Drawing.Point(36, 6);
-            this.loadIncidentUserControl1.Margin = new System.Windows.Forms.Padding(6);
-            this.loadIncidentUserControl1.Name = "loadIncidentUserControl1";
-            this.loadIncidentUserControl1.Size = new System.Drawing.Size(483, 417);
-            this.loadIncidentUserControl1.TabIndex = 0;
-            this.loadIncidentUserControl1.Load += new System.EventHandler(this.loadIncidentUserControl1_Load);
-            // 
-            // searchIncidentUserControl1
-            // 
-            this.searchIncidentUserControl1.Location = new System.Drawing.Point(63, 38);
-            this.searchIncidentUserControl1.Margin = new System.Windows.Forms.Padding(6);
-            this.searchIncidentUserControl1.Name = "searchIncidentUserControl1";
-            this.searchIncidentUserControl1.Size = new System.Drawing.Size(390, 321);
-            this.searchIncidentUserControl1.TabIndex = 0;
-            // 
             // displayOpenIncidentsUserControl1
             // 
-            this.displayOpenIncidentsUserControl1.Location = new System.Drawing.Point(2, 6);
+            this.displayOpenIncidentsUserControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.displayOpenIncidentsUserControl1.Location = new System.Drawing.Point(0, 0);
             this.displayOpenIncidentsUserControl1.Margin = new System.Windows.Forms.Padding(6);
             this.displayOpenIncidentsUserControl1.Name = "displayOpenIncidentsUserControl1";
-            this.displayOpenIncidentsUserControl1.Size = new System.Drawing.Size(606, 369);
+            this.displayOpenIncidentsUserControl1.Size = new System.Drawing.Size(614, 429);
             this.displayOpenIncidentsUserControl1.TabIndex = 0;
             this.displayOpenIncidentsUserControl1.Load += new System.EventHandler(this.displayOpenIncidentsUserControl1_Load);
             // 
