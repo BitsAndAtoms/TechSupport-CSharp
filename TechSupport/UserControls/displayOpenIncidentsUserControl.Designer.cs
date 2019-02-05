@@ -60,22 +60,22 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Date Opened";
-            this.columnHeader2.Width = 77;
+            this.columnHeader2.Width = 88;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Customer";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.columnHeader3.Width = 63;
+            this.columnHeader3.Width = 88;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Technician";
-            this.columnHeader4.Width = 70;
+            this.columnHeader4.Width = 88;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Title";
+            this.columnHeader5.Width = 88;
             // 
             // displayOpenIncidentsUserControl
             // 

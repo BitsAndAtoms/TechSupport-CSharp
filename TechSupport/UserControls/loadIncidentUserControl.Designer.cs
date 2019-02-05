@@ -54,7 +54,7 @@
             this.linkLabelLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.linkLabelLogout.AutoSize = true;
             this.linkLabelLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelLogout.Location = new System.Drawing.Point(351, 2);
+            this.linkLabelLogout.Location = new System.Drawing.Point(350, 2);
             this.linkLabelLogout.Name = "linkLabelLogout";
             this.linkLabelLogout.Size = new System.Drawing.Size(68, 24);
             this.linkLabelLogout.TabIndex = 13;
@@ -67,7 +67,7 @@
             this.loginUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.loginUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.loginUsername.Location = new System.Drawing.Point(212, 1);
+            this.loginUsername.Location = new System.Drawing.Point(209, 1);
             this.loginUsername.Name = "loginUsername";
             this.loginUsername.Size = new System.Drawing.Size(124, 25);
             this.loginUsername.TabIndex = 12;
@@ -78,7 +78,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.13044F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.86956F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel1.Controls.Add(this.resultTableLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.linkLabelLogout, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.loginUsername, 1, 0);
