@@ -43,7 +43,7 @@ namespace TechSupport.DAL
                     Incident.Description = reader["Description"].ToString();
                     Incident.technicianName = reader["Technician"].ToString();
                     Incident.customerName = reader["Customer"].ToString();
-                    Incident.dateOpened = (DateTime)reader["DateOpened"];
+                    Incident.dateOpened = reader["DateOpened"].ToString();
                     Incident.productCode = reader["ProductCode"].ToString();
                     IncidentList.Add(Incident);
                 }

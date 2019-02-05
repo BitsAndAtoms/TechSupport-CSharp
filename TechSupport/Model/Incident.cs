@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TechSupport.Model
 {
@@ -12,9 +8,9 @@ namespace TechSupport.Model
     /// </summary>
     public class Incident
     {
-        internal string customerName;
-        internal DateTime dateOpened;
-        internal string productCode;
+       public string customerName { get; set; }
+       public string dateOpened { get; set; }
+       public string productCode { get; set; }
 
         public string Title { get; set;}
         public string Description { get; set; }
@@ -22,7 +18,7 @@ namespace TechSupport.Model
         public string technicianName { get; set; }
 
         /// <summary>
-        /// This method creates an incident 
+        /// This method creates an incident  if the three parameter constructor is called
         /// </summary>
         /// <param name="title">Title of the incident is non-empty string</param>
         /// <param name="description">Description of the incident is non-empty string</param>
@@ -49,6 +45,10 @@ namespace TechSupport.Model
             this.Title = title;
         }
 
+        /// <summary>
+        /// this constructor is created to instantiate and emtpy incident object for
+        /// use with DB
+        /// </summary>
         public Incident() { }
 
     }
