@@ -173,6 +173,7 @@
             this.customerNameComboBox.Name = "customerNameComboBox";
             this.customerNameComboBox.Size = new System.Drawing.Size(218, 21);
             this.customerNameComboBox.TabIndex = 12;
+            this.customerNameComboBox.SelectedValueChanged += new System.EventHandler(this.customerNameComboBox_SelectedValueChanged);
             // 
             // productLabel
             // 

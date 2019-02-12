@@ -95,14 +95,14 @@ namespace TechSupport.DAL
                             {
                                 if (!String.IsNullOrEmpty(currentName))
                                 {
-                                    registeredCustomerAndProductsList.Add(currentName, productList);
+                                    registeredCustomerAndProductsList.Add(currentName, new List<string>(productList));
                                 }
 
 
                                 currentName = newName;
                                 productList.Clear();
                             }
-
+                            string summy = reader["productName"].ToString();
                             productList.Add(reader["productName"].ToString());
 
                         }

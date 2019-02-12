@@ -66,6 +66,10 @@ namespace TechSupport.UserControls
             this.LoadProductNameComboBox();
         }
 
-
+        private void customerNameComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            
+            this.LoadProductNameComboBox();
+        }
     }
 }
