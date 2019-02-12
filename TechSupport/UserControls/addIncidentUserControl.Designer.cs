@@ -36,7 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.customerIDField = new System.Windows.Forms.NumericUpDown();
             this.addIncidentButton = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.customerNameComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanelIncident.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerIDField)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             this.tableLayoutPanelIncident.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanelIncident.Controls.Add(this.customerIDField, 1, 2);
             this.tableLayoutPanelIncident.Controls.Add(this.addIncidentButton, 0, 3);
-            this.tableLayoutPanelIncident.Controls.Add(this.comboBox1, 1, 0);
+            this.tableLayoutPanelIncident.Controls.Add(this.customerNameComboBox, 1, 0);
             this.tableLayoutPanelIncident.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelIncident.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelIncident.Name = "tableLayoutPanelIncident";
@@ -159,14 +159,14 @@
             this.addIncidentButton.UseVisualStyleBackColor = true;
             this.addIncidentButton.Click += new System.EventHandler(this.addIncidentButton_Click);
             // 
-            // comboBox1
+            // customerNameComboBox
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(271, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(218, 21);
-            this.comboBox1.TabIndex = 12;
+            this.customerNameComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customerNameComboBox.FormattingEnabled = true;
+            this.customerNameComboBox.Location = new System.Drawing.Point(271, 60);
+            this.customerNameComboBox.Name = "customerNameComboBox";
+            this.customerNameComboBox.Size = new System.Drawing.Size(218, 21);
+            this.customerNameComboBox.TabIndex = 12;
             // 
             // addIncidentUserControl
             // 
@@ -192,6 +192,6 @@
         private System.Windows.Forms.NumericUpDown customerIDField;
         private System.Windows.Forms.Button addIncidentButton;
         private System.Windows.Forms.Button cancelAddIncident;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox customerNameComboBox;
     }
 }

@@ -62,14 +62,22 @@ namespace TechSupport.DAL
         /// This method fethces the incident data
         /// </summary>
         /// <returns>a list of Incidents</returns>
-        public List<string> GETRegisteredCustomers()
+        public Dictionary<string, List<string>> GETRegisteredDBCustomersWithProducts()
         {
-            List<string> customerList = new List<string>();
-            string selectStatement = "SELECT DISTINCT [Name]" +
-                "FROM[TechSupport].[dbo].[Registrations] t1" +
-                "LEFT JOIN[TechSupport].[dbo].[Customers] " +
-                "t2 ON t1.CustomerID = t2.CustomerID; ";
+            Dictionary<string, List<string>> registeredCustomerAndProductsList = new Dictionary<string, List<string>>();
 
+            string selectStatement = "SELECT " +
+                "DISTINCT t2.Name AS customerName," +
+                " t3.[Name] AS productName " +
+                "FROM[TechSupport].[dbo].[Registrations] t1 " +
+                "LEFT JOIN[TechSupport].[dbo].[Customers] t2 " +
+                " ON t1.CustomerID = t2.CustomerID" +
+                " LEFT JOIN[TechSupport].[dbo].[Products] t3" +
+                " ON t1.ProductCode = t3.ProductCode" +
+                " ORDER BY t2.Name;";
+
+            string currentName = null;
+            List<string> productList = new List<string>();
 
             using (SqlConnection connection = IncidentDBConnection.GetConnection())
             {
@@ -81,14 +89,30 @@ namespace TechSupport.DAL
                     {
                         while (reader.Read())
                         {
-                            customerList.Add(reader["Name"].ToString());
+                            string newName = reader["customerName"].ToString();
+
+                            if (newName != currentName)
+                            {
+                                if (!String.IsNullOrEmpty(currentName))
+                                {
+                                    registeredCustomerAndProductsList.Add(currentName, productList);
+                                }
+
+
+                                currentName = newName;
+                                productList.Clear();
+                            }
+
+                            productList.Add(reader["productName"].ToString());
+
                         }
                     }
                 }
 
-                return customerList;
+
             }
 
+            return registeredCustomerAndProductsList;
 
         }
 

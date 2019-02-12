@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using TechSupport.Controller;
 
@@ -14,6 +15,7 @@ namespace TechSupport.UserControls
         {
             InitializeComponent();
             this.incidentController = new IncidentController();
+            this.LoadCustomerNameComboBox();
         }
 
         /// <summary>
@@ -47,6 +49,15 @@ namespace TechSupport.UserControls
             ///this.titleTextBox.Text = "";
             this.descriptionTextBox.Text = "";
             this.customerIDField.Value = 1;
+        }
+
+        private void LoadCustomerNameComboBox()
+        {
+            customerNameComboBox.DataSource = null;
+            List<string> keyList = new List<string>(this.incidentController.GetRegisteredDBCustomerAndProducts().Keys);
+            customerNameComboBox.DataSource = keyList;
+
+
         }
 
 
