@@ -49,6 +49,8 @@ namespace TechSupport.View
             {this.displayOpenIncidentsUserControl1.updateListOfIncidents();}
             else if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["loadIncident"])
             {this.loadIncidentUserControl1.RefreshDataGrid();}
+            else if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["addIncident"])
+            { this.addIncidentUserControl1.resetIncidentTabButton_Click(null, null); }
         }
 
   

@@ -49,7 +49,7 @@ namespace TechSupport.UserControls
         /// </summary>
         /// <param name="sender">sender is the event object</param>
         /// <param name="e"> e is the even arg</param>
-        private void resetIncidentTabButton_Click(object sender, EventArgs e)
+        public void resetIncidentTabButton_Click(object sender, EventArgs e)
         {
            this.descriptionTextBox.Text = "";
             this.titleTextBox.Text = ""; 
