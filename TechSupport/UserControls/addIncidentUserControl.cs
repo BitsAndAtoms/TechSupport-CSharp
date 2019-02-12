@@ -34,7 +34,7 @@ namespace TechSupport.UserControls
                 newIncident.CustomerName = this.customerNameComboBox.SelectedValue.ToString();
                 newIncident.ProductName = this.productNameComboBox.SelectedValue.ToString();
                 newIncident.DateOpened = DateTime.Now.ToString();
-                this.incidentController.AddToDB(newIncident);
+                this.incidentController.AddIncidentToDB(newIncident);
                /// this.incidentController.Add(new Model.Incident(title, description, customerID));
             }
             catch (Exception ex)
@@ -59,7 +59,7 @@ namespace TechSupport.UserControls
         private void LoadProductNameComboBox()
         {
             this.productNameComboBox.DataSource = null;
-            List<string> valueList = new List<string>(this.incidentController.GetRegisteredDBCustomerAndProducts()[this.customerNameComboBox.SelectedValue.ToString()]);
+            List<string> valueList = new List<string>(this.incidentController.GetRegisteredDBCustomersAndProducts()[this.customerNameComboBox.SelectedValue.ToString()]);
             this.productNameComboBox.DataSource = valueList;
         }
 
@@ -67,7 +67,7 @@ namespace TechSupport.UserControls
         {
 
             this.customerNameComboBox.DataSource = null;
-            List<string> keyList = new List<string>(this.incidentController.GetRegisteredDBCustomerAndProducts().Keys);
+            List<string> keyList = new List<string>(this.incidentController.GetRegisteredDBCustomersAndProducts().Keys);
             this.customerNameComboBox.DataSource = keyList;
             this.LoadProductNameComboBox();
         }

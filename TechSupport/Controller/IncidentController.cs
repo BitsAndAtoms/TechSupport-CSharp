@@ -34,11 +34,11 @@ namespace TechSupport.Controller
         }
 
         /// <summary>
-        /// method to access the list of customer incidents in test data
-        /// maintained by the incidentDAL
+        /// method to access the list of registered customer
+        /// along with their registered products as a dictionary
         /// </summary>
-        /// <returns>Current list of incidents </returns>
-        public Dictionary<string, List<string>> GetRegisteredDBCustomerAndProducts()
+        /// <returns>Dictionary list of registered customers as keys and products as values </returns>
+        public Dictionary<string, List<string>> GetRegisteredDBCustomersAndProducts()
         {
             return this.incidentDBSource.GETRegisteredDBCustomersWithProducts();
         }
@@ -56,10 +56,10 @@ namespace TechSupport.Controller
         
 
         /// <summary>
-        /// method to add a new incident to the incident list
+        /// method to add a new incident to the incident list in the databse
         /// </summary>
         /// <param name="incident"> The incident to be added to the list</param>
-        public void AddToDB(Incident incident)
+        public void AddIncidentToDB(Incident incident)
         {
             if (incident == null)
             {
