@@ -13,9 +13,21 @@ namespace TechSupport.DAL
     {
         private static List<Incident> _customerIncidents = new List<Incident>
         {
-            new Incident("PC Maintainence","Computer is faulty and not turning on.",101),
-            new Incident("Software upgrade","OS needs to be updated by tech support.",23),
+            addIncidentDetails("PC Maintainence","Computer is faulty and not turning on.",101),
+            addIncidentDetails("Software upgrade","OS needs to be updated by tech support.",23),
         };
+
+
+        private static Incident addIncidentDetails(string Title, string description, int customerID)
+        {
+            Incident incident1 = new Incident();
+            incident1.CustomerID = customerID;
+            incident1.Description = description;
+            incident1.Title = Title;
+            return incident1;
+
+        }
+
 
         /// <summary>
         /// method that returns current incidents list
