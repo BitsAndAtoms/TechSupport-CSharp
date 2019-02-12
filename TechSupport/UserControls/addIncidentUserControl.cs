@@ -35,12 +35,12 @@ namespace TechSupport.UserControls
                 newIncident.ProductName = this.productNameComboBox.SelectedValue.ToString();
                 newIncident.DateOpened = DateTime.Now.ToString();
                 this.incidentController.AddIncidentToDB(newIncident);
-               /// this.incidentController.Add(new Model.Incident(title, description, customerID));
+                MessageBox.Show("Incident added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something is wrong with the input!!!\n" + ex.Message,
-                    "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Something is wrong with the input, Title/Description can not be null!!!\n" + ex.Message,
+                    "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -51,30 +51,35 @@ namespace TechSupport.UserControls
         /// <param name="e"> e is the even arg</param>
         private void resetIncidentTabButton_Click(object sender, EventArgs e)
         {
-            ///this.titleTextBox.Text = "";
-            this.descriptionTextBox.Text = "";
-            //this.customerIDField.Value = 1;
+           this.descriptionTextBox.Text = "";
+            this.titleTextBox.Text = ""; 
         }
 
         private void LoadProductNameComboBox()
         {
             this.productNameComboBox.DataSource = null;
-            List<string> valueList = new List<string>(this.incidentController.GetRegisteredDBCustomersAndProducts()[this.customerNameComboBox.SelectedValue.ToString()]);
-            this.productNameComboBox.DataSource = valueList;
+            this.productNameComboBox.DataSource = new List<string>(this.incidentController.GetRegisteredDBCustomersAndProducts()[this.customerNameComboBox.SelectedValue.ToString()]);       
         }
 
+        /// <summary>
+        /// Loads all the customers who have registered 
+        /// These customers are eligible to file incidents
+        /// </summary>
         private void LoadCustomerNameComboBox()
         {
-
             this.customerNameComboBox.DataSource = null;
-            List<string> keyList = new List<string>(this.incidentController.GetRegisteredDBCustomersAndProducts().Keys);
-            this.customerNameComboBox.DataSource = keyList;
+            this.customerNameComboBox.DataSource = new List<string>(this.incidentController.GetRegisteredDBCustomersAndProducts().Keys);   
             this.LoadProductNameComboBox();
         }
 
+        /// <summary>
+        /// Refresh the products list
+        /// as per the selection for the customer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void customerNameComboBox_SelectedValueChanged(object sender, EventArgs e)
         {
-            
             this.LoadProductNameComboBox();
         }
 

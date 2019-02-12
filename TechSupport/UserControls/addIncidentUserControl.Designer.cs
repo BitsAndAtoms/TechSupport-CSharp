@@ -61,11 +61,11 @@
             this.tableLayoutPanelIncident.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelIncident.Name = "tableLayoutPanelIncident";
             this.tableLayoutPanelIncident.RowCount = 5;
-            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79F));
-            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.71585F));
-            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.28415F));
-            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
-            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.26882F));
+            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.73119F));
+            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 108F));
+            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelIncident.Size = new System.Drawing.Size(507, 408);
             this.tableLayoutPanelIncident.TabIndex = 0;
@@ -75,7 +75,7 @@
             this.cancelAddIncident.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cancelAddIncident.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelAddIncident.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.cancelAddIncident.Location = new System.Drawing.Point(80, 375);
+            this.cancelAddIncident.Location = new System.Drawing.Point(80, 371);
             this.cancelAddIncident.Name = "cancelAddIncident";
             this.cancelAddIncident.Size = new System.Drawing.Size(92, 29);
             this.cancelAddIncident.TabIndex = 11;
@@ -88,7 +88,7 @@
             this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleLabel.Location = new System.Drawing.Point(101, 212);
+            this.titleLabel.Location = new System.Drawing.Point(101, 168);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(50, 24);
             this.titleLabel.TabIndex = 6;
@@ -98,7 +98,7 @@
             // 
             this.addIncidentButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addIncidentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addIncidentButton.Location = new System.Drawing.Point(334, 375);
+            this.addIncidentButton.Location = new System.Drawing.Point(334, 371);
             this.addIncidentButton.Name = "addIncidentButton";
             this.addIncidentButton.Size = new System.Drawing.Size(92, 29);
             this.addIncidentButton.TabIndex = 10;
@@ -110,10 +110,11 @@
             // 
             this.customerNameComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.customerNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.customerNameComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerNameComboBox.FormattingEnabled = true;
-            this.customerNameComboBox.Location = new System.Drawing.Point(271, 29);
+            this.customerNameComboBox.Location = new System.Drawing.Point(271, 14);
             this.customerNameComboBox.Name = "customerNameComboBox";
-            this.customerNameComboBox.Size = new System.Drawing.Size(218, 21);
+            this.customerNameComboBox.Size = new System.Drawing.Size(218, 28);
             this.customerNameComboBox.TabIndex = 12;
             this.customerNameComboBox.SelectedValueChanged += new System.EventHandler(this.customerNameComboBox_SelectedValueChanged);
             // 
@@ -122,7 +123,7 @@
             this.customerLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.customerLabel.AutoSize = true;
             this.customerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerLabel.Location = new System.Drawing.Point(78, 27);
+            this.customerLabel.Location = new System.Drawing.Point(78, 16);
             this.customerLabel.Name = "customerLabel";
             this.customerLabel.Size = new System.Drawing.Size(96, 24);
             this.customerLabel.TabIndex = 4;
@@ -133,7 +134,7 @@
             this.productLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.productLabel.AutoSize = true;
             this.productLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productLabel.Location = new System.Drawing.Point(84, 111);
+            this.productLabel.Location = new System.Drawing.Point(84, 69);
             this.productLabel.Name = "productLabel";
             this.productLabel.Size = new System.Drawing.Size(85, 24);
             this.productLabel.TabIndex = 13;
@@ -143,10 +144,11 @@
             // 
             this.productNameComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.productNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.productNameComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.productNameComboBox.FormattingEnabled = true;
-            this.productNameComboBox.Location = new System.Drawing.Point(272, 112);
+            this.productNameComboBox.Location = new System.Drawing.Point(272, 67);
             this.productNameComboBox.Name = "productNameComboBox";
-            this.productNameComboBox.Size = new System.Drawing.Size(216, 21);
+            this.productNameComboBox.Size = new System.Drawing.Size(216, 28);
             this.productNameComboBox.TabIndex = 14;
             // 
             // descritionLabel
@@ -154,7 +156,7 @@
             this.descritionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.descritionLabel.AutoSize = true;
             this.descritionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descritionLabel.Location = new System.Drawing.Point(72, 314);
+            this.descritionLabel.Location = new System.Drawing.Point(72, 297);
             this.descritionLabel.Name = "descritionLabel";
             this.descritionLabel.Size = new System.Drawing.Size(109, 24);
             this.descritionLabel.TabIndex = 8;
@@ -163,19 +165,19 @@
             // descriptionTextBox
             // 
             this.descriptionTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(256, 284);
+            this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionTextBox.Location = new System.Drawing.Point(270, 270);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.descriptionTextBox.Size = new System.Drawing.Size(248, 85);
+            this.descriptionTextBox.Size = new System.Drawing.Size(220, 78);
             this.descriptionTextBox.TabIndex = 7;
             // 
             // titleTextBox
             // 
             this.titleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(267, 211);
+            this.titleTextBox.Location = new System.Drawing.Point(267, 167);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(225, 26);
             this.titleTextBox.TabIndex = 15;
