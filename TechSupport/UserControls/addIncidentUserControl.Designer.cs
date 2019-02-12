@@ -30,14 +30,14 @@
         {
             this.tableLayoutPanelIncident = new System.Windows.Forms.TableLayoutPanel();
             this.cancelAddIncident = new System.Windows.Forms.Button();
-            this.descriptionTextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.addIncidentButton = new System.Windows.Forms.Button();
             this.customerNameComboBox = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.customerLabel = new System.Windows.Forms.Label();
             this.productLabel = new System.Windows.Forms.Label();
             this.productNameComboBox = new System.Windows.Forms.ComboBox();
+            this.descritionLabel = new System.Windows.Forms.Label();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.titleTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanelIncident.SuspendLayout();
             this.SuspendLayout();
@@ -48,20 +48,20 @@
             this.tableLayoutPanelIncident.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelIncident.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelIncident.Controls.Add(this.cancelAddIncident, 0, 4);
-            this.tableLayoutPanelIncident.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanelIncident.Controls.Add(this.titleLabel, 0, 2);
             this.tableLayoutPanelIncident.Controls.Add(this.addIncidentButton, 0, 4);
             this.tableLayoutPanelIncident.Controls.Add(this.customerNameComboBox, 1, 0);
-            this.tableLayoutPanelIncident.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanelIncident.Controls.Add(this.customerLabel, 0, 0);
             this.tableLayoutPanelIncident.Controls.Add(this.productLabel, 0, 1);
             this.tableLayoutPanelIncident.Controls.Add(this.productNameComboBox, 1, 1);
-            this.tableLayoutPanelIncident.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanelIncident.Controls.Add(this.descritionLabel, 0, 3);
             this.tableLayoutPanelIncident.Controls.Add(this.descriptionTextBox, 1, 3);
             this.tableLayoutPanelIncident.Controls.Add(this.titleTextBox, 1, 2);
             this.tableLayoutPanelIncident.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelIncident.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelIncident.Name = "tableLayoutPanelIncident";
             this.tableLayoutPanelIncident.RowCount = 5;
-            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 98F));
+            this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 79F));
             this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.71585F));
             this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 56.28415F));
             this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 91F));
@@ -83,38 +83,16 @@
             this.cancelAddIncident.UseVisualStyleBackColor = true;
             this.cancelAddIncident.Click += new System.EventHandler(this.resetIncidentTabButton_Click);
             // 
-            // descriptionTextBox
+            // titleLabel
             // 
-            this.descriptionTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(256, 284);
-            this.descriptionTextBox.Multiline = true;
-            this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.descriptionTextBox.Size = new System.Drawing.Size(248, 85);
-            this.descriptionTextBox.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(104, 217);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 24);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Title";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(74, 314);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 24);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Description";
+            this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.Location = new System.Drawing.Point(101, 212);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(50, 24);
+            this.titleLabel.TabIndex = 6;
+            this.titleLabel.Text = "Title:";
             // 
             // addIncidentButton
             // 
@@ -131,30 +109,31 @@
             // customerNameComboBox
             // 
             this.customerNameComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customerNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.customerNameComboBox.FormattingEnabled = true;
-            this.customerNameComboBox.Location = new System.Drawing.Point(271, 38);
+            this.customerNameComboBox.Location = new System.Drawing.Point(271, 29);
             this.customerNameComboBox.Name = "customerNameComboBox";
             this.customerNameComboBox.Size = new System.Drawing.Size(218, 21);
             this.customerNameComboBox.TabIndex = 12;
             this.customerNameComboBox.SelectedValueChanged += new System.EventHandler(this.customerNameComboBox_SelectedValueChanged);
             // 
-            // label4
+            // customerLabel
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(53, 37);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 24);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Customer Name";
+            this.customerLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customerLabel.AutoSize = true;
+            this.customerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerLabel.Location = new System.Drawing.Point(78, 27);
+            this.customerLabel.Name = "customerLabel";
+            this.customerLabel.Size = new System.Drawing.Size(96, 24);
+            this.customerLabel.TabIndex = 4;
+            this.customerLabel.Text = "Customer:";
             // 
             // productLabel
             // 
             this.productLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.productLabel.AutoSize = true;
             this.productLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productLabel.Location = new System.Drawing.Point(84, 126);
+            this.productLabel.Location = new System.Drawing.Point(84, 111);
             this.productLabel.Name = "productLabel";
             this.productLabel.Size = new System.Drawing.Size(85, 24);
             this.productLabel.TabIndex = 13;
@@ -163,17 +142,40 @@
             // productNameComboBox
             // 
             this.productNameComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.productNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.productNameComboBox.FormattingEnabled = true;
-            this.productNameComboBox.Location = new System.Drawing.Point(272, 127);
+            this.productNameComboBox.Location = new System.Drawing.Point(272, 112);
             this.productNameComboBox.Name = "productNameComboBox";
             this.productNameComboBox.Size = new System.Drawing.Size(216, 21);
             this.productNameComboBox.TabIndex = 14;
+            // 
+            // descritionLabel
+            // 
+            this.descritionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.descritionLabel.AutoSize = true;
+            this.descritionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descritionLabel.Location = new System.Drawing.Point(72, 314);
+            this.descritionLabel.Name = "descritionLabel";
+            this.descritionLabel.Size = new System.Drawing.Size(109, 24);
+            this.descritionLabel.TabIndex = 8;
+            this.descritionLabel.Text = "Description:";
+            // 
+            // descriptionTextBox
+            // 
+            this.descriptionTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionTextBox.Location = new System.Drawing.Point(256, 284);
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.descriptionTextBox.Size = new System.Drawing.Size(248, 85);
+            this.descriptionTextBox.TabIndex = 7;
             // 
             // titleTextBox
             // 
             this.titleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(267, 216);
+            this.titleTextBox.Location = new System.Drawing.Point(267, 211);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(225, 26);
             this.titleTextBox.TabIndex = 15;
@@ -194,10 +196,10 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelIncident;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label customerLabel;
+        private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.TextBox descriptionTextBox;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label descritionLabel;
         private System.Windows.Forms.Button addIncidentButton;
         private System.Windows.Forms.Button cancelAddIncident;
         private System.Windows.Forms.ComboBox customerNameComboBox;
