@@ -11,13 +11,18 @@ namespace TechSupport.DAL
     /// </summary>
     public class IncidentDAL
     {
+        /// <summary>
+        /// The list of customerIncidents which is not backed by DB is constructed here 
+        /// </summary>
         private static List<Incident> _customerIncidents = new List<Incident>
         {
             addIncidentDetails("PC Maintainence","Computer is faulty and not turning on.",101),
             addIncidentDetails("Software upgrade","OS needs to be updated by tech support.",23),
         };
 
-
+        /// <summary>
+        /// Static method to initalize the _customerIncidents static variable
+        /// </summary>
         private static Incident addIncidentDetails(string Title, string description, int customerID)
         {
             Incident incident1 = new Incident();
@@ -36,19 +41,6 @@ namespace TechSupport.DAL
         public List<Incident> GETCustomerIncidents()
         {
             return _customerIncidents;
-        }
-
-        /// <summary>
-        /// method to add incident to the _customerIncidents list
-        /// </summary>
-        /// <param name="incident">The incident to be added</param>
-        public void Add(Incident incident)
-        {
-            if (incident == null)
-            {
-                throw new ArgumentException("Incident can not be null");
-            }
-            _customerIncidents.Add(incident);
         }
 
         /// <summary>
