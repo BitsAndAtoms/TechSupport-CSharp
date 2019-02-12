@@ -25,10 +25,10 @@ namespace TechSupport.UserControls
         {
             try
             {
-                var title = this.titleTextBox.Text;
+                ///var title = this.titleTextBox.Text;
                 var description = this.descriptionTextBox.Text;
                 var customerID = Convert.ToInt32(this.customerIDField.Value);
-                this.incidentController.Add(new Model.Incident(title, description, customerID));
+               /// this.incidentController.Add(new Model.Incident(title, description, customerID));
             }
             catch (Exception ex)
             {
@@ -44,7 +44,7 @@ namespace TechSupport.UserControls
         /// <param name="e"> e is the even arg</param>
         private void resetIncidentTabButton_Click(object sender, EventArgs e)
         {
-            this.titleTextBox.Text = "";
+            ///this.titleTextBox.Text = "";
             this.descriptionTextBox.Text = "";
             this.customerIDField.Value = 1;
         }

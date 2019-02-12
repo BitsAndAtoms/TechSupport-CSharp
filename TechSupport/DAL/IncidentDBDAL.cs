@@ -56,5 +56,49 @@ namespace TechSupport.DAL
 
 
         }
+
+
+        /// <summary>
+        /// This method fethces the incident data
+        /// </summary>
+        /// <returns>a list of Incidents</returns>
+        public List<string> GETRegisteredCustomers()
+        {
+            List<string> customerList = new List<string>();
+            string selectStatement = "SELECT DISTINCT [Name]" +
+                "FROM[TechSupport].[dbo].[Registrations] t1" +
+                "LEFT JOIN[TechSupport].[dbo].[Customers] " +
+                "t2 ON t1.CustomerID = t2.CustomerID; ";
+
+
+            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            customerList.Add(reader["Name"].ToString());
+                        }
+                    }
+                }
+
+                return customerList;
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
     }
 }

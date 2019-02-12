@@ -32,11 +32,11 @@
             this.cancelAddIncident = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.titleTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.customerIDField = new System.Windows.Forms.NumericUpDown();
             this.addIncidentButton = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanelIncident.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerIDField)).BeginInit();
             this.SuspendLayout();
@@ -49,11 +49,11 @@
             this.tableLayoutPanelIncident.Controls.Add(this.cancelAddIncident, 0, 3);
             this.tableLayoutPanelIncident.Controls.Add(this.descriptionTextBox, 1, 1);
             this.tableLayoutPanelIncident.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanelIncident.Controls.Add(this.titleTextBox, 1, 0);
             this.tableLayoutPanelIncident.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanelIncident.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanelIncident.Controls.Add(this.customerIDField, 1, 2);
             this.tableLayoutPanelIncident.Controls.Add(this.addIncidentButton, 0, 3);
+            this.tableLayoutPanelIncident.Controls.Add(this.comboBox1, 1, 0);
             this.tableLayoutPanelIncident.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelIncident.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelIncident.Name = "tableLayoutPanelIncident";
@@ -70,7 +70,7 @@
             this.cancelAddIncident.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cancelAddIncident.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cancelAddIncident.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.cancelAddIncident.Location = new System.Drawing.Point(334, 376);
+            this.cancelAddIncident.Location = new System.Drawing.Point(80, 376);
             this.cancelAddIncident.Name = "cancelAddIncident";
             this.cancelAddIncident.Size = new System.Drawing.Size(92, 29);
             this.cancelAddIncident.TabIndex = 11;
@@ -80,13 +80,13 @@
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.descriptionTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(256, 144);
+            this.descriptionTextBox.Location = new System.Drawing.Point(256, 161);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.descriptionTextBox.Size = new System.Drawing.Size(248, 79);
+            this.descriptionTextBox.Size = new System.Drawing.Size(248, 100);
             this.descriptionTextBox.TabIndex = 7;
             // 
             // label2
@@ -99,15 +99,6 @@
             this.label2.Size = new System.Drawing.Size(173, 24);
             this.label2.TabIndex = 6;
             this.label2.Text = "Incident description";
-            // 
-            // titleTextBox
-            // 
-            this.titleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleTextBox.Location = new System.Drawing.Point(256, 56);
-            this.titleTextBox.Name = "titleTextBox";
-            this.titleTextBox.Size = new System.Drawing.Size(248, 29);
-            this.titleTextBox.TabIndex = 5;
             // 
             // label4
             // 
@@ -160,13 +151,22 @@
             // 
             this.addIncidentButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addIncidentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addIncidentButton.Location = new System.Drawing.Point(80, 376);
+            this.addIncidentButton.Location = new System.Drawing.Point(334, 376);
             this.addIncidentButton.Name = "addIncidentButton";
             this.addIncidentButton.Size = new System.Drawing.Size(92, 29);
             this.addIncidentButton.TabIndex = 10;
             this.addIncidentButton.Text = "Add";
             this.addIncidentButton.UseVisualStyleBackColor = true;
             this.addIncidentButton.Click += new System.EventHandler(this.addIncidentButton_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(271, 60);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(218, 21);
+            this.comboBox1.TabIndex = 12;
             // 
             // addIncidentUserControl
             // 
@@ -186,12 +186,12 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelIncident;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox titleTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown customerIDField;
         private System.Windows.Forms.Button addIncidentButton;
         private System.Windows.Forms.Button cancelAddIncident;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
