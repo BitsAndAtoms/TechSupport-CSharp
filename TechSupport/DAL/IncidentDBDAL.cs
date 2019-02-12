@@ -7,14 +7,13 @@ namespace TechSupport.DAL
 {
     class IncidentDBDAL
     {
-         /// <summary>
+        /// <summary>
         /// This method fethces the incident data
         /// </summary>
         /// <returns>a list of Incidents</returns>
         public List<Incident> GETCustomerDBIncidents()
         {
             List<Incident> IncidentList = new List<Incident>();
-            SqlConnection connection = IncidentDBConnection.GetConnection();
             string selectStatement =
                 "SELECT [ProductCode]" +
                 ", t1.CustomerID, t1.Description" +
@@ -27,46 +26,35 @@ namespace TechSupport.DAL
                 " LEFT JOIN[TechSupport].[dbo].[Technicians]" +
                 " t3 ON t1.TechID = t3.TechID " +
                 "WHERE [DateClosed] IS NUll";
-            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
-            SqlDataReader reader = null;
 
-            try
+
+            using (SqlConnection connection = IncidentDBConnection.GetConnection())
             {
                 connection.Open();
-                reader = selectCommand.ExecuteReader();
 
-                while (reader.Read())
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
                 {
-                    Incident Incident = new Incident();
-                    Incident.CustomerID = (int)reader["CustomerID"];
-                    Incident.Title = reader["Title"].ToString();
-                    Incident.Description = reader["Description"].ToString();
-                    Incident.technicianName = reader["Technician"].ToString();
-                    Incident.customerName = reader["Customer"].ToString();
-                    Incident.dateOpened = reader["DateOpened"].ToString();
-                    Incident.productCode = reader["ProductCode"].ToString();
-                    IncidentList.Add(Incident);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Incident Incident = new Incident();
+                            Incident.CustomerID = (int)reader["CustomerID"];
+                            Incident.Title = reader["Title"].ToString();
+                            Incident.Description = reader["Description"].ToString();
+                            Incident.technicianName = reader["Technician"].ToString();
+                            Incident.customerName = reader["Customer"].ToString();
+                            Incident.dateOpened = reader["DateOpened"].ToString();
+                            Incident.productCode = reader["ProductCode"].ToString();
+                            IncidentList.Add(Incident);
+                        }
+                    }
                 }
 
+                return IncidentList;
             }
-            //catch (SqlException ex)
-            //{
-            //    throw;
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw;
-            //}
-            finally
-            {
-                if (connection != null)
-                    connection.Close();
-                if (reader != null)
-                    reader.Close();
-            }
-            return IncidentList;
+
+
         }
-
-
     }
 }
