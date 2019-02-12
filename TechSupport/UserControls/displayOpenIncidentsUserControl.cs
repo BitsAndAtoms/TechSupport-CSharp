@@ -36,10 +36,10 @@ namespace TechSupport.UserControls
                     for (int i = 0; i < incidentList.Count; i++)
                     {
                         incident = incidentList[i];
-                        openIncidents.Items.Add(incident.productCode);
-                        openIncidents.Items[i].SubItems.Add(incident.dateOpened);
-                        openIncidents.Items[i].SubItems.Add(incident.customerName);
-                        openIncidents.Items[i].SubItems.Add(incident.technicianName);
+                        openIncidents.Items.Add(incident.ProductCode);
+                        openIncidents.Items[i].SubItems.Add(incident.DateOpened);
+                        openIncidents.Items[i].SubItems.Add(incident.CustomerName);
+                        openIncidents.Items[i].SubItems.Add(incident.TechnicianName);
                         openIncidents.Items[i].SubItems.Add(incident.Title);
                     }
                 }

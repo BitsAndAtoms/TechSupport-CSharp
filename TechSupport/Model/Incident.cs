@@ -16,22 +16,22 @@ namespace TechSupport.Model
         /// <summary>
         /// name of the customer get set
         /// </summary>
-       public string customerName { get; set; }
+       public string CustomerName { get; set; }
 
         /// <summary>
         /// incident filed date get set
         /// </summary>
-        public string dateOpened { get; set; }
+        public string DateOpened { get; set; }
 
         /// <summary>
         /// product code get set
         /// </summary>
-        public string productCode { get; set; }
+        public string ProductCode { get; set; }
 
         /// <summary>
         /// product name get set
         /// </summary>
-        public string productName { get; set; }
+        public string ProductName { get; set; }
 
         /// <summary>
         /// title of the incident get set
@@ -51,7 +51,7 @@ namespace TechSupport.Model
         /// <summary>
         /// technician of the incident get set
         /// </summary>
-        public string technicianName { get; set; }
+        public string TechnicianName { get; set; }
     
     }
 }

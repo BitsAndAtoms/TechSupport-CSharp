@@ -53,18 +53,7 @@ namespace TechSupport.Controller
             return this.incidentDBSource.GETCustomerDBIncidents();
         }
 
-        /// <summary>
-        /// method to add a new incident to the incident list
-        /// </summary>
-        /// <param name="incident"> The incident to be added to the list</param>
-        public void Add(Incident incident)
-        {
-            if (incident == null)
-            {
-                throw new ArgumentException("Incident can not be null");
-            }
-            this.incidentSource.Add(incident);
-        }
+        
 
         /// <summary>
         /// method to add a new incident to the incident list
@@ -76,7 +65,7 @@ namespace TechSupport.Controller
             {
                 throw new ArgumentException("Incident can not be null");
             }
-            this.incidentDBSource.AddToDB(incident);
+            this.incidentDBSource.AddIncidentToDB(incident);
         }
 
         /// <summary>

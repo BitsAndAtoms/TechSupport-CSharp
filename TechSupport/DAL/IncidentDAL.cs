@@ -16,14 +16,14 @@ namespace TechSupport.DAL
         /// </summary>
         private static List<Incident> _customerIncidents = new List<Incident>
         {
-            addIncidentDetails("PC Maintainence","Computer is faulty and not turning on.",101),
-            addIncidentDetails("Software upgrade","OS needs to be updated by tech support.",23),
+            addDetailsttoIncident("PC Maintainence","Computer is faulty and not turning on.",101),
+            addDetailsttoIncident("Software upgrade","OS needs to be updated by tech support.",23),
         };
 
         /// <summary>
         /// Static method to initalize the _customerIncidents static variable
         /// </summary>
-        private static Incident addIncidentDetails(string Title, string description, int customerID)
+        private static Incident addDetailsttoIncident(string Title, string description, int customerID)
         {
             Incident incident1 = new Incident();
             incident1.CustomerID = customerID;

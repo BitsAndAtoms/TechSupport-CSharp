@@ -31,9 +31,9 @@ namespace TechSupport.UserControls
                 Incident newIncident = new Incident();
                 newIncident.Title = this.titleTextBox.Text;
                 newIncident.Description = this.descriptionTextBox.Text;
-                newIncident.customerName = this.customerNameComboBox.SelectedValue.ToString();
-                newIncident.productName = this.productNameComboBox.SelectedValue.ToString();
-                newIncident.dateOpened = DateTime.Now.ToString();
+                newIncident.CustomerName = this.customerNameComboBox.SelectedValue.ToString();
+                newIncident.ProductName = this.productNameComboBox.SelectedValue.ToString();
+                newIncident.DateOpened = DateTime.Now.ToString();
                 this.incidentController.AddToDB(newIncident);
                /// this.incidentController.Add(new Model.Incident(title, description, customerID));
             }

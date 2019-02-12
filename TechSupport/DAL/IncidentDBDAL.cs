@@ -42,29 +42,27 @@ namespace TechSupport.DAL
                             Incident.CustomerID = (int)reader["CustomerID"];
                             Incident.Title = reader["Title"].ToString();
                             Incident.Description = reader["Description"].ToString();
-                            Incident.technicianName = reader["Technician"].ToString();
-                            Incident.customerName = reader["Customer"].ToString();
-                            Incident.dateOpened = reader["DateOpened"].ToString();
-                            Incident.productCode = reader["ProductCode"].ToString();
+                            Incident.TechnicianName = reader["Technician"].ToString();
+                            Incident.CustomerName = reader["Customer"].ToString();
+                            Incident.DateOpened = reader["DateOpened"].ToString();
+                            Incident.ProductCode = reader["ProductCode"].ToString();
                             IncidentList.Add(Incident);
                         }
                     }
-                }
-
-               
+                }  
             }
-
             return IncidentList;
         }
 
 
         /// <summary>
-        /// This method fethces the incident data
+        /// This method fethces the customer name and the product names
+        /// of those customers who have registered their products
         /// </summary>
-        /// <returns>a list of Incidents</returns>
+        /// <returns>a dictionary of Incidents</returns>
         public Dictionary<string, List<string>> GETRegisteredDBCustomersWithProducts()
         {
-            Dictionary<string, List<string>> registeredCustomerAndProductsList = new Dictionary<string, List<string>>();
+            Dictionary<string, List<string>> RegisteredCustomerAndProductsList = new Dictionary<string, List<string>>();
 
             string selectStatement = "SELECT " +
                 "DISTINCT t2.Name AS customerName," +
@@ -76,7 +74,7 @@ namespace TechSupport.DAL
                 " ON t1.ProductCode = t3.ProductCode" +
                 " ORDER BY t2.Name;";
 
-            string currentName = null;
+            string CurrentName = null;
             List<string> productList = new List<string>();
 
             using (SqlConnection connection = IncidentDBConnection.GetConnection())
@@ -89,43 +87,38 @@ namespace TechSupport.DAL
                     {
                         while (reader.Read())
                         {
-                            string newName = reader["customerName"].ToString();
+                            string NewName = reader["customerName"].ToString();
 
-                            if (newName != currentName)
+                            if (NewName != CurrentName)
                             {
-                                if (!String.IsNullOrEmpty(currentName))
+                                if (!String.IsNullOrEmpty(CurrentName))
                                 {
-                                    registeredCustomerAndProductsList.Add(currentName, new List<string>(productList));
+                                    RegisteredCustomerAndProductsList.Add(CurrentName, new List<string>(productList));
                                 }
-
-
-                                currentName = newName;
+                                CurrentName = NewName;
                                 productList.Clear();
                             }
-                            string summy = reader["productName"].ToString();
                             productList.Add(reader["productName"].ToString());
-
                         }
                     }
                 }
-
-
             }
-
-            return registeredCustomerAndProductsList;
-
+            return RegisteredCustomerAndProductsList;
         }
 
-        internal void AddToDB(Incident incident)
+        /// <summary>
+        /// method to add an incident to database using parameterized queries
+        /// </summary>
+        /// <param name="incident">is the incident to be added</param>
+        internal void AddIncidentToDB(Incident incident)
         {
-            List<Incident> IncidentList = new List<Incident>();
             string insertStatement =
                 "INSERT INTO Incidents(Title,DateOpened,Description,CustomerID,ProductCode) " +
-                "VALUES(@incidentTitle, @incidentDate, @description, (SELECT DISTINCT[CustomerID] " +
+                "VALUES(@IncidentTitle, @IncidentDate, @Description, (SELECT DISTINCT[CustomerID] " +
                 "FROM[TechSupport].[dbo].[Customers] " +
-                "WHERE Name = @customerName),(SELECT DISTINCT[ProductCode] " +
+                "WHERE Name = @CustomerName),(SELECT DISTINCT[ProductCode] " +
                 "FROM[TechSupport].[dbo].[Products] " +
-                "WHERE Name = @productName)); ";
+                "WHERE Name = @ProductName)); ";
 
 
             using (SqlConnection connection = IncidentDBConnection.GetConnection())
@@ -134,22 +127,22 @@ namespace TechSupport.DAL
 
                 using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
                 {
-                    insertCommand.Parameters.AddWithValue("@customerName",incident.customerName);
-                    insertCommand.Parameters.AddWithValue("@productName", incident.productName);
-                    insertCommand.Parameters.AddWithValue("@incidentDate", incident.dateOpened);
+                    insertCommand.Parameters.AddWithValue("@CustomerName",incident.CustomerName);
+                    insertCommand.Parameters.AddWithValue("@ProductName", incident.ProductName);
+                    insertCommand.Parameters.AddWithValue("@IncidentDate", incident.DateOpened);
                     if(incident.Title == "") {
-                        insertCommand.Parameters.AddWithValue("@incidentTitle", DBNull.Value); 
+                        insertCommand.Parameters.AddWithValue("@IncidentTitle", DBNull.Value); 
                             }
                     else {
-                        insertCommand.Parameters.AddWithValue("@incidentTitle", incident.Title);
+                        insertCommand.Parameters.AddWithValue("@IncidentTitle", incident.Title);
                             }
                     if (incident.Description == "")
                     {
-                        insertCommand.Parameters.AddWithValue("@description", DBNull.Value);
+                        insertCommand.Parameters.AddWithValue("@Description", DBNull.Value);
                     }
                     else
                     {
-                        insertCommand.Parameters.AddWithValue("@description", incident.Description);
+                        insertCommand.Parameters.AddWithValue("@Description", incident.Description);
                     }
 
                     insertCommand.ExecuteNonQuery();
