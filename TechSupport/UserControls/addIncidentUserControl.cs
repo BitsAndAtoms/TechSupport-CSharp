@@ -51,13 +51,19 @@ namespace TechSupport.UserControls
             this.customerIDField.Value = 1;
         }
 
+        private void LoadProductNameComboBox()
+        {
+            this.productNameComboBox.DataSource = null;
+            List<string> valueList = new List<string>(this.incidentController.GetRegisteredDBCustomerAndProducts()[this.customerNameComboBox.SelectedValue.ToString()]);
+            this.productNameComboBox.DataSource = valueList;
+        }
+
         private void LoadCustomerNameComboBox()
         {
-            customerNameComboBox.DataSource = null;
+            this.customerNameComboBox.DataSource = null;
             List<string> keyList = new List<string>(this.incidentController.GetRegisteredDBCustomerAndProducts().Keys);
-            customerNameComboBox.DataSource = keyList;
-
-
+            this.customerNameComboBox.DataSource = keyList;
+            this.LoadProductNameComboBox();
         }
 
 
