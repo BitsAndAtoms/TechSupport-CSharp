@@ -32,15 +32,14 @@
             this.cancelAddIncident = new System.Windows.Forms.Button();
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.customerIDField = new System.Windows.Forms.NumericUpDown();
             this.addIncidentButton = new System.Windows.Forms.Button();
             this.customerNameComboBox = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.productLabel = new System.Windows.Forms.Label();
             this.productNameComboBox = new System.Windows.Forms.ComboBox();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanelIncident.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerIDField)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelIncident
@@ -49,15 +48,15 @@
             this.tableLayoutPanelIncident.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelIncident.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelIncident.Controls.Add(this.cancelAddIncident, 0, 4);
-            this.tableLayoutPanelIncident.Controls.Add(this.descriptionTextBox, 1, 2);
             this.tableLayoutPanelIncident.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanelIncident.Controls.Add(this.label3, 0, 3);
-            this.tableLayoutPanelIncident.Controls.Add(this.customerIDField, 1, 3);
             this.tableLayoutPanelIncident.Controls.Add(this.addIncidentButton, 0, 4);
             this.tableLayoutPanelIncident.Controls.Add(this.customerNameComboBox, 1, 0);
             this.tableLayoutPanelIncident.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanelIncident.Controls.Add(this.productLabel, 0, 1);
             this.tableLayoutPanelIncident.Controls.Add(this.productNameComboBox, 1, 1);
+            this.tableLayoutPanelIncident.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanelIncident.Controls.Add(this.descriptionTextBox, 1, 3);
+            this.tableLayoutPanelIncident.Controls.Add(this.titleTextBox, 1, 2);
             this.tableLayoutPanelIncident.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelIncident.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelIncident.Name = "tableLayoutPanelIncident";
@@ -88,11 +87,11 @@
             // 
             this.descriptionTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.descriptionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionTextBox.Location = new System.Drawing.Point(256, 181);
+            this.descriptionTextBox.Location = new System.Drawing.Point(256, 284);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.descriptionTextBox.Size = new System.Drawing.Size(248, 97);
+            this.descriptionTextBox.Size = new System.Drawing.Size(248, 85);
             this.descriptionTextBox.TabIndex = 7;
             // 
             // label2
@@ -100,58 +99,22 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(40, 217);
+            this.label2.Location = new System.Drawing.Point(104, 217);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 24);
+            this.label2.Size = new System.Drawing.Size(45, 24);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Incident description";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(72, 37);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 24);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Incident title";
+            this.label2.Text = "Title";
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(72, 314);
+            this.label3.Location = new System.Drawing.Point(74, 314);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(108, 24);
+            this.label3.Size = new System.Drawing.Size(104, 24);
             this.label3.TabIndex = 8;
-            this.label3.Text = "CustomerID";
-            // 
-            // customerIDField
-            // 
-            this.customerIDField.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customerIDField.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerIDField.Location = new System.Drawing.Point(256, 312);
-            this.customerIDField.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-            this.customerIDField.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.customerIDField.Name = "customerIDField";
-            this.customerIDField.Size = new System.Drawing.Size(248, 29);
-            this.customerIDField.TabIndex = 9;
-            this.customerIDField.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.customerIDField.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.label3.Text = "Description";
             // 
             // addIncidentButton
             // 
@@ -175,6 +138,17 @@
             this.customerNameComboBox.TabIndex = 12;
             this.customerNameComboBox.SelectedValueChanged += new System.EventHandler(this.customerNameComboBox_SelectedValueChanged);
             // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(53, 37);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(147, 24);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Customer Name";
+            // 
             // productLabel
             // 
             this.productLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -195,6 +169,15 @@
             this.productNameComboBox.Size = new System.Drawing.Size(216, 21);
             this.productNameComboBox.TabIndex = 14;
             // 
+            // titleTextBox
+            // 
+            this.titleTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.titleTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleTextBox.Location = new System.Drawing.Point(267, 216);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(225, 26);
+            this.titleTextBox.TabIndex = 15;
+            // 
             // addIncidentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,7 +187,6 @@
             this.Size = new System.Drawing.Size(507, 408);
             this.tableLayoutPanelIncident.ResumeLayout(false);
             this.tableLayoutPanelIncident.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerIDField)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -216,11 +198,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox descriptionTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown customerIDField;
         private System.Windows.Forms.Button addIncidentButton;
         private System.Windows.Forms.Button cancelAddIncident;
         private System.Windows.Forms.ComboBox customerNameComboBox;
         private System.Windows.Forms.Label productLabel;
         private System.Windows.Forms.ComboBox productNameComboBox;
+        private System.Windows.Forms.TextBox titleTextBox;
     }
 }

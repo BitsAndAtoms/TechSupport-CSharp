@@ -11,7 +11,7 @@ namespace TechSupport.Model
        public string customerName { get; set; }
        public string dateOpened { get; set; }
        public string productCode { get; set; }
-
+        public string productName { get; set; }
         public string Title { get; set;}
         public string Description { get; set; }
         public int CustomerID { get; set; }

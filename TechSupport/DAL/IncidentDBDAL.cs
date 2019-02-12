@@ -51,10 +51,10 @@ namespace TechSupport.DAL
                     }
                 }
 
-                return IncidentList;
+               
             }
 
-
+            return IncidentList;
         }
 
 
@@ -116,13 +116,50 @@ namespace TechSupport.DAL
 
         }
 
+        internal void AddToDB(Incident incident)
+        {
+            List<Incident> IncidentList = new List<Incident>();
+            string insertStatement =
+                "INSERT INTO Incidents(Title,DateOpened,Description,CustomerID,ProductCode) " +
+                "VALUES(@incidentTitle, @incidentDate, @description, (SELECT DISTINCT[CustomerID] " +
+                "FROM[TechSupport].[dbo].[Customers] " +
+                "WHERE Name = @customerName),(SELECT DISTINCT[ProductCode] " +
+                "FROM[TechSupport].[dbo].[Products] " +
+                "WHERE Name = @productName)); ";
 
 
+            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            {
+                connection.Open();
 
+                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                {
+                    insertCommand.Parameters.AddWithValue("@customerName",incident.customerName);
+                    insertCommand.Parameters.AddWithValue("@productName", incident.productName);
+                    insertCommand.Parameters.AddWithValue("@incidentDate", incident.dateOpened);
+                    if(incident.Title == "") {
+                        insertCommand.Parameters.AddWithValue("@incidentTitle", DBNull.Value); 
+                            }
+                    else {
+                        insertCommand.Parameters.AddWithValue("@incidentTitle", incident.Title);
+                            }
+                    if (incident.Description == "")
+                    {
+                        insertCommand.Parameters.AddWithValue("@description", DBNull.Value);
+                    }
+                    else
+                    {
+                        insertCommand.Parameters.AddWithValue("@description", incident.Description);
+                    }
 
+                    insertCommand.ExecuteNonQuery();
+                    
+                }
 
+                connection.Close();
+            }
 
-
-
+         
+        }
     }
 }

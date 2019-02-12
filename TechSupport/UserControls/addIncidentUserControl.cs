@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using TechSupport.Controller;
+using TechSupport.Model;
 
 namespace TechSupport.UserControls
 {
@@ -27,9 +28,13 @@ namespace TechSupport.UserControls
         {
             try
             {
-                ///var title = this.titleTextBox.Text;
-                var description = this.descriptionTextBox.Text;
-                var customerID = Convert.ToInt32(this.customerIDField.Value);
+                Incident newIncident = new Incident();
+                newIncident.Title = this.titleTextBox.Text;
+                newIncident.Description = this.descriptionTextBox.Text;
+                newIncident.customerName = this.customerNameComboBox.SelectedValue.ToString();
+                newIncident.productName = this.productNameComboBox.SelectedValue.ToString();
+                newIncident.dateOpened = DateTime.Now.ToString();
+                this.incidentController.AddToDB(newIncident);
                /// this.incidentController.Add(new Model.Incident(title, description, customerID));
             }
             catch (Exception ex)
@@ -48,7 +53,7 @@ namespace TechSupport.UserControls
         {
             ///this.titleTextBox.Text = "";
             this.descriptionTextBox.Text = "";
-            this.customerIDField.Value = 1;
+            //this.customerIDField.Value = 1;
         }
 
         private void LoadProductNameComboBox()
@@ -60,6 +65,7 @@ namespace TechSupport.UserControls
 
         private void LoadCustomerNameComboBox()
         {
+
             this.customerNameComboBox.DataSource = null;
             List<string> keyList = new List<string>(this.incidentController.GetRegisteredDBCustomerAndProducts().Keys);
             this.customerNameComboBox.DataSource = keyList;
@@ -71,5 +77,6 @@ namespace TechSupport.UserControls
             
             this.LoadProductNameComboBox();
         }
+
     }
 }
