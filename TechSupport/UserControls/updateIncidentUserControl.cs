@@ -30,13 +30,20 @@ namespace TechSupport.UserControls
                 newIncident.IncidentID = Convert.ToInt32(this.incidentIDTextBox.Text);
                 newIncident = this.incidentController.getIncidentFromDBbyID(newIncident);
 
+                if(!string.IsNullOrEmpty(newIncident.DateClosed))
+                {
+                    this.updateButton.Enabled = false;
+                    this.closeButton.Enabled = false;
+                }
+
                 if (newIncident.CustomerName == null)
                 {
                     throw new System.ArgumentException("No incident found for the selected ID");
                 }
+                
                 else
                 {
-                    this.customerNameTextBox.Text= newIncident.CustomerName;
+                    this.customerNameTextBox.Text = newIncident.CustomerName;
                     this.descriptionTextBox.Text = newIncident.Description;
                     this.titleTextBox.Text = newIncident.Title;
                     this.dateOpenedTextBox.Text = newIncident.DateOpened;
@@ -44,9 +51,9 @@ namespace TechSupport.UserControls
                     List<string> TechnicianList = new System.Collections.Generic.List<string>(this.incidentController.GETTechnicianListFromDB());
                     TechnicianList.Insert(0, "--Unassigned--");
                     this.technicianNameComboBox.DataSource = TechnicianList;
-                    this.technicianNameComboBox.SelectedIndex = Math.Max(this.technicianNameComboBox.Items.IndexOf(newIncident.TechnicianName),0);
+                    this.technicianNameComboBox.SelectedIndex = Math.Max(this.technicianNameComboBox.Items.IndexOf(newIncident.TechnicianName), 0);
                     this.IncidentID = newIncident.IncidentID;
-                    
+
                 }
             }
             catch (Exception ex)
@@ -66,43 +73,65 @@ namespace TechSupport.UserControls
         {
             Incident newIncident = new Incident(); 
             newIncident.IncidentID = this.IncidentID;
-
+            
             try
             {
-                if (string.IsNullOrEmpty(this.editDescriptionTextBox.Text)){
+                if (string.IsNullOrEmpty(this.editDescriptionTextBox.Text))
+                {
                     throw new System.ArgumentException("Text to add field can not be empty ");
                 }
-                newIncident=this.incidentController.getIncidentFromDBbyID(newIncident);
-                newIncident.Description = newIncident.Description + Environment.NewLine  + "<" +
+                newIncident = this.incidentController.getIncidentFromDBbyID(newIncident);
+                if ((sender as Button).Text.Equals("Close"))
+                {
+                    newIncident.DateClosed = DateTime.Now.ToString();
+                }
+                if (newIncident.Description.Length < 200)
+                {
+                    newIncident.Description = newIncident.Description + Environment.NewLine + "<" +
                     DateTime.Today.ToString("MM/dd/yyyy") + ">" +
                     this.editDescriptionTextBox.Text;
-                if (newIncident.Description.Length > 200)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Only 200 character allowed. New description will be truncated", "Character limit", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
+                    if (newIncident.Description.Length > 200)
                     {
-                        newIncident.Description = newIncident.Description.Substring(0, 200);
+                        DialogResult dialogResult = MessageBox.Show("Only 200 character allowed. New description will be truncated", "Character limit", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            newIncident.Description = newIncident.Description.Substring(0, 200);
+                            if (this.technicianNameComboBox.SelectedIndex != 0)
+                            {
+                                newIncident.TechnicianName = this.technicianNameComboBox.Text;
+                            }
+                            this.incidentController.updateIncidentInDB(newIncident);
+                            this.editDescriptionTextBox.Text = "";
+                            this.descriptionTextBox.Text = newIncident.Description;
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+
+                        }
+                    }
+                    else
+                    {
                         if (this.technicianNameComboBox.SelectedIndex != 0)
                         {
                             newIncident.TechnicianName = this.technicianNameComboBox.Text;
                         }
                         this.incidentController.updateIncidentInDB(newIncident);
+                        this.editDescriptionTextBox.Text = "";
+                        this.descriptionTextBox.Text = newIncident.Description;
                     }
-                    else if (dialogResult == DialogResult.No)
-                    {
 
-                    }
                 }
                 else {
+                    MessageBox.Show("Description is already 200 characters. No further " +
+                        " edition possible. Only technician name will be updated" ,
+                    "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     if (this.technicianNameComboBox.SelectedIndex != 0)
                     {
                         newIncident.TechnicianName = this.technicianNameComboBox.Text;
                     }
                     this.incidentController.updateIncidentInDB(newIncident);
-
+                    this.editDescriptionTextBox.Text = "";
                 }
-
-
             }
             catch (Exception ex)
             {
@@ -121,6 +150,19 @@ namespace TechSupport.UserControls
             this.dateOpenedTextBox.Text = "";
             this.productNameTextBox.Text = "";
             this.editDescriptionTextBox.Text = "";
+        }
+
+        private void closeButton_Click(object sender, EventArgs e)
+        {   DialogResult dialogResult = MessageBox.Show("Form can not be updated once closed. Confirm that you want to close", "Warning", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.updateButton_Click(sender, null);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
+
         }
     }
 }

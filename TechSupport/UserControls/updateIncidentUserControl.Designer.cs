@@ -137,7 +137,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel2.Controls.Add(this.clearButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.closeButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.updateButton, 0, 0);
@@ -153,7 +153,7 @@
             // 
             this.clearButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(340, 48);
+            this.clearButton.Location = new System.Drawing.Point(339, 48);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(68, 29);
             this.clearButton.TabIndex = 11;
@@ -172,6 +172,7 @@
             this.closeButton.TabIndex = 10;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
             // updateButton
             // 
