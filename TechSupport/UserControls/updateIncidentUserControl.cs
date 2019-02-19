@@ -157,6 +157,8 @@ namespace TechSupport.UserControls
             if (dialogResult == DialogResult.Yes)
             {
                 this.updateButton_Click(sender, null);
+                this.updateButton.Enabled = false;
+                this.closeButton.Enabled = false;
             }
             else if (dialogResult == DialogResult.No)
             {
