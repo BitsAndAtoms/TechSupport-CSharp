@@ -1,6 +1,6 @@
 ﻿namespace TechSupport.UserControls
 {
-    partial class searchIncidentUserControl
+    partial class updateIncidentUserControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.dateOpenedTextBox = new System.Windows.Forms.TextBox();
+            this.titleTextBox = new System.Windows.Forms.TextBox();
+            this.productNameTextBox = new System.Windows.Forms.TextBox();
+            this.customerNameTextBox = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.clearButton = new System.Windows.Forms.Button();
             this.closeButton = new System.Windows.Forms.Button();
@@ -46,11 +46,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.incidentIDTextBox = new System.Windows.Forms.TextBox();
             this.getIncidentButton = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.descriptionTextBox = new System.Windows.Forms.TextBox();
+            this.editDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.technicianNameComboBox = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -61,10 +61,10 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.58974F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.41026F));
-            this.tableLayoutPanel1.Controls.Add(this.textBox7, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBox6, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dateOpenedTextBox, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.titleTextBox, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.productNameTextBox, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.customerNameTextBox, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 1, 8);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
@@ -75,9 +75,9 @@
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label8, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel3, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 6);
-            this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.descriptionTextBox, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.editDescriptionTextBox, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.technicianNameComboBox, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -88,44 +88,48 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 24F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.91753F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.08247F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.96078F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.03922F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(390, 321);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // textBox7
+            // dateOpenedTextBox
             // 
-            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox7.Location = new System.Drawing.Point(94, 136);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(293, 20);
-            this.textBox7.TabIndex = 17;
+            this.dateOpenedTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dateOpenedTextBox.Enabled = false;
+            this.dateOpenedTextBox.Location = new System.Drawing.Point(94, 136);
+            this.dateOpenedTextBox.Name = "dateOpenedTextBox";
+            this.dateOpenedTextBox.Size = new System.Drawing.Size(102, 20);
+            this.dateOpenedTextBox.TabIndex = 17;
             // 
-            // textBox6
+            // titleTextBox
             // 
-            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox6.Location = new System.Drawing.Point(94, 112);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(293, 20);
-            this.textBox6.TabIndex = 16;
+            this.titleTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.titleTextBox.Enabled = false;
+            this.titleTextBox.Location = new System.Drawing.Point(94, 112);
+            this.titleTextBox.Name = "titleTextBox";
+            this.titleTextBox.Size = new System.Drawing.Size(293, 20);
+            this.titleTextBox.TabIndex = 16;
             // 
-            // textBox3
+            // productNameTextBox
             // 
-            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox3.Location = new System.Drawing.Point(94, 63);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(293, 20);
-            this.textBox3.TabIndex = 12;
+            this.productNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.productNameTextBox.Enabled = false;
+            this.productNameTextBox.Location = new System.Drawing.Point(94, 63);
+            this.productNameTextBox.Name = "productNameTextBox";
+            this.productNameTextBox.Size = new System.Drawing.Size(293, 20);
+            this.productNameTextBox.TabIndex = 12;
             // 
-            // textBox2
+            // customerNameTextBox
             // 
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Location = new System.Drawing.Point(94, 36);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(293, 20);
-            this.textBox2.TabIndex = 11;
+            this.customerNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.customerNameTextBox.Enabled = false;
+            this.customerNameTextBox.Location = new System.Drawing.Point(94, 36);
+            this.customerNameTextBox.Name = "customerNameTextBox";
+            this.customerNameTextBox.Size = new System.Drawing.Size(293, 20);
+            this.customerNameTextBox.TabIndex = 11;
             // 
             // tableLayoutPanel2
             // 
@@ -136,39 +140,40 @@
             this.tableLayoutPanel2.Controls.Add(this.clearButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.closeButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.updateButton, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(94, 289);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(94, 270);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(293, 29);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(293, 48);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // clearButton
             // 
-            this.clearButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clearButton.Location = new System.Drawing.Point(203, 3);
+            this.clearButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.clearButton.Location = new System.Drawing.Point(203, 12);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(87, 23);
+            this.clearButton.Size = new System.Drawing.Size(58, 23);
             this.clearButton.TabIndex = 7;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             // 
             // closeButton
             // 
-            this.closeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.closeButton.Location = new System.Drawing.Point(95, 3);
+            this.closeButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.closeButton.Location = new System.Drawing.Point(95, 12);
             this.closeButton.Name = "closeButton";
-            this.closeButton.Size = new System.Drawing.Size(102, 23);
+            this.closeButton.Size = new System.Drawing.Size(73, 23);
             this.closeButton.TabIndex = 6;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             // 
             // updateButton
             // 
-            this.updateButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.updateButton.Location = new System.Drawing.Point(3, 3);
+            this.updateButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.updateButton.Location = new System.Drawing.Point(3, 12);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(86, 23);
+            this.updateButton.Size = new System.Drawing.Size(57, 23);
             this.updateButton.TabIndex = 5;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
@@ -243,7 +248,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 185);
+            this.label7.Location = new System.Drawing.Point(3, 178);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 13);
             this.label7.TabIndex = 8;
@@ -254,7 +259,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 248);
+            this.label8.Location = new System.Drawing.Point(3, 232);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(69, 13);
             this.label8.TabIndex = 9;
@@ -266,67 +271,69 @@
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.51194F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.48806F));
-            this.tableLayoutPanel3.Controls.Add(this.textBox1, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.incidentIDTextBox, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.getIncidentButton, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(94, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(91, 3);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(293, 27);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(296, 27);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
-            // textBox1
+            // incidentIDTextBox
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(141, 20);
-            this.textBox1.TabIndex = 0;
+            this.incidentIDTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.incidentIDTextBox.Location = new System.Drawing.Point(3, 3);
+            this.incidentIDTextBox.Name = "incidentIDTextBox";
+            this.incidentIDTextBox.Size = new System.Drawing.Size(99, 20);
+            this.incidentIDTextBox.TabIndex = 0;
             // 
             // getIncidentButton
             // 
-            this.getIncidentButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.getIncidentButton.Location = new System.Drawing.Point(150, 3);
+            this.getIncidentButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.getIncidentButton.Location = new System.Drawing.Point(152, 3);
             this.getIncidentButton.Name = "getIncidentButton";
-            this.getIncidentButton.Size = new System.Drawing.Size(140, 21);
+            this.getIncidentButton.Size = new System.Drawing.Size(47, 21);
             this.getIncidentButton.TabIndex = 1;
             this.getIncidentButton.Text = "Get";
             this.getIncidentButton.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // descriptionTextBox
             // 
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Location = new System.Drawing.Point(94, 163);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(293, 58);
-            this.textBox4.TabIndex = 13;
+            this.descriptionTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.descriptionTextBox.Enabled = false;
+            this.descriptionTextBox.Location = new System.Drawing.Point(94, 163);
+            this.descriptionTextBox.Multiline = true;
+            this.descriptionTextBox.Name = "descriptionTextBox";
+            this.descriptionTextBox.Size = new System.Drawing.Size(293, 44);
+            this.descriptionTextBox.TabIndex = 13;
             // 
-            // textBox5
+            // editDescriptionTextBox
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox5.Location = new System.Drawing.Point(95, 227);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(290, 56);
-            this.textBox5.TabIndex = 4;
+            this.editDescriptionTextBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.editDescriptionTextBox.Location = new System.Drawing.Point(94, 213);
+            this.editDescriptionTextBox.Multiline = true;
+            this.editDescriptionTextBox.Name = "editDescriptionTextBox";
+            this.editDescriptionTextBox.Size = new System.Drawing.Size(290, 51);
+            this.editDescriptionTextBox.TabIndex = 4;
             // 
-            // comboBox1
+            // technicianNameComboBox
             // 
-            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(94, 87);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(293, 21);
-            this.comboBox1.TabIndex = 3;
+            this.technicianNameComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.technicianNameComboBox.FormattingEnabled = true;
+            this.technicianNameComboBox.Location = new System.Drawing.Point(94, 87);
+            this.technicianNameComboBox.Name = "technicianNameComboBox";
+            this.technicianNameComboBox.Size = new System.Drawing.Size(293, 21);
+            this.technicianNameComboBox.TabIndex = 3;
             // 
-            // searchIncidentUserControl
+            // updateIncidentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "searchIncidentUserControl";
+            this.Name = "updateIncidentUserControl";
             this.Size = new System.Drawing.Size(390, 321);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -350,17 +357,17 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox incidentIDTextBox;
+        private System.Windows.Forms.TextBox productNameTextBox;
+        private System.Windows.Forms.TextBox customerNameTextBox;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button closeButton;
         private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Button getIncidentButton;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox descriptionTextBox;
+        private System.Windows.Forms.TextBox editDescriptionTextBox;
+        private System.Windows.Forms.ComboBox technicianNameComboBox;
+        private System.Windows.Forms.TextBox dateOpenedTextBox;
+        private System.Windows.Forms.TextBox titleTextBox;
     }
 }
