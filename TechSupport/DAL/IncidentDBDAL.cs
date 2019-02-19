@@ -157,28 +157,25 @@ namespace TechSupport.DAL
 
 
         /// <summary>
-        /// method to add an incident to database using parameterized queries
+        /// method to get an incident from DB
+        /// based on incidentID
         /// </summary>
         /// <param name="incident">is the incident to be added</param>
         internal Incident getIncidentFromDBbyID(Incident incident)
         {
-            Incident Incident = new Incident();
-            Incident.IncidentID = incident.IncidentID;
             string selectStatement =
-                "SELECT [IncidentID]" +
-                ",t1.CustomerID" +
+              "SELECT [IncidentID]" +
                 ",[ProductCode]" +
                 ",[DateOpened]" +
                 ",[DateClosed]" +
                 ",[Title]" +
                 ",[Description]" +
-                ",t3.TechID," +
-                "t2.Name AS CustomerName," +
+                ",t2.Name AS CustomerName," +
                 "t3.Name AS TechnicianName" +
                 " FROM[TechSupport].[dbo].[Incidents] as t1" +
                 " LEFT JOIN[TechSupport].[dbo].[Customers] t2 ON t1.CustomerID = t2.CustomerID" +
                 " LEFT JOIN[TechSupport].[dbo].[Technicians] t3 ON t1.TechID = t3.TechID" +
-                " WHERE IncidentID = @IncidentID;";
+              " WHERE IncidentID = @IncidentID;";
 
 
             using (SqlConnection connection = IncidentDBConnection.GetConnection())
@@ -192,19 +189,18 @@ namespace TechSupport.DAL
                     {
                         while (reader.Read())
                         {
-                            
-                            Incident.CustomerID = (int)reader["CustomerID"];
-                            Incident.Title = reader["Title"].ToString();
-                            Incident.Description = reader["Description"].ToString();
-                            Incident.TechnicianName = reader["TechnicianName"].ToString();
-                            Incident.CustomerName = reader["CustomerName"].ToString();
-                            Incident.DateOpened = reader["DateOpened"].ToString();
-                            Incident.ProductCode = reader["ProductCode"].ToString();
+                            incident.Title = reader["Title"].ToString();
+                            incident.Description = reader["Description"].ToString();
+                            incident.TechnicianName = reader["TechnicianName"].ToString();
+                            incident.CustomerName = reader["CustomerName"].ToString();
+                            incident.DateOpened = reader["DateOpened"].ToString();
+                            incident.ProductCode = reader["ProductCode"].ToString();
+                            incident.DateClosed = reader["DateClosed"].ToString();
                         }
                     }
                 }
             }
-            return Incident;
+            return incident;
         }
 
 
