@@ -46,9 +46,9 @@ namespace TechSupport.View
         private void DashboardTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["displayOpenIncidents"])
-            {this.displayOpenIncidentsUserControl1.updateListOfIncidents();}
-            else if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["loadIncident"])
-            {this.loadIncidentUserControl1.RefreshDataGrid();}
+            {this.displayOpenIncidentsUserControl1.updateListOfIncidents();
+            }
+            
             else if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["addIncident"])
             { this.addIncidentUserControl1.resetIncidentTabButton_Click(null, null); }
         }
@@ -56,6 +56,11 @@ namespace TechSupport.View
         private void logoutLabelLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Hide();
+        }
+
+        private void MainDashboard_Load(object sender, EventArgs e)
+        {
+            this.displayOpenIncidentsUserControl1.updateListOfIncidents();
         }
     }
 }
