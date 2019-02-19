@@ -57,20 +57,57 @@ namespace TechSupport.UserControls
             }
         }
 
+        /// <summary>
+        /// Method to update the record based on entered incident data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void updateButton_Click(object sender, EventArgs e)
         {
-            Incident newIncident = new Incident(); DateTime.Now.ToString();
+            Incident newIncident = new Incident(); 
             newIncident.IncidentID = this.IncidentID;
+
             try
             {
-                newIncident.Description = newIncident.Description + this.editDescriptionTextBox.Text;
-                this.incidentController.updateIncidentInDB(newIncident);
-                if (this.technicianNameComboBox.SelectedIndex != 1)
-                {
-                    newIncident.TechnicianName = this.technicianNameComboBox.SelectedText;
+                if (string.IsNullOrEmpty(this.editDescriptionTextBox.Text)){
+                    throw new System.ArgumentException("Text to add field can not be empty ");
                 }
+                newIncident=this.incidentController.getIncidentFromDBbyID(newIncident);
+                newIncident.Description = newIncident.Description + Environment.NewLine  + "<" +
+                    DateTime.Today.ToString("MM/dd/yyyy") + ">" +
+                    this.editDescriptionTextBox.Text;
+                if (newIncident.Description.Length > 200)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Only 200 character allowed. New description will be truncated", "Character limit", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        newIncident.Description = newIncident.Description.Substring(0, 200);
+                        if (this.technicianNameComboBox.SelectedIndex != 0)
+                        {
+                            newIncident.TechnicianName = this.technicianNameComboBox.Text;
+                        }
+                        this.incidentController.updateIncidentInDB(newIncident);
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+
+                    }
+                }
+                else {
+                    if (this.technicianNameComboBox.SelectedIndex != 0)
+                    {
+                        newIncident.TechnicianName = this.technicianNameComboBox.Text;
+                    }
+                    this.incidentController.updateIncidentInDB(newIncident);
+
+                }
+
+
             }
-            catch {
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex.Message,
+                    "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
