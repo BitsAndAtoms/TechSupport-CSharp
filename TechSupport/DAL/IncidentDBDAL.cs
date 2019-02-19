@@ -163,6 +163,7 @@ namespace TechSupport.DAL
         internal Incident getIncidentFromDBbyID(Incident incident)
         {
             Incident Incident = new Incident();
+            Incident.IncidentID = incident.IncidentID;
             string selectStatement =
                 "SELECT [IncidentID]" +
                 ",t1.CustomerID" +
@@ -205,5 +206,72 @@ namespace TechSupport.DAL
             }
             return Incident;
         }
+
+
+
+        /// <summary>
+        /// method to add an incident to database using parameterized queries
+        /// </summary>
+        /// <param name="incident">is the incident to be added</param>
+        internal void updateIncidentInDB(Incident incident)
+        {
+            string updateStatement =
+              "UPDATE Incidents SET " +
+                "DateClosed = @DateClosed, " +
+                "Description = @Description, " +
+                "TechID = (SELECT DISTINCT [TechID] " +
+                "FROM[TechSupport].[dbo].[Technicians] " +
+                "WHERE Name = @TechName) " +
+              "WHERE IncidentID = @IncidentID;";
+
+
+            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@IncidentID", incident.IncidentID);
+                    if (incident.Description == null)
+                    {
+                        updateCommand.Parameters.AddWithValue("@Description", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@Description", incident.Description);
+                    }
+
+                    if (incident.TechnicianName == "")
+                    {
+                        updateCommand.Parameters.AddWithValue("@TechName", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@TechName", incident.TechnicianName);
+                    }
+                    if (String.IsNullOrEmpty(incident.DateClosed))
+                    {
+                        updateCommand.Parameters.AddWithValue("@DateClosed", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@DateClosed", incident.DateClosed);
+                    }
+
+                    int count = updateCommand.ExecuteNonQuery() ;
+
+                }
+
+                connection.Close();
+            }
+
+
+        }
+
+
+
+
+
+
     }
 }

@@ -15,6 +15,12 @@ namespace TechSupport.Model
        public string CustomerName { get; set; }
 
         /// <summary>
+        /// incident closed date get set
+        /// </summary>
+        public string DateClosed { get; set; }
+
+
+        /// <summary>
         /// incident filed date get set
         /// </summary>
         public string DateOpened { get; set; }
