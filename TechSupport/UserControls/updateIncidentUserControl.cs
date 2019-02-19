@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using TechSupport.Controller;
@@ -9,7 +10,7 @@ namespace TechSupport.UserControls
     public partial class updateIncidentUserControl : UserControl
     {
         private readonly IncidentController incidentController;
-
+        private int IncidentID;
         /// <summary>
         /// constructor for the searchIncidentUserControl form
         /// </summary>
@@ -21,6 +22,8 @@ namespace TechSupport.UserControls
 
         private void getIncidentButton_Click(object sender, EventArgs e)
         {
+            this.updateButton.Enabled = true;
+            this.closeButton.Enabled = true;
             Incident newIncident = new Incident();
             try
             {
@@ -38,28 +41,49 @@ namespace TechSupport.UserControls
                     this.titleTextBox.Text = newIncident.Title;
                     this.dateOpenedTextBox.Text = newIncident.DateOpened;
                     this.productNameTextBox.Text = newIncident.ProductCode;
+                    List<string> TechnicianList = new System.Collections.Generic.List<string>(this.incidentController.GETTechnicianListFromDB());
+                    TechnicianList.Insert(0, "--Unassigned--");
+                    this.technicianNameComboBox.DataSource = TechnicianList;
+                    this.technicianNameComboBox.SelectedIndex = Math.Max(this.technicianNameComboBox.Items.IndexOf(newIncident.TechnicianName),0);
+                    this.IncidentID = newIncident.IncidentID;
+                    
                 }
-
-                
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Input must be a numeric integer\n" + ex.Message,
+                this.clearButton_Click(null, null);
+                MessageBox.Show("" + ex.Message,
                     "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            Incident newIncident = new Incident();
-            newIncident.IncidentID = Convert.ToInt32(this.incidentIDTextBox.Text);
-            newIncident = this.incidentController.getIncidentFromDBbyID(newIncident);
-            
-            newIncident.Description = newIncident.Description + this.editDescriptionTextBox.Text;
-            this.incidentController.updateIncidentInDB(newIncident);
+            Incident newIncident = new Incident(); DateTime.Now.ToString();
+            newIncident.IncidentID = this.IncidentID;
+            try
+            {
+                newIncident.Description = newIncident.Description + this.editDescriptionTextBox.Text;
+                this.incidentController.updateIncidentInDB(newIncident);
+                if (this.technicianNameComboBox.SelectedIndex != 1)
+                {
+                    newIncident.TechnicianName = this.technicianNameComboBox.SelectedText;
+                }
+            }
+            catch {
+            }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            this.technicianNameComboBox.DataSource = null;
+            this.incidentIDTextBox.Text = "";
+            this.customerNameTextBox.Text = "";
+            this.descriptionTextBox.Text = "";
+            this.titleTextBox.Text = "";
+            this.dateOpenedTextBox.Text = "";
+            this.productNameTextBox.Text = "";
+            this.editDescriptionTextBox.Text = "";
         }
     }
 }

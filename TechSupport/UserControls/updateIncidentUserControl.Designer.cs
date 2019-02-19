@@ -137,7 +137,7 @@
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
             this.tableLayoutPanel2.Controls.Add(this.clearButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.closeButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.updateButton, 0, 0);
@@ -153,16 +153,18 @@
             // 
             this.clearButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(341, 48);
+            this.clearButton.Location = new System.Drawing.Point(340, 48);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(68, 29);
             this.clearButton.TabIndex = 11;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // closeButton
             // 
             this.closeButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.closeButton.Enabled = false;
             this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.closeButton.Location = new System.Drawing.Point(158, 48);
             this.closeButton.Name = "closeButton";
@@ -174,6 +176,7 @@
             // updateButton
             // 
             this.updateButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.updateButton.Enabled = false;
             this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateButton.Location = new System.Drawing.Point(3, 44);
             this.updateButton.Name = "updateButton";
@@ -337,6 +340,7 @@
             // technicianNameComboBox
             // 
             this.technicianNameComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.technicianNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.technicianNameComboBox.FormattingEnabled = true;
             this.technicianNameComboBox.Location = new System.Drawing.Point(140, 87);
             this.technicianNameComboBox.Name = "technicianNameComboBox";
