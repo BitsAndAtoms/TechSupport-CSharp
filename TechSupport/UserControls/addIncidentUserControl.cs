@@ -60,13 +60,21 @@ namespace TechSupport.UserControls
         {
            this.descriptionTextBox.Text = "";
             this.titleTextBox.Text = "";
-            ///this.LoadCustomerNameComboBox();
+            this.customerNameComboBox.SelectedIndex = 1;
         }
 
         private void LoadProductNameComboBox()
         {
-            this.productNameComboBox.DataSource = null;
-            this.productNameComboBox.DataSource = new List<string>(this.incidentController.GetRegisteredDBCustomersAndProducts()[this.customerNameComboBox.SelectedValue.ToString()]);       
+            try
+            {
+                this.productNameComboBox.DataSource = null;
+                this.productNameComboBox.DataSource = new List<string>(this.incidentController.GetRegisteredDBCustomersAndProducts()[this.customerNameComboBox.SelectedValue.ToString()]);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Warning, cannot load product data at this time." + ex.Message,
+                    "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -83,7 +91,7 @@ namespace TechSupport.UserControls
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something is wrong, cannot load customer data at this time." + ex.Message,
+                MessageBox.Show("Warning, cannot load customer data at this time." + ex.Message,
                     "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 

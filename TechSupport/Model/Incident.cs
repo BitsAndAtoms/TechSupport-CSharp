@@ -8,11 +8,7 @@ namespace TechSupport.Model
     /// </summary>
     public class Incident
     {
-        /// <summary>
-        /// Default 0 parameter constructor
-        /// </summary>
-        public Incident() { }
-
+        
         /// <summary>
         /// name of the customer get set
         /// </summary>
