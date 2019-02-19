@@ -78,7 +78,7 @@
             this.cancelAddIncident.Location = new System.Drawing.Point(80, 371);
             this.cancelAddIncident.Name = "cancelAddIncident";
             this.cancelAddIncident.Size = new System.Drawing.Size(92, 29);
-            this.cancelAddIncident.TabIndex = 11;
+            this.cancelAddIncident.TabIndex = 6;
             this.cancelAddIncident.Text = "Reset";
             this.cancelAddIncident.UseVisualStyleBackColor = true;
             this.cancelAddIncident.Click += new System.EventHandler(this.resetIncidentTabButton_Click);
@@ -101,7 +101,7 @@
             this.addIncidentButton.Location = new System.Drawing.Point(334, 371);
             this.addIncidentButton.Name = "addIncidentButton";
             this.addIncidentButton.Size = new System.Drawing.Size(92, 29);
-            this.addIncidentButton.TabIndex = 10;
+            this.addIncidentButton.TabIndex = 5;
             this.addIncidentButton.Text = "Add";
             this.addIncidentButton.UseVisualStyleBackColor = true;
             this.addIncidentButton.Click += new System.EventHandler(this.addIncidentButton_Click);
@@ -115,7 +115,7 @@
             this.customerNameComboBox.Location = new System.Drawing.Point(271, 14);
             this.customerNameComboBox.Name = "customerNameComboBox";
             this.customerNameComboBox.Size = new System.Drawing.Size(218, 28);
-            this.customerNameComboBox.TabIndex = 12;
+            this.customerNameComboBox.TabIndex = 1;
             this.customerNameComboBox.SelectedValueChanged += new System.EventHandler(this.customerNameComboBox_SelectedValueChanged);
             // 
             // customerLabel
@@ -149,7 +149,7 @@
             this.productNameComboBox.Location = new System.Drawing.Point(272, 67);
             this.productNameComboBox.Name = "productNameComboBox";
             this.productNameComboBox.Size = new System.Drawing.Size(216, 28);
-            this.productNameComboBox.TabIndex = 14;
+            this.productNameComboBox.TabIndex = 2;
             // 
             // descritionLabel
             // 
@@ -171,7 +171,7 @@
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.descriptionTextBox.Size = new System.Drawing.Size(220, 78);
-            this.descriptionTextBox.TabIndex = 7;
+            this.descriptionTextBox.TabIndex = 4;
             // 
             // titleTextBox
             // 
@@ -180,7 +180,7 @@
             this.titleTextBox.Location = new System.Drawing.Point(267, 167);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(225, 26);
-            this.titleTextBox.TabIndex = 15;
+            this.titleTextBox.TabIndex = 3;
             // 
             // addIncidentUserControl
             // 

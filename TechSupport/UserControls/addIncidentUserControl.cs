@@ -34,12 +34,19 @@ namespace TechSupport.UserControls
                 newIncident.CustomerName = this.customerNameComboBox.SelectedValue.ToString();
                 newIncident.ProductName = this.productNameComboBox.SelectedValue.ToString();
                 newIncident.DateOpened = DateTime.Now.ToString();
-                this.incidentController.AddIncidentToDB(newIncident);
-                MessageBox.Show("Incident added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (String.IsNullOrEmpty(newIncident.Title) || String.IsNullOrEmpty(newIncident.Description))
+                {
+                    throw new System.ArgumentException("Incident title/description can not be empty");
+                }
+                else {
+                    this.incidentController.AddIncidentToDB(newIncident);
+                    MessageBox.Show("Incident added successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Something is wrong with the input, Title/Description can not be null!!!\n" + ex.Message,
+                MessageBox.Show("Something is wrong with the input\n" + ex.Message,
                     "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -52,7 +59,8 @@ namespace TechSupport.UserControls
         public void resetIncidentTabButton_Click(object sender, EventArgs e)
         {
            this.descriptionTextBox.Text = "";
-            this.titleTextBox.Text = ""; 
+            this.titleTextBox.Text = "";
+            ///this.LoadCustomerNameComboBox();
         }
 
         private void LoadProductNameComboBox()
@@ -68,8 +76,17 @@ namespace TechSupport.UserControls
         private void LoadCustomerNameComboBox()
         {
             this.customerNameComboBox.DataSource = null;
-            this.customerNameComboBox.DataSource = new List<string>(this.incidentController.GetRegisteredDBCustomersAndProducts().Keys);   
-            this.LoadProductNameComboBox();
+            try
+            {
+                this.customerNameComboBox.DataSource = new List<string>(this.incidentController.GetRegisteredDBCustomersAndProducts().Keys);
+                this.LoadProductNameComboBox();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Something is wrong, cannot load customer data at this time." + ex.Message,
+                    "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         /// <summary>
