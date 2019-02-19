@@ -45,6 +45,11 @@ namespace TechSupport.Model
         public int CustomerID { get; set; }
 
         /// <summary>
+        /// incidentID of the incident get set
+        /// </summary>
+        public int IncidentID { get; set; }
+
+        /// <summary>
         /// technician of the incident get set
         /// </summary>
         public string TechnicianName { get; set; }

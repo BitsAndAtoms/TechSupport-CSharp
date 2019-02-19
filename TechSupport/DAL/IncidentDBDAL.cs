@@ -154,5 +154,56 @@ namespace TechSupport.DAL
 
          
         }
+
+
+        /// <summary>
+        /// method to add an incident to database using parameterized queries
+        /// </summary>
+        /// <param name="incident">is the incident to be added</param>
+        internal Incident getIncidentFromDBbyID(Incident incident)
+        {
+            Incident Incident = new Incident();
+            string selectStatement =
+                "SELECT [IncidentID]" +
+                ",t1.CustomerID" +
+                ",[ProductCode]" +
+                ",[DateOpened]" +
+                ",[DateClosed]" +
+                ",[Title]" +
+                ",[Description]" +
+                ",t3.TechID," +
+                "t2.Name AS CustomerName," +
+                "t3.Name AS TechnicianName" +
+                " FROM[TechSupport].[dbo].[Incidents] as t1" +
+                " LEFT JOIN[TechSupport].[dbo].[Customers] t2 ON t1.CustomerID = t2.CustomerID" +
+                " LEFT JOIN[TechSupport].[dbo].[Technicians] t3 ON t1.TechID = t3.TechID" +
+                " WHERE IncidentID = @IncidentID;";
+
+
+            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@IncidentID", incident.IncidentID);
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            
+                            Incident.CustomerID = (int)reader["CustomerID"];
+                            Incident.Title = reader["Title"].ToString();
+                            Incident.Description = reader["Description"].ToString();
+                            Incident.TechnicianName = reader["TechnicianName"].ToString();
+                            Incident.CustomerName = reader["CustomerName"].ToString();
+                            Incident.DateOpened = reader["DateOpened"].ToString();
+                            Incident.ProductCode = reader["ProductCode"].ToString();
+                        }
+                    }
+                }
+            }
+            return Incident;
+        }
     }
 }
