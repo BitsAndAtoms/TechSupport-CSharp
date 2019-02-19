@@ -69,9 +69,5 @@ namespace TechSupport.View
             Application.Exit();
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

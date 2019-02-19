@@ -34,7 +34,7 @@ namespace TechSupport.View
         /// </summary>
         public void setUserNameDisplay(String userName)
         {
-            this.loadIncidentUserControl1.setUserNameDisplay(userName);
+            this.loginUsername.Text="Welcome! " + userName;
         }
        
         /// <summary>
@@ -53,6 +53,9 @@ namespace TechSupport.View
             { this.addIncidentUserControl1.resetIncidentTabButton_Click(null, null); }
         }
 
-  
+        private void logoutLabelLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
