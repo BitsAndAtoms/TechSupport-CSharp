@@ -163,11 +163,12 @@ namespace TechSupport.DAL
         /// <param name="incident">is the incident to be added</param>
         internal Incident getIncidentFromDBbyID(Incident incident)
         {
+            Incident newIncident = new Incident();
             string selectStatement =
               "SELECT [IncidentID]" +
                 ",[ProductCode]" +
-                ",[DateOpened]" +
-                ",[DateClosed]" +
+                ",FORMAT([DateOpened],'MM/dd/yyyy') as 'DateOpened'" +
+                ",FORMAT([DateClosed],'MM/dd/yyyy') as 'DateClosed'" +
                 ",[Title]" +
                 ",[Description]" +
                 ",t2.Name AS CustomerName," +
@@ -189,18 +190,19 @@ namespace TechSupport.DAL
                     {
                         while (reader.Read())
                         {
-                            incident.Title = reader["Title"].ToString();
-                            incident.Description = reader["Description"].ToString();
-                            incident.TechnicianName = reader["TechnicianName"].ToString();
-                            incident.CustomerName = reader["CustomerName"].ToString();
-                            incident.DateOpened = reader["DateOpened"].ToString();
-                            incident.ProductCode = reader["ProductCode"].ToString();
-                            incident.DateClosed = reader["DateClosed"].ToString();
+                            newIncident.IncidentID = (int)reader["IncidentID"];
+                            newIncident.Title = reader["Title"].ToString();
+                            newIncident.Description = reader["Description"].ToString();
+                            newIncident.TechnicianName = reader["TechnicianName"].ToString();
+                            newIncident.CustomerName = reader["CustomerName"].ToString();
+                            newIncident.DateOpened = reader["DateOpened"].ToString();
+                            newIncident.ProductCode = reader["ProductCode"].ToString();
+                            newIncident.DateClosed = reader["DateClosed"].ToString();
                         }
                     }
                 }
             }
-            return incident;
+            return newIncident;
         }
         
 
