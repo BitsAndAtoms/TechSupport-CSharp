@@ -202,11 +202,10 @@ namespace TechSupport.DAL
             }
             return incident;
         }
-
-
+        
 
         /// <summary>
-        /// method to add an incident to database using parameterized queries
+        /// Add an incident to database based on incident ID
         /// </summary>
         /// <param name="incident">is the incident to be added</param>
         internal void updateIncidentInDB(Incident incident)
@@ -254,7 +253,7 @@ namespace TechSupport.DAL
                         updateCommand.Parameters.AddWithValue("@DateClosed", incident.DateClosed);
                     }
 
-                    int count = updateCommand.ExecuteNonQuery() ;
+                    updateCommand.ExecuteNonQuery() ;
 
                 }
 
@@ -264,6 +263,35 @@ namespace TechSupport.DAL
 
         }
 
+        /// <summary>
+        /// This method fethces the technicians names
+        /// </summary>
+        /// <returns>a list of technician names</returns>
+        public List<string> GETTechnicianListFromDB()
+        {
+            List<string> TechnicianList = new List<string>();
+            string selectStatement =
+                "SELECT DISTINCT [Name] " +
+                " FROM[TechSupport].[dbo].[Technicians]";
+
+
+            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                           TechnicianList.Add(reader["Name"].ToString());
+                        }
+                    }
+                }
+            }
+            return TechnicianList;
+        }
 
 
 

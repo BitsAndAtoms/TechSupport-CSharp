@@ -31,6 +31,17 @@ namespace TechSupport.Controller
         public List<Incident> GetCustomerIncidents()
         {
             return this.incidentSource.GETCustomerIncidents();
+            
+        }
+
+
+        /// <summary>
+        /// method to access the list of technicians available in DB
+        /// </summary>
+        /// <returns>Current list of technicians </returns>
+        public List<string> GETTechnicianListFromDB()
+        {
+            return this.incidentDBSource.GETTechnicianListFromDB();
         }
 
         /// <summary>
