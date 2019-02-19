@@ -103,7 +103,7 @@
             this.dateOpenedTextBox.Location = new System.Drawing.Point(140, 136);
             this.dateOpenedTextBox.Name = "dateOpenedTextBox";
             this.dateOpenedTextBox.Size = new System.Drawing.Size(102, 29);
-            this.dateOpenedTextBox.TabIndex = 17;
+            this.dateOpenedTextBox.TabIndex = 6;
             // 
             // titleTextBox
             // 
@@ -112,7 +112,7 @@
             this.titleTextBox.Location = new System.Drawing.Point(140, 112);
             this.titleTextBox.Name = "titleTextBox";
             this.titleTextBox.Size = new System.Drawing.Size(293, 29);
-            this.titleTextBox.TabIndex = 16;
+            this.titleTextBox.TabIndex = 5;
             // 
             // productNameTextBox
             // 
@@ -121,7 +121,7 @@
             this.productNameTextBox.Location = new System.Drawing.Point(140, 63);
             this.productNameTextBox.Name = "productNameTextBox";
             this.productNameTextBox.Size = new System.Drawing.Size(293, 29);
-            this.productNameTextBox.TabIndex = 12;
+            this.productNameTextBox.TabIndex = 3;
             // 
             // customerNameTextBox
             // 
@@ -130,14 +130,14 @@
             this.customerNameTextBox.Location = new System.Drawing.Point(140, 36);
             this.customerNameTextBox.Name = "customerNameTextBox";
             this.customerNameTextBox.Size = new System.Drawing.Size(293, 29);
-            this.customerNameTextBox.TabIndex = 11;
+            this.customerNameTextBox.TabIndex = 2;
             // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 99F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.Controls.Add(this.clearButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.closeButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.updateButton, 0, 0);
@@ -153,10 +153,10 @@
             // 
             this.clearButton.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(343, 48);
+            this.clearButton.Location = new System.Drawing.Point(342, 48);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(68, 29);
-            this.clearButton.TabIndex = 7;
+            this.clearButton.TabIndex = 11;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             // 
@@ -167,7 +167,7 @@
             this.closeButton.Location = new System.Drawing.Point(159, 48);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(89, 29);
-            this.closeButton.TabIndex = 6;
+            this.closeButton.TabIndex = 10;
             this.closeButton.Text = "Close";
             this.closeButton.UseVisualStyleBackColor = true;
             // 
@@ -178,7 +178,7 @@
             this.updateButton.Location = new System.Drawing.Point(3, 44);
             this.updateButton.Name = "updateButton";
             this.updateButton.Size = new System.Drawing.Size(96, 36);
-            this.updateButton.TabIndex = 5;
+            this.updateButton.TabIndex = 9;
             this.updateButton.Text = "Update";
             this.updateButton.UseVisualStyleBackColor = true;
             // 
@@ -312,6 +312,7 @@
             this.getIncidentButton.TabIndex = 1;
             this.getIncidentButton.Text = "Get";
             this.getIncidentButton.UseVisualStyleBackColor = true;
+            this.getIncidentButton.Click += new System.EventHandler(this.getIncidentButton_Click);
             // 
             // descriptionTextBox
             // 
@@ -321,7 +322,7 @@
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
             this.descriptionTextBox.Size = new System.Drawing.Size(293, 44);
-            this.descriptionTextBox.TabIndex = 13;
+            this.descriptionTextBox.TabIndex = 7;
             // 
             // editDescriptionTextBox
             // 
@@ -330,7 +331,7 @@
             this.editDescriptionTextBox.Multiline = true;
             this.editDescriptionTextBox.Name = "editDescriptionTextBox";
             this.editDescriptionTextBox.Size = new System.Drawing.Size(296, 51);
-            this.editDescriptionTextBox.TabIndex = 4;
+            this.editDescriptionTextBox.TabIndex = 8;
             // 
             // technicianNameComboBox
             // 
@@ -339,7 +340,7 @@
             this.technicianNameComboBox.Location = new System.Drawing.Point(140, 87);
             this.technicianNameComboBox.Name = "technicianNameComboBox";
             this.technicianNameComboBox.Size = new System.Drawing.Size(293, 32);
-            this.technicianNameComboBox.TabIndex = 3;
+            this.technicianNameComboBox.TabIndex = 4;
             // 
             // updateIncidentUserControl
             // 

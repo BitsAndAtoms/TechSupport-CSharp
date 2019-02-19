@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using TechSupport.Controller;
+using TechSupport.Model;
 
 namespace TechSupport.UserControls
 {
@@ -18,6 +19,12 @@ namespace TechSupport.UserControls
             this.incidentController = new IncidentController();
         }
 
-       
+        private void getIncidentButton_Click(object sender, EventArgs e)
+        {
+            Incident newIncident = new Incident();
+            newIncident.IncidentID = Convert.ToInt32(this.incidentIDTextBox.Text);
+            newIncident=this.incidentController.getIncidentFromDBbyID(newIncident);
+            this.descriptionTextBox.Text = newIncident.Description;
+        }
     }
 }
