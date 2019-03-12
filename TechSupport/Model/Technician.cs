@@ -1,5 +1,4 @@
 ﻿
-
 namespace TechSupport.Model
 {
     public class Technician

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,25 +10,23 @@ using System.Windows.Forms;
 using TechSupport.Controller;
 using TechSupport.Model;
 
-namespace TechSupport.View
+namespace TechSupport.UserControls
 {
-    
-    public partial class Form1 : Form
+    public partial class viewIncidentsByTechnician : UserControl
     {
         private TechnicianController newTechnicianController;
         private IncidentController newIncidentController;
         private List<Technician> technicianList;
         private List<Incident> incidentList;
-        public Form1()
+        public viewIncidentsByTechnician()
         {
             InitializeComponent();
             newTechnicianController = new TechnicianController();
             newIncidentController = new IncidentController();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void viewIncidentsByTechnician_Load(object sender, EventArgs e)
         {
-            
             this.technicianList = newTechnicianController.GETTechnicianListFromDBWithOpenIncidents();
             technicianNameComboBox.DataSource = technicianList;
         }
@@ -40,7 +38,7 @@ namespace TechSupport.View
                 return;
             }
             Technician technician = this.technicianList[technicianNameComboBox.SelectedIndex];
-            
+
             technicianBindingSource.Clear();
             technicianBindingSource.Add(technician);
             incidentBindingSource.Clear();
