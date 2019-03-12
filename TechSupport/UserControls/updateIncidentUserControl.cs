@@ -31,7 +31,7 @@ namespace TechSupport.UserControls
                 newIncident.IncidentID = Convert.ToInt32(this.incidentIDTextBox.Text);
                 newIncident = this.incidentController.getIncidentFromDBbyID(newIncident);
 
-                if(!string.IsNullOrEmpty(newIncident.DateClosed))
+                if (!string.IsNullOrEmpty(newIncident.DateClosed))
                 {
                     this.updateButton.Enabled = false;
                     this.closeButton.Enabled = false;
@@ -41,6 +41,9 @@ namespace TechSupport.UserControls
                 {
                     throw new System.ArgumentException("No incident found for the selected ID");
                 }
+
+              
+                
                 
                 else
                 {
@@ -81,7 +84,7 @@ namespace TechSupport.UserControls
                 Incident retrivedIncident= this.incidentController.getIncidentFromDBbyID(newIncident);
                 if (string.IsNullOrEmpty(this.editDescriptionTextBox.Text))
                 {
-                    throw new System.ArgumentException("Text to add field can not be empty ");
+                    throw new System.ArgumentException("Text to add field is empty. Description will not be updated ");
                 }
                 
                
@@ -106,7 +109,7 @@ namespace TechSupport.UserControls
                         }
                         else if (dialogResult == DialogResult.No)
                         {
-
+                           
                         }
                     }
                     else
@@ -138,10 +141,7 @@ namespace TechSupport.UserControls
                 MessageBox.Show("" + ex.Message,
                     "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             
-
-
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -161,27 +161,25 @@ namespace TechSupport.UserControls
             DialogResult dialogResult = MessageBox.Show("Form can not be updated once closed. Confirm that you want to close", "Warning", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                try { 
-                Incident newIncident = new Incident();
-                newIncident.IncidentID = this.IncidentID;
-                newIncident = this.incidentController.getIncidentFromDBbyID(newIncident);
-                Incident retrivedIncident1 = this.incidentController.getIncidentFromDBbyID(newIncident);
+                try {
+                    this.updateButton_Click(sender, null); 
+                    Incident retrivedIncident1 = new Incident();
+                    retrivedIncident1.IncidentID = this.IncidentID;
+                    retrivedIncident1 = this.incidentController.getIncidentFromDBbyID(retrivedIncident1);
+                    Incident  newIncident = this.incidentController.getIncidentFromDBbyID(retrivedIncident1);
                     
-                    if (newIncident.Description.Length < 200) {
-                     this.updateButton_Click(sender, null);
-                    }
-                    if (String.IsNullOrEmpty(newIncident.TechnicianName) & this.technicianNameComboBox.SelectedIndex == 0)
-                {
+                    if (String.IsNullOrEmpty(newIncident.TechnicianName))
+                    {
                     throw new System.ArgumentException("Can not be closed without assigning" +
                         " Technician ");
-                }
+                     }
 
-                newIncident.DateClosed = DateTime.Now.ToString();
-                this.incidentController.updateIncidentInDB(newIncident, retrivedIncident1);
-                this.editDescriptionTextBox.Text = "";
-                this.descriptionTextBox.Text = newIncident.Description;
-                this.updateButton.Enabled = false;
-                this.closeButton.Enabled = false;
+                     newIncident.DateClosed = DateTime.Now.ToString();
+                     this.incidentController.updateIncidentInDB(newIncident, retrivedIncident1);
+                     this.editDescriptionTextBox.Text = "";
+                     this.descriptionTextBox.Text = newIncident.Description;
+                     this.updateButton.Enabled = false;
+                     this.closeButton.Enabled = false;
             } catch (Exception ex)
             {
                 MessageBox.Show("" + ex.Message,
