@@ -21,7 +21,7 @@ namespace TechSupport.DAL
                 "FROM [TechSupport].[dbo].[Technicians] t1 " +
                 "LEFT JOIN[TechSupport].[dbo].[Incidents] t2 " +
                 "ON t1.TechID = t2.TechID " +
-                "WHERE DateClosed IS NULL) " +
+                ") " +
                 "AS b ON a.TechID =b.TechID";
 
             using (SqlConnection connection = DBConnection.GetConnection())

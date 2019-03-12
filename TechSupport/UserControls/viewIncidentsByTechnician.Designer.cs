@@ -138,6 +138,7 @@
             // 
             this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.technicianBindingSource, "Email", true));
             this.emailTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.emailTextBox.Enabled = false;
             this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTextBox.Location = new System.Drawing.Point(159, 36);
             this.emailTextBox.Name = "emailTextBox";
@@ -147,6 +148,7 @@
             // phoneTextBox
             // 
             this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.technicianBindingSource, "Phone", true));
+            this.phoneTextBox.Enabled = false;
             this.phoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.phoneTextBox.Location = new System.Drawing.Point(159, 65);
             this.phoneTextBox.Name = "phoneTextBox";
@@ -155,10 +157,10 @@
             // 
             // technicianNameComboBox
             // 
-            this.technicianNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.technicianBindingSource, "TechnicianName", true));
             this.technicianNameComboBox.DataSource = this.technicianBindingSource;
             this.technicianNameComboBox.DisplayMember = "TechnicianName";
             this.technicianNameComboBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.technicianNameComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.technicianNameComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.technicianNameComboBox.FormattingEnabled = true;
             this.technicianNameComboBox.Location = new System.Drawing.Point(159, 3);
