@@ -266,8 +266,8 @@ namespace TechSupport.DAL
                 "TechID = (SELECT DISTINCT [TechID] " +
                 "FROM[TechSupport].[dbo].[Technicians] " +
                 "WHERE Name = @TechName) " +
-              "WHERE IncidentID = @IncidentID AND Description = @OriginalDescription" +
-              " AND DateClosed = @OriginalDateClosed;";
+              "WHERE IncidentID = @IncidentID AND Description LIKE @OriginalDescription" +
+              " AND DateClosed IS NULL;";
 
 
             using (SqlConnection connection = DBConnection.GetConnection())

@@ -78,7 +78,7 @@ namespace TechSupport.UserControls
             try
             {
                 newIncident = this.incidentController.getIncidentFromDBbyID(newIncident);
-                Incident retrivedIncident= newIncident;
+                Incident retrivedIncident= this.incidentController.getIncidentFromDBbyID(newIncident);
                 if (string.IsNullOrEmpty(this.editDescriptionTextBox.Text))
                 {
                     throw new System.ArgumentException("Text to add field can not be empty ");
@@ -165,7 +165,8 @@ namespace TechSupport.UserControls
                 Incident newIncident = new Incident();
                 newIncident.IncidentID = this.IncidentID;
                 newIncident = this.incidentController.getIncidentFromDBbyID(newIncident);
-                Incident retrivedIncident = newIncident;
+                Incident retrivedIncident1 = this.incidentController.getIncidentFromDBbyID(newIncident);
+                    
                     if (newIncident.Description.Length < 200) {
                      this.updateButton_Click(sender, null);
                     }
@@ -176,7 +177,7 @@ namespace TechSupport.UserControls
                 }
 
                 newIncident.DateClosed = DateTime.Now.ToString();
-                this.incidentController.updateIncidentInDB(newIncident, retrivedIncident);
+                this.incidentController.updateIncidentInDB(newIncident, retrivedIncident1);
                 this.editDescriptionTextBox.Text = "";
                 this.descriptionTextBox.Text = newIncident.Description;
                 this.updateButton.Enabled = false;
