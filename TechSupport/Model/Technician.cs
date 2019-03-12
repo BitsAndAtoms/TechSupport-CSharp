@@ -2,7 +2,7 @@
 
 namespace TechSupport.Model
 {
-    class Technician
+    public class Technician
     {
             /// <summary>
             /// email of the technician get set

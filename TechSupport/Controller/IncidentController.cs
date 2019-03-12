@@ -85,10 +85,10 @@ namespace TechSupport.Controller
         /// <summary>
         /// method to get open incidents in the database by technician name
         /// </summary>
-        /// <param name="incident"> The incident to be added to the list</param>
-        public List<Incident> GetOpenDBIncidentsForTechnicianName()
+        /// <param name="newTechnician"> The technician\</param>
+        public List<Incident> GetOpenDBIncidentsForTechnicianID(Technician newTechnician)
         {
-            return this.incidentDBSource.GETCustomerDBIncidents();
+            return this.incidentDBSource.GETOpenIncidentsForTechnicianID(newTechnician);
         }
 
 

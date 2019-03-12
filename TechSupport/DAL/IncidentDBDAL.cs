@@ -54,6 +54,50 @@ namespace TechSupport.DAL
             return IncidentList;
         }
 
+        public List<Incident> GETOpenIncidentsForTechnicianID(Technician technician) {
+            List<Incident> IncidentList = new List<Incident>();
+            string selectStatement =
+                "SELECT [ProductCode]" +
+                ", t1.CustomerID, t1.Description" +
+                ", FORMAT([DateOpened],'MM/dd/yyyy') as 'DateOpened'" +
+                ",t2.Name AS Customer" +
+                ",t3.Name AS Technician" +
+                ",[Title] FROM[TechSupport].[dbo].[Incidents] " +
+                "t1 LEFT JOIN[TechSupport].[dbo].[Customers]" +
+                " t2 ON t1.CustomerID = t2.CustomerID" +
+                " LEFT JOIN[TechSupport].[dbo].[Technicians]" +
+                " t3 ON t1.TechID = t3.TechID " +
+                "WHERE [DateClosed] IS NUll AND" +
+                " t1.TechID = @TechID";
+
+
+            using (SqlConnection connection = DBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@TechID", technician.TechID);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Incident Incident = new Incident();
+                            Incident.CustomerID = (int)reader["CustomerID"];
+                            Incident.Title = reader["Title"].ToString();
+                            Incident.Description = reader["Description"].ToString();
+                            Incident.TechnicianName = reader["Technician"].ToString();
+                            Incident.CustomerName = reader["Customer"].ToString();
+                            Incident.DateOpened = reader["DateOpened"].ToString();
+                            Incident.ProductCode = reader["ProductCode"].ToString();
+                            IncidentList.Add(Incident);
+                        }
+                    }
+                }
+            }
+            return IncidentList;
+        }
 
         /// <summary>
         /// This method fethces the customer name and the product names

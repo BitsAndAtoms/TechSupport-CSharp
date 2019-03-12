@@ -44,8 +44,8 @@ namespace TechSupport.View
             technicianBindingSource.Clear();
             incidentBindingSource.Clear();
             technicianBindingSource.Add(technician);
-
-            incidentBindingSource.Add(incidentList);
+            this.incidentList = this.newIncidentController.GetOpenDBIncidentsForTechnicianID(technician);
+            incidentBindingSource.DataSource = incidentList;
         }
     }
 }

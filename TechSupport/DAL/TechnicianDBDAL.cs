@@ -35,9 +35,10 @@ namespace TechSupport.DAL
                         while (reader.Read())
                         {
                             Technician Technician = new Technician();
+                            Technician.TechID = (int)reader["TechID"];
                             Technician.Email = reader["Email"].ToString();
                             Technician.Phone = reader["Phone"].ToString();
-                             Technician.TechnicianName = reader["Technician"].ToString();
+                            Technician.TechnicianName = reader["Technician"].ToString();
                             TechnicianList.Add(Technician);
                         }
                     }
