@@ -5,7 +5,7 @@ namespace TechSupport.DAL
     /// <summary>
     ///  Method for creating a connection between C# and DB
     /// </summary>
-    class IncidentDBConnection
+    class DBConnection
     {
 
         public static SqlConnection GetConnection()

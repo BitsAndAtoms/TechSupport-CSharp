@@ -28,7 +28,7 @@ namespace TechSupport.DAL
                 "WHERE [DateClosed] IS NUll";
 
 
-            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
 
@@ -77,7 +77,7 @@ namespace TechSupport.DAL
             string CurrentName = null;
             List<string> productList = new List<string>();
 
-            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
 
@@ -121,7 +121,7 @@ namespace TechSupport.DAL
                 "WHERE Name = @ProductName)); ";
 
 
-            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
 
@@ -179,7 +179,7 @@ namespace TechSupport.DAL
               " WHERE IncidentID = @IncidentID;";
 
 
-            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
 
@@ -222,7 +222,7 @@ namespace TechSupport.DAL
               "WHERE IncidentID = @IncidentID;";
 
 
-            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
 
@@ -277,7 +277,7 @@ namespace TechSupport.DAL
                 " FROM[TechSupport].[dbo].[Technicians]";
 
 
-            using (SqlConnection connection = IncidentDBConnection.GetConnection())
+            using (SqlConnection connection = DBConnection.GetConnection())
             {
                 connection.Open();
 
