@@ -33,9 +33,9 @@
             System.Windows.Forms.Label phoneLabel;
             System.Windows.Forms.Label technicianNameLabel;
             this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.technicianBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.technicianNameComboBox = new System.Windows.Forms.ComboBox();
-            this.technicianBindingSource = new System.Windows.Forms.BindingSource(this.components);
             emailLabel = new System.Windows.Forms.Label();
             phoneLabel = new System.Windows.Forms.Label();
             technicianNameLabel = new System.Windows.Forms.Label();
@@ -51,14 +51,6 @@
             emailLabel.TabIndex = 1;
             emailLabel.Text = "Email:";
             // 
-            // emailTextBox
-            // 
-            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.technicianBindingSource, "Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(248, 96);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(121, 20);
-            this.emailTextBox.TabIndex = 2;
-            // 
             // phoneLabel
             // 
             phoneLabel.AutoSize = true;
@@ -68,14 +60,6 @@
             phoneLabel.TabIndex = 3;
             phoneLabel.Text = "Phone:";
             // 
-            // phoneTextBox
-            // 
-            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.technicianBindingSource, "Phone", true));
-            this.phoneTextBox.Location = new System.Drawing.Point(248, 122);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(121, 20);
-            this.phoneTextBox.TabIndex = 4;
-            // 
             // technicianNameLabel
             // 
             technicianNameLabel.AutoSize = true;
@@ -84,6 +68,26 @@
             technicianNameLabel.Size = new System.Drawing.Size(94, 13);
             technicianNameLabel.TabIndex = 5;
             technicianNameLabel.Text = "Technician Name:";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.technicianBindingSource, "Email", true));
+            this.emailTextBox.Location = new System.Drawing.Point(248, 96);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(121, 20);
+            this.emailTextBox.TabIndex = 2;
+            // 
+            // technicianBindingSource
+            // 
+            this.technicianBindingSource.DataSource = typeof(TechSupport.Model.Technician);
+            // 
+            // phoneTextBox
+            // 
+            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.technicianBindingSource, "Phone", true));
+            this.phoneTextBox.Location = new System.Drawing.Point(248, 122);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(121, 20);
+            this.phoneTextBox.TabIndex = 4;
             // 
             // technicianNameComboBox
             // 
@@ -95,10 +99,7 @@
             this.technicianNameComboBox.Name = "technicianNameComboBox";
             this.technicianNameComboBox.Size = new System.Drawing.Size(121, 21);
             this.technicianNameComboBox.TabIndex = 6;
-            // 
-            // technicianBindingSource
-            // 
-            this.technicianBindingSource.DataSource = typeof(TechSupport.Model.Technician);
+            this.technicianNameComboBox.SelectedIndexChanged += new System.EventHandler(this.technicianNameComboBox_SelectedIndexChanged);
             // 
             // Form1
             // 
