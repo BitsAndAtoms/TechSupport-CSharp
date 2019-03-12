@@ -50,6 +50,9 @@ namespace TechSupport.View
             }
             else if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["addIncident"])
             { this.addIncidentUserControl1.resetIncidentTabButton_Click(null, null); }
+            else if (DashboardTabControl.SelectedTab == DashboardTabControl.TabPages["viewIncidentsByTechnician"])
+            { this.viewIncidentsByTechnician1.viewIncidentsByTechnician_Load(null, null); }
+
         }
 
         private void logoutLabelLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

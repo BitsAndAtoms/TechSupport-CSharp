@@ -108,5 +108,9 @@ namespace TechSupport.UserControls
             this.LoadProductNameComboBox();
         }
 
+        private void tableLayoutPanelIncident_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

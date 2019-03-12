@@ -32,6 +32,7 @@
             System.Windows.Forms.Label emailLabel;
             System.Windows.Forms.Label phoneLabel;
             System.Windows.Forms.Label technicianNameLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.incidentDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +89,7 @@
             // incidentDataGridView
             // 
             this.incidentDataGridView.AutoGenerateColumns = false;
+            this.incidentDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.incidentDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.incidentDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn5,
@@ -95,6 +97,14 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn6});
             this.incidentDataGridView.DataSource = this.incidentBindingSource;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.incidentDataGridView.DefaultCellStyle = dataGridViewCellStyle1;
             this.incidentDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.incidentDataGridView.Location = new System.Drawing.Point(0, 187);
             this.incidentDataGridView.Name = "incidentDataGridView";

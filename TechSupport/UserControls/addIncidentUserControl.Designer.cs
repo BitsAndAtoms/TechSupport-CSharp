@@ -69,6 +69,7 @@
             this.tableLayoutPanelIncident.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelIncident.Size = new System.Drawing.Size(507, 408);
             this.tableLayoutPanelIncident.TabIndex = 0;
+            this.tableLayoutPanelIncident.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanelIncident_Paint);
             // 
             // cancelAddIncident
             // 
