@@ -57,8 +57,8 @@ namespace TechSupport.DAL
         public List<Incident> GETOpenIncidentsForTechnicianID(Technician technician) {
             List<Incident> IncidentList = new List<Incident>();
             string selectStatement =
-                "SELECT [ProductCode]" +
-                ", t1.CustomerID, t1.Description" +
+                "SELECT t1.[ProductCode]" +
+                ", t1.CustomerID, t1.Description, t4.Name AS ProductName" +
                 ", FORMAT([DateOpened],'MM/dd/yyyy') as 'DateOpened'" +
                 ",t2.Name AS Customer" +
                 ",t3.Name AS Technician" +
@@ -67,6 +67,8 @@ namespace TechSupport.DAL
                 " t2 ON t1.CustomerID = t2.CustomerID" +
                 " LEFT JOIN[TechSupport].[dbo].[Technicians]" +
                 " t3 ON t1.TechID = t3.TechID " +
+                " LEFT JOIN[TechSupport].[dbo].[Products]" +
+                " t4 ON t1.ProductCode = t4.ProductCode " +
                 "WHERE [DateClosed] IS NUll AND" +
                 " t1.TechID = @TechID";
 
@@ -91,6 +93,7 @@ namespace TechSupport.DAL
                             Incident.CustomerName = reader["Customer"].ToString();
                             Incident.DateOpened = reader["DateOpened"].ToString();
                             Incident.ProductCode = reader["ProductCode"].ToString();
+                            Incident.ProductName = reader["ProductName"].ToString();
                             IncidentList.Add(Incident);
                         }
                     }

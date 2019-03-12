@@ -42,8 +42,8 @@ namespace TechSupport.View
             Technician technician = this.technicianList[technicianNameComboBox.SelectedIndex];
             
             technicianBindingSource.Clear();
-            incidentBindingSource.Clear();
             technicianBindingSource.Add(technician);
+            incidentBindingSource.Clear();
             this.incidentList = this.newIncidentController.GetOpenDBIncidentsForTechnicianID(technician);
             incidentBindingSource.DataSource = incidentList;
         }
