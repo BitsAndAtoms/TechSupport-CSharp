@@ -11,7 +11,7 @@ namespace TechSupport.Controller
     /// </summary>
     public class IncidentController
     {
-        private IncidentDAL incidentSource;
+        
         private IncidentDBDAL incidentDBSource;
         /// <summary>
         /// constructor for incident controller 
@@ -19,20 +19,11 @@ namespace TechSupport.Controller
         /// </summary>
         public IncidentController()
         {
-            this.incidentSource = new IncidentDAL();
+            
             this.incidentDBSource = new IncidentDBDAL();
         }
 
-        /// <summary>
-        /// method to access the list of customer incidents in test data
-        /// maintained by the incidentDAL
-        /// </summary>
-        /// <returns>Current list of incidents </returns>
-        public List<Incident> GetCustomerIncidents()
-        {
-            return this.incidentSource.GETCustomerIncidents();
-            
-        }
+       
 
 
         /// <summary>
@@ -109,21 +100,7 @@ namespace TechSupport.Controller
             this.incidentDBSource.AddIncidentToDB(incident);
         }
 
-        /// <summary>
-        /// method to search customerID in incidents list
-        /// 
-        /// </summary>
-        /// <param name="customerID"> the customerID searched</param>
-        /// <returns>The list of incidents for input customer ID</returns>
-        public List<Incident> Search(int customerID)
-        {
-            if (customerID < 1)
-            {
-                throw new ArgumentException("customerID needs to be greater than 0");
-            }
-
-            return this.incidentSource.Search(customerID);
-        }
+        
 
     }
 }

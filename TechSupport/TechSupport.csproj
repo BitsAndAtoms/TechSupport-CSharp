@@ -48,8 +48,10 @@
   <ItemGroup>
     <Compile Include="Controller\IncidentController.cs" />
     <Compile Include="Controller\Driver.cs" />
+    <Compile Include="Controller\TechnicianController.cs" />
     <Compile Include="DAL\DBConnection.cs" />
     <Compile Include="DAL\IncidentDBDAL.cs" />
+    <Compile Include="DAL\TechnicianDBDAL.cs" />
     <Compile Include="Model\Incident.cs" />
     <Compile Include="Model\Technician.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
