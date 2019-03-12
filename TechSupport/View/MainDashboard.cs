@@ -40,6 +40,7 @@ namespace TechSupport.View
         ///// <summary>
         ///// remeber to update tabs as the selection is changed between different operations
         /////  such as db manipulation, add, search etc
+        ///Updated this to include viewIncidentsOpenByTech
         ///// </summary>
         ///// <param name="sender"></param>
         ///// <param name="e"></param>
