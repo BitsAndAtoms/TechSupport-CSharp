@@ -20,6 +20,11 @@ namespace TechSupport.Model
             /// </summary>
             public string TechnicianName { get; set; }
 
-        
+           /// <summary>
+           /// techID of the technician
+           /// </summary>
+          public int TechID { get; set; }
+
+
     }
 }

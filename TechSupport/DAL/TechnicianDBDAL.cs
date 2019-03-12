@@ -15,7 +15,7 @@ namespace TechSupport.DAL
         {
             List<Technician> TechnicianList = new List<Technician>();
             string selectStatement =
-                "SELECT NAME AS Technician, Phone, Email " +
+                "SELECT NAME AS Technician, Phone, Email, a.TechID " +
                 "FROM[TechSupport].[dbo].[Technicians] a " +
                 "INNER JOIN (SELECT DISTINCT t1.TechID " +
                 "FROM [TechSupport].[dbo].[Technicians] t1 " +

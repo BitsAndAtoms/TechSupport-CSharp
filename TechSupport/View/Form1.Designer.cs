@@ -123,7 +123,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.incidentDataGridView.DataSource = this.incidentBindingSource;
-            this.incidentDataGridView.Location = new System.Drawing.Point(46, 218);
+            this.incidentDataGridView.Location = new System.Drawing.Point(12, 219);
             this.incidentDataGridView.Name = "incidentDataGridView";
             this.incidentDataGridView.Size = new System.Drawing.Size(448, 220);
             this.incidentDataGridView.TabIndex = 6;
