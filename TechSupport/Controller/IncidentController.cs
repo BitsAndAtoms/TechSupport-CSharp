@@ -73,13 +73,13 @@ namespace TechSupport.Controller
         /// method to add a new incident to the incident list in the databse
         /// </summary>
         /// <param name="incident"> The incident to be added to the list</param>
-        public void updateIncidentInDB(Incident incident)
+        public void updateIncidentInDB(Incident incident, Incident retrivedIncident)
         {
             if (incident == null)
             {
                 throw new ArgumentException("Incident can not be null");
             }
-            this.incidentDBSource.updateIncidentInDB(incident);
+            this.incidentDBSource.updateIncidentInDB(incident, retrivedIncident);
         }
 
         /// <summary>

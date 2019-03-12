@@ -11,6 +11,7 @@ namespace TechSupport.UserControls
     {
         private readonly IncidentController incidentController;
         private int IncidentID;
+        
         /// <summary>
         /// constructor for the searchIncidentUserControl form
         /// </summary>
@@ -76,15 +77,14 @@ namespace TechSupport.UserControls
             
             try
             {
+                newIncident = this.incidentController.getIncidentFromDBbyID(newIncident);
+                Incident retrivedIncident= newIncident;
                 if (string.IsNullOrEmpty(this.editDescriptionTextBox.Text))
                 {
                     throw new System.ArgumentException("Text to add field can not be empty ");
                 }
-                newIncident = this.incidentController.getIncidentFromDBbyID(newIncident);
-                if ((sender as Button).Text.Equals("Close"))
-                {
-                    newIncident.DateClosed = DateTime.Now.ToString();
-                }
+                
+               
                 if (newIncident.Description.Length < 200)
                 {
                     newIncident.Description = newIncident.Description + Environment.NewLine + "<" +
@@ -100,7 +100,7 @@ namespace TechSupport.UserControls
                             {
                                 newIncident.TechnicianName = this.technicianNameComboBox.Text;
                             }
-                            this.incidentController.updateIncidentInDB(newIncident);
+                            this.incidentController.updateIncidentInDB(newIncident, retrivedIncident);
                             this.editDescriptionTextBox.Text = "";
                             this.descriptionTextBox.Text = newIncident.Description;
                         }
@@ -115,7 +115,7 @@ namespace TechSupport.UserControls
                         {
                             newIncident.TechnicianName = this.technicianNameComboBox.Text;
                         }
-                        this.incidentController.updateIncidentInDB(newIncident);
+                        this.incidentController.updateIncidentInDB(newIncident, retrivedIncident);
                         this.editDescriptionTextBox.Text = "";
                         this.descriptionTextBox.Text = newIncident.Description;
                     }
@@ -129,7 +129,7 @@ namespace TechSupport.UserControls
                     {
                         newIncident.TechnicianName = this.technicianNameComboBox.Text;
                     }
-                    this.incidentController.updateIncidentInDB(newIncident);
+                    this.incidentController.updateIncidentInDB(newIncident, retrivedIncident);
                     this.editDescriptionTextBox.Text = "";
                 }
             }
@@ -138,6 +138,10 @@ namespace TechSupport.UserControls
                 MessageBox.Show("" + ex.Message,
                     "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            
+
+
         }
 
         private void clearButton_Click(object sender, EventArgs e)
@@ -153,16 +157,38 @@ namespace TechSupport.UserControls
         }
 
         private void closeButton_Click(object sender, EventArgs e)
-        {   DialogResult dialogResult = MessageBox.Show("Form can not be updated once closed. Confirm that you want to close", "Warning", MessageBoxButtons.YesNo);
+        {
+            DialogResult dialogResult = MessageBox.Show("Form can not be updated once closed. Confirm that you want to close", "Warning", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
-                this.updateButton_Click(sender, null);
+                try { 
+                Incident newIncident = new Incident();
+                newIncident.IncidentID = this.IncidentID;
+                newIncident = this.incidentController.getIncidentFromDBbyID(newIncident);
+                Incident retrivedIncident = newIncident;
+                    if (newIncident.Description.Length < 200) {
+                     this.updateButton_Click(sender, null);
+                    }
+                    if (String.IsNullOrEmpty(newIncident.TechnicianName) & this.technicianNameComboBox.SelectedIndex == 0)
+                {
+                    throw new System.ArgumentException("Can not be closed without assigning" +
+                        " Technician ");
+                }
+
+                newIncident.DateClosed = DateTime.Now.ToString();
+                this.incidentController.updateIncidentInDB(newIncident, retrivedIncident);
+                this.editDescriptionTextBox.Text = "";
+                this.descriptionTextBox.Text = newIncident.Description;
                 this.updateButton.Enabled = false;
                 this.closeButton.Enabled = false;
+            } catch (Exception ex)
+            {
+                MessageBox.Show("" + ex.Message,
+                    "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
             else if (dialogResult == DialogResult.No)
             {
-
             }
 
         }

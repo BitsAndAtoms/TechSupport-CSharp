@@ -257,7 +257,7 @@ namespace TechSupport.DAL
         /// Add an incident to database based on incident ID
         /// </summary>
         /// <param name="incident">is the incident to be added</param>
-        internal void updateIncidentInDB(Incident incident)
+        internal void updateIncidentInDB(Incident incident, Incident retrivedIncident)
         {
             string updateStatement =
               "UPDATE Incidents SET " +
@@ -266,7 +266,8 @@ namespace TechSupport.DAL
                 "TechID = (SELECT DISTINCT [TechID] " +
                 "FROM[TechSupport].[dbo].[Technicians] " +
                 "WHERE Name = @TechName) " +
-              "WHERE IncidentID = @IncidentID;";
+              "WHERE IncidentID = @IncidentID AND Description = @OriginalDescription" +
+              " AND DateClosed = @OriginalDateClosed;";
 
 
             using (SqlConnection connection = DBConnection.GetConnection())
@@ -283,6 +284,22 @@ namespace TechSupport.DAL
                     else
                     {
                         updateCommand.Parameters.AddWithValue("@Description", incident.Description);
+                    }
+                    if (retrivedIncident.Description == null)
+                    {
+                        updateCommand.Parameters.AddWithValue("@OriginalDescription", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@OriginalDescription", retrivedIncident.Description);
+                    }
+                    if (retrivedIncident.DateClosed == null)
+                    {
+                        updateCommand.Parameters.AddWithValue("@OriginalDateClosed", DBNull.Value);
+                    }
+                    else
+                    {
+                        updateCommand.Parameters.AddWithValue("@OriginalDateClosed", retrivedIncident.DateClosed);
                     }
 
                     if (incident.TechnicianName == "")
