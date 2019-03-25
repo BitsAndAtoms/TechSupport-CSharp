@@ -7,9 +7,11 @@
     }
 }
 
-namespace TechSupport.TechSupportDataSetTableAdapters {
-    
-    
-    public partial class IncidentsTableAdapter {
+namespace TechSupport.TechSupportDataSetTableAdapters
+{
+
+
+    public partial class OpenIncidentsByTechnicianDataTableAdapter
+    {
     }
 }
