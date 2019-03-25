@@ -54,13 +54,20 @@ namespace TechSupport.UserControls
             {
                 return;
             }
+            try
+            {
             Technician technician = this.technicianList[technicianNameComboBox.SelectedIndex];
-
             technicianBindingSource.Clear();
             technicianBindingSource.Add(technician);
             incidentBindingSource.Clear();
             this.incidentList = this.newIncidentController.GetOpenDBIncidentsForTechnicianID(technician);
             incidentBindingSource.DataSource = incidentList;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex.Message,
+                    "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -27,7 +27,14 @@ namespace TechSupport.UserControls
         /// <param name="e"></param>
         private void reportViewer1_Load(object sender, EventArgs e)
         {
+            try { 
             this.openIncidentsByTechnicianDataTableAdapter.Fill(this.techSupportDataSet.OpenIncidentsByTechnicianData);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("" + ex.Message,
+                    "Error!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             this.reportViewer1.RefreshReport();
         }
     }
