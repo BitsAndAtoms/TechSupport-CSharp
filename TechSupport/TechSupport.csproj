@@ -94,6 +94,12 @@
     <Compile Include="UserControls\displayOpenIncidentsUserControl.Designer.cs">
       <DependentUpon>displayOpenIncidentsUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\OpenTechIncidentReportUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\OpenTechIncidentReportUserControl.Designer.cs">
+      <DependentUpon>OpenTechIncidentReportUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\updateIncidentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -105,12 +111,6 @@
     </Compile>
     <Compile Include="UserControls\viewIncidentsByTechnician.Designer.cs">
       <DependentUpon>viewIncidentsByTechnician.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
@@ -124,7 +124,6 @@
     <Compile Include="View\MainDashboard.Designer.cs">
       <DependentUpon>MainDashboard.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="OpenIncidentsByTechnicianReport.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -134,11 +133,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="OpenTechSupportReport.rdlc" />
     <EmbeddedResource Include="UserControls\addIncidentUserControl.resx">
       <DependentUpon>addIncidentUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\displayOpenIncidentsUserControl.resx">
       <DependentUpon>displayOpenIncidentsUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\OpenTechIncidentReportUserControl.resx">
+      <DependentUpon>OpenTechIncidentReportUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\updateIncidentUserControl.resx">
       <DependentUpon>updateIncidentUserControl.cs</DependentUpon>
