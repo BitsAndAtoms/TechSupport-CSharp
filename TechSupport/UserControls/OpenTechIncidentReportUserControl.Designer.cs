@@ -30,13 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.techSupportDataSet = new TechSupport.TechSupportDataSet();
             this.openIncidentsByTechnicianDataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.techSupportDataSet = new TechSupport.TechSupportDataSet();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.openIncidentsByTechnicianDataTableAdapter = new TechSupport.TechSupportDataSetTableAdapters.OpenIncidentsByTechnicianDataTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.openIncidentsByTechnicianDataBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // openIncidentsByTechnicianDataBindingSource
+            // 
+            this.openIncidentsByTechnicianDataBindingSource.DataMember = "OpenIncidentsByTechnicianData";
+            this.openIncidentsByTechnicianDataBindingSource.DataSource = this.techSupportDataSet;
+            // 
+            // techSupportDataSet
+            // 
+            this.techSupportDataSet.DataSetName = "TechSupportDataSet";
+            this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -50,17 +60,8 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(350, 328);
             this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.ReportRefresh += new System.ComponentModel.CancelEventHandler(this.reportViewer1_ReportRefresh);
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
-            // 
-            // techSupportDataSet
-            // 
-            this.techSupportDataSet.DataSetName = "TechSupportDataSet";
-            this.techSupportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // openIncidentsByTechnicianDataBindingSource
-            // 
-            this.openIncidentsByTechnicianDataBindingSource.DataMember = "OpenIncidentsByTechnicianData";
-            this.openIncidentsByTechnicianDataBindingSource.DataSource = this.techSupportDataSet;
             // 
             // openIncidentsByTechnicianDataTableAdapter
             // 
@@ -73,8 +74,8 @@
             this.Controls.Add(this.reportViewer1);
             this.Name = "OpenTechIncidentReportUserControl";
             this.Size = new System.Drawing.Size(350, 328);
-            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.openIncidentsByTechnicianDataBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.techSupportDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
