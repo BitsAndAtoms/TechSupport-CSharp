@@ -19,8 +19,9 @@ namespace TechSupport.DAL
                 "FROM[TechSupport].[dbo].[Technicians] a " +
                 "INNER JOIN (SELECT DISTINCT t1.TechID " +
                 "FROM [TechSupport].[dbo].[Technicians] t1 " +
-                "LEFT JOIN[TechSupport].[dbo].[Incidents] t2 " +
+                "INNER JOIN [TechSupport].[dbo].[Incidents] t2 " +
                 "ON t1.TechID = t2.TechID " +
+                "WHERE [DateClosed] IS NUll" +
                 ") " +
                 "AS b ON a.TechID =b.TechID";
 
