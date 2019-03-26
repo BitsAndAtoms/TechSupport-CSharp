@@ -38,6 +38,11 @@ namespace TechSupport.UserControls
             this.reportViewer1.RefreshReport();
         }
 
+        /// <summary>
+        /// Refresh function added to the report navigator 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void reportViewer1_ReportRefresh(object sender, CancelEventArgs e)
         {
             try
